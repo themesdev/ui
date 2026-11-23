@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "video-player",
+  "title": "Video player",
+  "description": "A poster with one Play button; native controls and captions once it plays. Nothing plays by itself.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/video-player/video-player.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { Play } from \"lucide-react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport { cn } from \"@/lib/utils\"\n\nexport type VideoPlayerProps = {\n  src: string\n  poster: string\n  title: string\n  /** e.g. \"0:06\" */\n  duration?: string\n  /** A WebVTT captions file. */\n  captions?: string\n  className?: string\n}\n\n/** A poster with one Play button; pressing it plays the video with native controls and captions. Nothing plays by itself. */\nexport function VideoPlayer({ src, poster, title, duration, captions, className }: VideoPlayerProps) {\n  const video = React.useRef<HTMLVideoElement>(null)\n  const [started, setStarted] = React.useState(false)\n  return (\n    <figure className={cn(\"w-full\", className)}>\n      <div className=\"relative aspect-video overflow-hidden rounded-xl bg-muted ring-1 ring-foreground/10\">\n        <video ref={video} src={src} poster={poster} preload=\"none\" playsInline controls={started} tabIndex={started ? 0 : -1} aria-label={title} className=\"size-full object-cover\">\n          {captions && <track kind=\"captions\" src={captions} srcLang=\"en\" label=\"English\" default />}\n        </video>\n        {!started && (\n          <Button\n            type=\"button\"\n            variant=\"ghost\"\n            aria-label={`Play video: ${title}`}\n            className=\"group absolute inset-0 h-full w-full rounded-xl bg-black/15 hover:bg-black/25 active:bg-black/35\"\n            onClick={() => {\n              setStarted(true)\n              const v = video.current\n              if (!v) return\n              v.focus()\n              void v.play().catch(() => {})\n            }}\n          >\n            <span className=\"grid size-16 place-items-center rounded-full bg-background text-foreground shadow-lg transition-transform group-hover:scale-105 group-active:scale-95 motion-reduce:transition-none\">\n              <Play aria-hidden=\"true\" className=\"size-6 translate-x-px fill-current\" />\n            </span>\n          </Button>\n        )}\n      </div>\n      <figcaption className=\"mt-3 flex items-baseline justify-between gap-4 text-sm\">\n        <span className=\"font-medium\">{title}</span>\n        {duration && <span className=\"text-muted-foreground tabular-nums\">{duration}</span>}\n      </figcaption>\n    </figure>\n  )\n}\n",
+      "target": "components/ui/video-player.tsx"
+    }
+  ]
+}

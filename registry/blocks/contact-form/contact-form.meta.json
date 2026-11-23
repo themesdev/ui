@@ -1,0 +1,28 @@
+{
+  "name": "contact-form",
+  "title": "Contact form",
+  "description": "A developer tool's contact card: pitch, reply times and a customer quote beside a labelled form with topic chips.",
+  "sector": "developer-tools",
+  "business": "Quaywire, Postgres API platform in Amsterdam",
+  "composition": "two-column card: pitch plus quote left, form card right",
+  "layout": "tinted card holding two columns",
+  "anchor": "form",
+  "shadcn": [
+    "avatar",
+    "button",
+    "input",
+    "label",
+    "textarea"
+  ],
+  "icons": [
+    "ArrowRight",
+    "Clock",
+    "LifeBuoy",
+    "MessageSquareText",
+    "Users"
+  ],
+  "photos": [
+    "/ui/photos/contact-form/quote.webp"
+  ],
+  "client": false
+}

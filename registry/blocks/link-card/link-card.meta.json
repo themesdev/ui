@@ -1,0 +1,21 @@
+{
+  "name": "link-card",
+  "title": "Link cards",
+  "description": "Four city photo tiles with an inset frame, the city name and a home count; each tile is one link.",
+  "sector": "housing",
+  "business": "Letwell, a rental homes site across UK cities",
+  "composition": "centred heading over four square city photo tiles and an all-cities link",
+  "layout": "centred, four columns at 1440, two on phone",
+  "anchor": "cards",
+  "shadcn": [],
+  "icons": [
+    "ArrowRight"
+  ],
+  "photos": [
+    "/ui/photos/link-card/bristol.webp",
+    "/ui/photos/link-card/leeds.webp",
+    "/ui/photos/link-card/glasgow.webp",
+    "/ui/photos/link-card/manchester.webp"
+  ],
+  "client": false
+}

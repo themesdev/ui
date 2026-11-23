@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "title": "Card",
+  "description": "A panel with a header, content and a footer, for settings, summaries and plans.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "card"
+  ],
+  "files": []
+}

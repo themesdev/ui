@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field",
+  "title": "Field",
+  "description": "A label, a control, help and the error, wired together with aria-describedby and aria-invalid.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "field"
+  ],
+  "files": []
+}

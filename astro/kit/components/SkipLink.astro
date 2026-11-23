@@ -1,0 +1,16 @@
+---
+// The first thing in <body>: a link to the main content that appears when it gets keyboard focus.
+// <SkipLink /> … <main id="main" tabindex="-1">
+interface Props {
+  target?: string;
+  label?: string;
+}
+const { target = 'main', label = 'Skip to content' } = Astro.props;
+---
+
+<a
+  href={`#${target}`}
+  class="fixed top-3 left-3 z-50 inline-flex h-9 -translate-y-16 items-center rounded-md bg-background px-3 text-sm font-medium shadow-md outline-none ring-ring/50 transition-transform focus:translate-y-0 focus-visible:ring-3"
+>
+  {label}
+</a>

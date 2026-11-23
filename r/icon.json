@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icon",
+  "title": "Icons",
+  "description": "Lucide, the icon set shadcn/ui draws with: a stroke, a size, a label when they stand alone.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "files": []
+}

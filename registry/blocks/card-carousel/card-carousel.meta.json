@@ -1,0 +1,28 @@
+{
+  "name": "card-carousel",
+  "title": "Card carousel",
+  "description": "A garden store's weekly offers: a photo lead card, then product cards with deal badges and prices that scroll sideways.",
+  "sector": "home-diy",
+  "business": "Tillyard, a garden and farm store in Hereford",
+  "composition": "heading with round Previous/Next over a scrolling row: one photo lead card, six product offer cards",
+  "layout": "heading row in the container, card row bleeding off the right edge",
+  "anchor": "cards",
+  "shadcn": [
+    "badge",
+    "button"
+  ],
+  "icons": [
+    "ArrowLeft",
+    "ArrowRight"
+  ],
+  "photos": [
+    "/ui/photos/card-carousel/promo.webp",
+    "/ui/photos/card-carousel/wellies.webp",
+    "/ui/photos/card-carousel/watering-can.webp",
+    "/ui/photos/card-carousel/feeder.webp",
+    "/ui/photos/card-carousel/compost.webp",
+    "/ui/photos/card-carousel/hose.webp",
+    "/ui/photos/card-carousel/trug.webp"
+  ],
+  "client": true
+}

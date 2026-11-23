@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "label",
+  "title": "Label",
+  "description": "The visible name of a field, tied to its control.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "label"
+  ],
+  "files": []
+}

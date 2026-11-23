@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input",
+  "title": "Input",
+  "description": "A text field with a focus ring, a disabled state and an invalid state.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "input"
+  ],
+  "files": []
+}

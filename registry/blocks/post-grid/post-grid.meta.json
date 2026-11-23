@@ -1,0 +1,28 @@
+{
+  "name": "post-grid",
+  "title": "Post grid",
+  "description": "A hospital newsroom: tinted header band, nine photo cards with tag and date in a 3\u00d73 grid, and a load-more button.",
+  "sector": "health",
+  "business": "Elmfield Hospital, Norwich",
+  "composition": "header band with heading and press link, 3x3 photo cards, load more with count",
+  "layout": "three columns at 1440, two on tablet, one on phone",
+  "anchor": "photo",
+  "shadcn": [
+    "button"
+  ],
+  "icons": [
+    "ArrowRight"
+  ],
+  "photos": [
+    "/ui/photos/post-grid/volunteers.webp",
+    "/ui/photos/post-grid/scanner.webp",
+    "/ui/photos/post-grid/garden.webp",
+    "/ui/photos/post-grid/nurses.webp",
+    "/ui/photos/post-grid/pharmacy.webp",
+    "/ui/photos/post-grid/maternity.webp",
+    "/ui/photos/post-grid/physio.webp",
+    "/ui/photos/post-grid/kitchen.webp",
+    "/ui/photos/post-grid/bike.webp"
+  ],
+  "client": false
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "announcement",
+  "title": "Announcement bar",
+  "description": "A one-line site notice with a read-more link and a close button that can stay closed for the session.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/announcement/announcement.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\"\n\nimport { useEffect, useRef, useState } from \"react\"\nimport { ArrowRightIcon, XIcon } from \"lucide-react\"\nimport { Button } from \"@/components/ui/button\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface AnnouncementProps {\n  /** Unique on the page: the key the closed state is remembered under. */\n  id: string\n  text: string\n  link?: { label: string; href: string }\n  /** Keep it closed for the rest of the session once closed. */\n  remember?: boolean\n  className?: string\n}\n\n/** One line at the top of the site, a read-more link, and a close button that can remember its choice. */\nexport function Announcement({ id, text, link, remember, className }: AnnouncementProps) {\n  const [closed, setClosed] = useState(false)\n  const bar = useRef<HTMLElement>(null)\n  const key = `announcement:${id}`\n\n  useEffect(() => {\n    if (!remember) return\n    try {\n      if (sessionStorage.getItem(key) === \"closed\") setClosed(true)\n    } catch {\n      /* storage blocked: the bar simply shows */\n    }\n  }, [remember, key])\n\n  if (closed) return null\n\n  const close = () => {\n    setClosed(true)\n    if (remember) {\n      try {\n        sessionStorage.setItem(key, \"closed\")\n      } catch {\n        /* ignore */\n      }\n    }\n    // The button is gone: move focus to the page's main landmark so it is not lost.\n    const main = document.querySelector<HTMLElement>(\"main\")\n    if (main) {\n      if (!main.hasAttribute(\"tabindex\")) main.tabIndex = -1\n      main.focus({ preventScroll: true })\n    }\n  }\n\n  return (\n    <aside\n      ref={bar}\n      id={id}\n      aria-label=\"Announcement\"\n      className={cn(\"relative flex items-center justify-center gap-3 border-b bg-muted px-12 py-2.5 text-sm\", className)}\n    >\n      <p className=\"text-center leading-[1.25] text-foreground\">\n        {text}\n        {link && (\n          <>\n            {\" \"}\n            <a\n              href={link.href}\n              className=\"inline-flex items-center gap-1 rounded-sm font-medium underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50\"\n            >\n              {link.label}\n              <ArrowRightIcon className=\"size-3.5\" aria-hidden=\"true\" />\n            </a>\n          </>\n        )}\n      </p>\n      <Button\n        type=\"button\"\n        variant=\"ghost\"\n        size=\"icon\"\n        aria-label=\"Close the announcement\"\n        className=\"absolute top-1/2 right-2 -translate-y-1/2\"\n        onClick={close}\n      >\n        <XIcon aria-hidden=\"true\" />\n      </Button>\n    </aside>\n  )\n}\n",
+      "target": "components/ui/announcement.tsx"
+    }
+  ]
+}

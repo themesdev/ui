@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "separator",
+  "title": "Separator",
+  "description": "A hairline between groups, horizontal or vertical.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "separator"
+  ],
+  "files": []
+}

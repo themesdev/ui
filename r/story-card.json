@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "story-card",
+  "title": "Story card",
+  "description": "Picture, kicker, the title as the one link, a line and the meta; standard, compact, wide and feature.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/story-card/story-card.tsx",
+      "type": "registry:ui",
+      "content": "import { Badge } from \"@/components/ui/badge\"\nimport { cn } from \"@/lib/utils\"\n\nexport type StoryCardProps = {\n  title: string\n  href: string\n  /** The topic, in words. */\n  kicker?: string\n  description?: string\n  meta?: string\n  image?: { src: string; alt: string }\n  /** standard: picture on top. compact: a small picture beside the text. wide: picture beside the text from a wide container. feature: a larger title, for the lead story. */\n  variant?: \"standard\" | \"compact\" | \"wide\" | \"feature\"\n  className?: string\n}\n\nconst frame = {\n  standard: \"\",\n  compact: \"grid-cols-[auto_1fr] items-center\",\n  wide: \"@xl:grid-cols-[1.2fr_1fr]\",\n  feature: \"\",\n}\nconst media = {\n  standard: \"aspect-[16/9]\",\n  compact: \"m-3 size-20 shrink-0 rounded-lg\",\n  wide: \"aspect-[16/9] @xl:aspect-auto @xl:h-full\",\n  feature: \"aspect-[16/9]\",\n}\nconst body = {\n  standard: \"gap-2 p-5\",\n  compact: \"gap-1 py-3 pr-4\",\n  wide: \"justify-center gap-2 p-5 @xl:p-8\",\n  feature: \"gap-3 p-6\",\n}\nconst title = {\n  standard: \"text-lg leading-[1.25] font-semibold\",\n  compact: \"text-sm leading-[1.25] font-semibold\",\n  wide: \"text-xl leading-[1.25] font-semibold\",\n  feature: \"text-2xl leading-[1.15] font-semibold tracking-[-0.01em] @md:text-[1.75rem] @md:leading-[1.08] @md:tracking-[-0.018em]\",\n}\n\n/** A story card: picture, kicker, the title as the one link (the whole card is the target), a line and the meta. */\nexport function StoryCard({ title: heading, href, kicker, description, meta, image, variant = \"standard\", className }: StoryCardProps) {\n  return (\n    <div className={cn(\"@container\", className)}>\n    <article className={cn(\"group relative isolate grid h-full overflow-hidden rounded-xl bg-card text-card-foreground ring-1 ring-foreground/10 transition-shadow hover:ring-foreground/25 has-[a:focus-visible]:ring-3 has-[a:focus-visible]:ring-ring/50\", frame[variant])}>\n      {image && (\n        <div className={cn(\"relative overflow-hidden bg-muted\", media[variant])}>\n          <img src={image.src} alt={image.alt} loading=\"lazy\" decoding=\"async\" className=\"size-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none\" />\n        </div>\n      )}\n      <div className={cn(\"flex flex-col\", body[variant], variant === \"compact\" && !image && \"pl-4\")}>\n        {kicker && (\n          <Badge variant=\"secondary\" className=\"w-fit\">\n            {kicker}\n          </Badge>\n        )}\n        <h3 className={cn(\"text-balance\", title[variant])}>\n          <a href={href} className=\"underline decoration-transparent underline-offset-4 outline-none transition-[text-decoration-color] after:absolute after:inset-0 after:z-10 hover:decoration-foreground\">\n            {heading}\n          </a>\n        </h3>\n        {description && variant !== \"compact\" && <p className=\"text-sm leading-[1.5] text-pretty text-muted-foreground\">{description}</p>}\n        {meta && <p className=\"mt-auto pt-2 text-xs text-muted-foreground tabular-nums\">{meta}</p>}\n      </div>\n    </article>\n    </div>\n  )\n}\n",
+      "target": "components/ui/story-card.tsx"
+    }
+  ]
+}

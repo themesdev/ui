@@ -1,0 +1,1 @@
+{"name":"quantity","title":"Quantity","description":"Minus, a number field and plus as one control; the buttons turn off at the ends.","category":"Forms","shadcn":["button","input","label"],"npm":["lucide-react"],"client":true}

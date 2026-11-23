@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert",
+  "title": "Alert",
+  "description": "A message on the page: a title, a line and an icon, neutral or destructive.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": []
+}

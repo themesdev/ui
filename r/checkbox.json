@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "title": "Checkbox",
+  "description": "On or off for one option, with a label you can click and a disabled state.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "checkbox"
+  ],
+  "files": []
+}

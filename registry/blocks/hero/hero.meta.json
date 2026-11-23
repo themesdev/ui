@@ -1,0 +1,32 @@
+{
+  "name": "hero",
+  "title": "Hero",
+  "description": "Journey-planner hero: from/to card with leave-at tabs, a day-out photo card and four quick-task tiles.",
+  "sector": "mobility",
+  "business": "Moorline, regional trains across Dartmoor and the Devon coast",
+  "composition": "planner card left, photo card right, task tiles below",
+  "layout": "two columns in a muted band, four tiles under it",
+  "anchor": "form",
+  "shadcn": [
+    "badge",
+    "button",
+    "input",
+    "label",
+    "tabs"
+  ],
+  "icons": [
+    "ArrowRight",
+    "ArrowUpDown",
+    "Bike",
+    "CalendarDays",
+    "Clock",
+    "Info",
+    "RotateCcw",
+    "Ticket",
+    "TrainFront"
+  ],
+  "photos": [
+    "/ui/photos/hero/coast-line.webp"
+  ],
+  "client": false
+}

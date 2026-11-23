@@ -1,0 +1,22 @@
+{
+  "name": "comparison-table",
+  "title": "Comparison table",
+  "description": "An honest strong/weak box over a three-way table: your column shaded with its call to action, ticks, real figures.",
+  "sector": "energy",
+  "business": "Polderstroom, green electricity from 26 Dutch wind and solar parks for 41,000 homes",
+  "composition": "split heading, two-column pros/cons box, a comparison table of us vs two alternatives with the featured column shaded, sticky row labels on phones",
+  "layout": "stack",
+  "anchor": "table",
+  "shadcn": [
+    "button",
+    "table"
+  ],
+  "icons": [
+    "ArrowRight",
+    "Check",
+    "Minus",
+    "X"
+  ],
+  "photos": [],
+  "client": false
+}

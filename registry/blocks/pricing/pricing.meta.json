@@ -1,0 +1,28 @@
+{
+  "name": "pricing",
+  "title": "Pricing",
+  "description": "Three plan cards under a monthly/yearly switch, the middle one framed with a tab, beside a photo card for schools.",
+  "sector": "software",
+  "business": "Cutroom, ad-free video hosting for 6,800 online course makers, Utrecht",
+  "composition": "centred heading, pill billing Tabs, three plan cards (middle framed in a dark tab), allowances with icons, check lists, a photo card aside",
+  "layout": "cards-3+aside",
+  "anchor": "cards",
+  "shadcn": [
+    "badge",
+    "button",
+    "separator",
+    "tabs"
+  ],
+  "icons": [
+    "ArrowRight",
+    "Check",
+    "Film",
+    "Gauge",
+    "HardDrive",
+    "Users"
+  ],
+  "photos": [
+    "/ui/photos/pricing/school.webp"
+  ],
+  "client": false
+}

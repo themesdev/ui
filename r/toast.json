@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toast",
+  "title": "Toast",
+  "description": "Short confirmations that appear and leave on their own, with an action to undo.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "sonner"
+  ],
+  "files": []
+}

@@ -1,0 +1,20 @@
+---
+// A link mark. Only http(s), mailto, tel and relative links are rendered: anything else (javascript:, data:) from the
+// CMS becomes "#". Links to other sites get rel="noopener"; they open in the same tab (people decide that themselves).
+import type { Mark } from 'astro-portabletext/types';
+
+interface Props {
+  node: Mark<{ href?: string }>;
+}
+const raw = (Astro.props.node.markDef?.href ?? '').trim();
+const base = Astro.site ?? Astro.url;
+let url: URL | undefined;
+try {
+  url = new URL(raw, base);
+} catch {}
+const safe = !!raw && !!url && ['http:', 'https:', 'mailto:', 'tel:'].includes(url.protocol);
+const href = safe ? raw : '#';
+const external = safe && /^https?:$/.test(url!.protocol) && url!.origin !== new URL(base).origin;
+---
+
+<a href={href} rel={external ? 'noopener' : undefined}><slot /></a>

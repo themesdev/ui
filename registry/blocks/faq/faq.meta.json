@@ -1,0 +1,23 @@
+{
+  "name": "faq",
+  "title": "FAQ",
+  "description": "Bold questions in hairline rows that open as native details, beside a heading and a front-desk card with phone.",
+  "sector": "health",
+  "business": "Oogpunt, an eye clinic for cataract, glaucoma and retina care on the Rapenburg in Leiden",
+  "composition": "left column with kicker, h2, intro and a photo help card; right a heavy-ruled stack of details rows with round plus buttons, first open",
+  "layout": "split",
+  "anchor": "list",
+  "shadcn": [
+    "button"
+  ],
+  "icons": [
+    "ArrowRight",
+    "Clock",
+    "Phone",
+    "Plus"
+  ],
+  "photos": [
+    "/ui/photos/faq/desk.webp"
+  ],
+  "client": false
+}

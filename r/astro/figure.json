@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "figure",
+  "type": "registry:item",
+  "title": "Figure (Astro)",
+  "description": "An image with a caption. Width, height and alt are required, so the page never jumps; local images go through astro:assets.",
+  "author": "themes.dev",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "components/Figure.astro",
+      "type": "registry:file",
+      "target": "src/kit/components/Figure.astro",
+      "content": "---\n// An image with an optional caption. Width, height and alt are required: the size reserves the space so the page\n// doesn't jump, and alt may be empty ('') when the image is decoration. Local images (imported) go through\n// astro:assets and get modern formats; a string src (a CMS URL) is used as it is.\n// <Figure src={photo} alt=\"The reading room at noon\" caption=\"The reading room, rebuilt in 2024.\" />\nimport { Image } from 'astro:assets';\nimport type { ImageMetadata } from 'astro';\n\ntype Props = {\n  alt: string;\n  caption?: string;\n  /** Above the fold: load it first instead of lazily. */\n  priority?: boolean;\n  /** The widths the layout shows it at, for srcset: '(min-width: 768px) 720px, 100vw'. */\n  sizes?: string;\n  class?: string;\n} & ({ src: ImageMetadata; width?: number; height?: number } | { src: string; width: number; height: number });\nconst { src, alt, caption, priority = false, sizes, class: className } = Astro.props;\nconst local = typeof src !== 'string';\n---\n\n<figure class:list={['flex flex-col gap-3', className]}>\n  {\n    local ? (\n      <Image src={src} alt={alt} width={Astro.props.width} height={Astro.props.height} sizes={sizes} loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : undefined} class=\"h-auto w-full rounded-xl\" />\n    ) : (\n      <img src={src} alt={alt} width={Astro.props.width} height={Astro.props.height} sizes={sizes} loading={priority ? 'eager' : 'lazy'} decoding=\"async\" fetchpriority={priority ? 'high' : undefined} class=\"h-auto w-full rounded-xl\" />\n    )\n  }\n  {caption && <figcaption class=\"text-sm leading-[1.5] text-muted-foreground\">{caption}</figcaption>}\n</figure>\n"
+    }
+  ]
+}

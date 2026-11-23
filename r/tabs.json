@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs",
+  "title": "Tabs",
+  "description": "Panels behind a row of tabs, arrow keys between them.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "tabs"
+  ],
+  "files": []
+}

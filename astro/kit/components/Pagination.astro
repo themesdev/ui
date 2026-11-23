@@ -1,0 +1,63 @@
+---
+// Numbered pages with previous and next, for an archive split over pages (Astro's paginate() gives you `page`).
+// Controls are 36px. Gaps show an ellipsis, so the row stays short on a phone.
+// <Pagination current={page.currentPage} total={page.lastPage} href={(n) => (n === 1 ? '/blog/' : `/blog/${n}/`)} />
+interface Props {
+  current: number;
+  total: number;
+  /** The address of page n. */
+  href: (n: number) => string;
+  label?: string;
+  previousLabel?: string;
+  nextLabel?: string;
+  class?: string;
+}
+const { current, total, href, label = 'Pages', previousLabel = 'Previous', nextLabel = 'Next', class: className } = Astro.props;
+// First, last, and one page either side of the current one; null is a gap.
+const pages: (number | null)[] = [];
+for (let n = 1; n <= total; n++) {
+  if (n === 1 || n === total || Math.abs(n - current) <= 1) pages.push(n);
+  else if (pages.at(-1) !== null) pages.push(null);
+}
+const item = 'inline-flex h-9 min-w-9 items-center justify-center gap-1 rounded-md px-3 text-sm font-medium outline-none transition-colors focus-visible:ring-3 focus-visible:ring-ring/50';
+---
+
+{
+  total > 1 && (
+    <nav aria-label={label} class:list={['flex justify-center', className]}>
+      <ul class="flex flex-wrap items-center gap-1">
+        <li>
+          {current > 1 ? (
+            <a href={href(current - 1)} rel="prev" class:list={[item, 'hover:bg-muted']}>
+              <svg aria-hidden="true" viewBox="0 0 16 16" class="size-4" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m10 4-4 4 4 4" /></svg>
+              {previousLabel}
+            </a>
+          ) : (
+            <span aria-disabled="true" class:list={[item, 'text-muted-foreground opacity-50']}>{previousLabel}</span>
+          )}
+        </li>
+        {pages.map((n) =>
+          n === null ? (
+            <li aria-hidden="true" class="inline-flex size-9 items-center justify-center text-muted-foreground">…</li>
+          ) : (
+            <li>
+              <a href={href(n)} aria-current={n === current ? 'page' : undefined} class:list={[item, n === current ? 'border bg-background shadow-xs' : 'hover:bg-muted']}>
+                <span class="sr-only">Page </span>{n}
+              </a>
+            </li>
+          ),
+        )}
+        <li>
+          {current < total ? (
+            <a href={href(current + 1)} rel="next" class:list={[item, 'hover:bg-muted']}>
+              {nextLabel}
+              <svg aria-hidden="true" viewBox="0 0 16 16" class="size-4" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 4 4 4-4 4" /></svg>
+            </a>
+          ) : (
+            <span aria-disabled="true" class:list={[item, 'text-muted-foreground opacity-50']}>{nextLabel}</span>
+          )}
+        </li>
+      </ul>
+    </nav>
+  )
+}

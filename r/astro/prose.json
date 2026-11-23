@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prose",
+  "type": "registry:item",
+  "title": "Prose (Astro)",
+  "description": "Long-form text in a 65-character measure on shadcn's tokens: headings, lists, quotes, tables, code and images, light and dark.",
+  "author": "themes.dev",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "components/Prose.astro",
+      "type": "registry:file",
+      "target": "src/kit/components/Prose.astro",
+      "content": "---\n// Long-form text (a post body, a legal page) in the site's type: wrap rendered Markdown or <PortableText> in it.\n// The styles are styles/prose.css, built on shadcn's tokens, so they follow dark mode. Import that file once in your\n// global CSS: @import './prose.css';\ninterface Props {\n  class?: string;\n}\n---\n\n<div class:list={['kit-prose', Astro.props.class]}><slot /></div>\n"
+    },
+    {
+      "path": "styles/prose.css",
+      "type": "registry:file",
+      "target": "src/kit/styles/prose.css",
+      "content": "/* Long-form text for <Prose>: a 65-character measure, 18px body, headings on the type scale, and every colour from\n   shadcn's tokens (--foreground, --muted-foreground, --border, --muted, --card), so dark mode needs nothing extra. */\n@layer components {\n  .kit-prose {\n    max-width: 65ch;\n    font-size: 1.125rem;\n    line-height: 1.65;\n    color: var(--foreground);\n  }\n  .kit-prose > * + * {\n    margin-top: 1.25em;\n  }\n  .kit-prose :where(h2) {\n    margin-top: 2.25em;\n    font-size: 1.875rem;\n    line-height: 1.08;\n    letter-spacing: -0.018em;\n    font-weight: 600;\n    scroll-margin-top: 6rem;\n  }\n  .kit-prose :where(h3) {\n    margin-top: 1.75em;\n    font-size: 1.5rem;\n    line-height: 1.15;\n    letter-spacing: -0.01em;\n    font-weight: 600;\n    scroll-margin-top: 6rem;\n  }\n  .kit-prose :where(h2, h3) + * {\n    margin-top: 0.75em;\n  }\n  .kit-prose :where(a) {\n    text-decoration: underline;\n    text-underline-offset: 0.2em;\n    text-decoration-thickness: 1px;\n  }\n  .kit-prose :where(a:hover) {\n    text-decoration-thickness: 2px;\n  }\n  .kit-prose :where(strong) {\n    font-weight: 600;\n  }\n  .kit-prose :where(ul, ol) {\n    padding-left: 1.4em;\n  }\n  .kit-prose :where(ul) {\n    list-style: disc;\n  }\n  .kit-prose :where(ol) {\n    list-style: decimal;\n  }\n  .kit-prose :where(li + li) {\n    margin-top: 0.4em;\n  }\n  .kit-prose :where(li)::marker {\n    color: var(--muted-foreground);\n  }\n  .kit-prose :where(blockquote) {\n    border-left: 2px solid var(--border);\n    padding-left: 1.25em;\n    font-size: 1.25rem;\n    line-height: 1.5;\n  }\n  .kit-prose :where(:not(pre) > code) {\n    border-radius: calc(var(--radius) - 4px);\n    background: var(--muted);\n    padding: 0.15em 0.35em;\n    font-size: 0.875em;\n  }\n  .kit-prose :where(pre) {\n    overflow-x: auto;\n    border: 1px solid var(--border);\n    border-radius: var(--radius);\n    background: var(--card);\n    padding: 1rem 1.25rem;\n    font-size: 0.875rem;\n    line-height: 1.7;\n  }\n  .kit-prose :where(hr) {\n    border: 0;\n    border-top: 1px solid var(--border);\n    margin: 2.5em 0;\n  }\n  .kit-prose :where(table) {\n    width: 100%;\n    border-collapse: collapse;\n    font-size: 1rem;\n  }\n  .kit-prose :where(th, td) {\n    border-bottom: 1px solid var(--border);\n    padding: 0.6em 0.75em;\n    text-align: left;\n    vertical-align: top;\n  }\n  .kit-prose :where(th) {\n    font-weight: 600;\n  }\n  .kit-prose :where(figure) {\n    margin-top: 2em;\n    margin-bottom: 2em;\n  }\n  .kit-prose :where(img) {\n    border-radius: var(--radius);\n  }\n  .kit-prose :where(figcaption) {\n    margin-top: 0.75em;\n    font-size: 0.875rem;\n    color: var(--muted-foreground);\n  }\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"name":"filter-sheet","title":"Filter sheet","description":"The phone Filters button: active count, checkbox groups in a side sheet, Clear all and Show results.","category":"Data","shadcn":["button","badge","checkbox","sheet"],"npm":["lucide-react"],"client":true}

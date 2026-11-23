@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button",
+  "title": "Button",
+  "description": "An action, or a link that looks like one: variants, sizes, an icon, a loading state.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": []
+}

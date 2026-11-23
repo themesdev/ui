@@ -1,0 +1,110 @@
+/* Long-form text for <Prose>: a 65-character measure, 18px body, headings on the type scale, and every colour from
+   shadcn's tokens (--foreground, --muted-foreground, --border, --muted, --card), so dark mode needs nothing extra. */
+@layer components {
+  .kit-prose {
+    max-width: 65ch;
+    font-size: 1.125rem;
+    line-height: 1.65;
+    color: var(--foreground);
+  }
+  .kit-prose > * + * {
+    margin-top: 1.25em;
+  }
+  .kit-prose :where(h2) {
+    margin-top: 2.25em;
+    font-size: 1.875rem;
+    line-height: 1.08;
+    letter-spacing: -0.018em;
+    font-weight: 600;
+    scroll-margin-top: 6rem;
+  }
+  .kit-prose :where(h3) {
+    margin-top: 1.75em;
+    font-size: 1.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+    scroll-margin-top: 6rem;
+  }
+  .kit-prose :where(h2, h3) + * {
+    margin-top: 0.75em;
+  }
+  .kit-prose :where(a) {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+  .kit-prose :where(a:hover) {
+    text-decoration-thickness: 2px;
+  }
+  .kit-prose :where(strong) {
+    font-weight: 600;
+  }
+  .kit-prose :where(ul, ol) {
+    padding-left: 1.4em;
+  }
+  .kit-prose :where(ul) {
+    list-style: disc;
+  }
+  .kit-prose :where(ol) {
+    list-style: decimal;
+  }
+  .kit-prose :where(li + li) {
+    margin-top: 0.4em;
+  }
+  .kit-prose :where(li)::marker {
+    color: var(--muted-foreground);
+  }
+  .kit-prose :where(blockquote) {
+    border-left: 2px solid var(--border);
+    padding-left: 1.25em;
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+  .kit-prose :where(:not(pre) > code) {
+    border-radius: calc(var(--radius) - 4px);
+    background: var(--muted);
+    padding: 0.15em 0.35em;
+    font-size: 0.875em;
+  }
+  .kit-prose :where(pre) {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--card);
+    padding: 1rem 1.25rem;
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+  .kit-prose :where(hr) {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 2.5em 0;
+  }
+  .kit-prose :where(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+  }
+  .kit-prose :where(th, td) {
+    border-bottom: 1px solid var(--border);
+    padding: 0.6em 0.75em;
+    text-align: left;
+    vertical-align: top;
+  }
+  .kit-prose :where(th) {
+    font-weight: 600;
+  }
+  .kit-prose :where(figure) {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  .kit-prose :where(img) {
+    border-radius: var(--radius);
+  }
+  .kit-prose :where(figcaption) {
+    margin-top: 0.75em;
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+  }
+}

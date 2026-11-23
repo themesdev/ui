@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "search-field",
+  "title": "Search field",
+  "description": "A search input in a role=search form, with a / shortcut and a clear button.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "input",
+    "kbd"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/search-field/search-field.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\"\n\nimport { useEffect, useRef, useState } from \"react\"\nimport { Search, X } from \"lucide-react\"\nimport { Button } from \"@/components/ui/button\"\nimport { Input } from \"@/components/ui/input\"\nimport { Kbd } from \"@/components/ui/kbd\"\nimport { cn } from \"@/lib/utils\"\n\nexport type SearchFieldProps = {\n  id: string\n  /** The accessible name, e.g. \"Search the docs\". */\n  label: string\n  placeholder?: string\n  /** Where the form goes (GET), e.g. \"/search\". */\n  action?: string\n  name?: string\n  defaultValue?: string\n  className?: string\n}\n\n/** A search field in a role=search form, with a \"/\" shortcut and a clear button. */\nexport function SearchField({ id, label, placeholder = \"Search\", action, name = \"q\", defaultValue = \"\", className }: SearchFieldProps) {\n  const [value, setValue] = useState(defaultValue)\n  const input = useRef<HTMLInputElement>(null)\n  useEffect(() => {\n    // \"/\" outside any field focuses the first search field you can see (a page may keep others in a closed panel).\n    const onKey = (e: KeyboardEvent) => {\n      if (e.key !== \"/\" || e.metaKey || e.ctrlKey || e.altKey) return\n      if ((e.target as HTMLElement).closest(\"input, textarea, select, [contenteditable='']\")) return\n      const first = [...document.querySelectorAll<HTMLInputElement>(\"input[data-search]\")].find((i) => i.getClientRects().length > 0)\n      if (first !== input.current) return\n      e.preventDefault()\n      first?.focus()\n    }\n    document.addEventListener(\"keydown\", onKey)\n    return () => document.removeEventListener(\"keydown\", onKey)\n  }, [])\n  return (\n    <form role=\"search\" action={action} className={cn(\"relative w-full\", className)}>\n      <label htmlFor={id} className=\"sr-only\">{label}</label>\n      <Search aria-hidden=\"true\" className=\"pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground\" />\n      <Input\n        ref={input}\n        type=\"search\"\n        id={id}\n        name={name}\n        value={value}\n        onChange={(e) => setValue(e.target.value)}\n        placeholder={placeholder}\n        autoComplete=\"off\"\n        data-search=\"\"\n        className=\"h-10 pl-9 pr-12 text-base [&::-webkit-search-cancel-button]:appearance-none\"\n      />\n      {value ? (\n        <Button\n          type=\"button\"\n          variant=\"ghost\"\n          size=\"icon-sm\"\n          aria-label=\"Clear search\"\n          onClick={() => {\n            setValue(\"\")\n            input.current?.focus()\n          }}\n          className=\"absolute right-1.5 top-1/2 -translate-y-1/2\"\n        >\n          <X aria-hidden=\"true\" />\n        </Button>\n      ) : (\n        <Kbd aria-hidden=\"true\" className=\"absolute right-3 top-1/2 -translate-y-1/2\">/</Kbd>\n      )}\n    </form>\n  )\n}\n",
+      "target": "components/ui/search-field.tsx"
+    }
+  ]
+}

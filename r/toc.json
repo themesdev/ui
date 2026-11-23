@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toc",
+  "title": "On this page",
+  "description": "A page's sections as links; the one you are reading is marked while you scroll.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/ui/toc/toc.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport type TocEntry = { label: string; href: string; level?: 2 | 3 }\n\nexport type TocProps = {\n  entries: TocEntry[]\n  /** The visible heading and the nav's name. */\n  label?: string\n  /** Pixels a heading must pass the top of the screen to count as read: a sticky header's height, plus a little. */\n  offset?: number\n  className?: string\n}\n\n/** \"On this page\": the sections as links, the one you are reading marked (aria-current=\"true\") while you scroll. */\nexport function Toc({ entries, label = \"On this page\", offset = 96, className }: TocProps) {\n  const [current, setCurrent] = React.useState<string>()\n  React.useEffect(() => {\n    let queued = false\n    const update = () => {\n      queued = false\n      const atEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2\n      let found: string | undefined\n      for (const e of entries) {\n        const target = document.getElementById(decodeURIComponent(e.href.replace(/^#/, \"\")))\n        if (!target) continue\n        const top = target.getBoundingClientRect().top\n        if (top - offset <= 1 || (atEnd && top < window.innerHeight)) found = e.href\n      }\n      setCurrent(found)\n    }\n    const schedule = () => {\n      if (queued) return\n      queued = true\n      requestAnimationFrame(update)\n    }\n    schedule()\n    addEventListener(\"scroll\", schedule, { passive: true })\n    addEventListener(\"resize\", schedule)\n    addEventListener(\"hashchange\", schedule)\n    return () => {\n      removeEventListener(\"scroll\", schedule)\n      removeEventListener(\"resize\", schedule)\n      removeEventListener(\"hashchange\", schedule)\n    }\n  }, [entries, offset])\n\n  return (\n    <nav aria-label={label} className={cn(\"text-sm\", className)}>\n      <p aria-hidden=\"true\" className=\"mb-3 text-sm font-semibold\">\n        {label}\n      </p>\n      <ul className=\"grid border-l\">\n        {entries.map((e) => (\n          <li key={e.href}>\n            <a\n              href={e.href}\n              aria-current={e.href === current ? \"true\" : undefined}\n              className={cn(\n                \"-ml-px block border-l border-transparent py-1.5 pr-2 text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 aria-[current=true]:border-foreground aria-[current=true]:font-medium aria-[current=true]:text-foreground\",\n                e.level === 3 ? \"pl-7\" : \"pl-3\"\n              )}\n            >\n              {e.label}\n            </a>\n          </li>\n        ))}\n      </ul>\n    </nav>\n  )\n}\n",
+      "target": "components/ui/toc.tsx"
+    }
+  ]
+}

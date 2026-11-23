@@ -1,0 +1,39 @@
+---
+// Where this page sits, as links, with the BreadcrumbList structured data for search results. The last item is the
+// current page: it is not a link and carries aria-current.
+// <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blog/' }, { name: post.title, href: Astro.url.pathname }]} />
+import JsonLd from './JsonLd.astro';
+import { breadcrumbList } from '../lib/schema';
+
+interface Props {
+  items: { name: string; href: string }[];
+  /** Leave the structured data out (when the layout already prints it). */
+  schema?: boolean;
+  label?: string;
+  class?: string;
+}
+const { items, schema = true, label = 'Breadcrumb', class: className } = Astro.props;
+---
+
+<nav aria-label={label} class:list={['text-sm', className]}>
+  <ol class="flex flex-wrap items-center gap-1.5 text-muted-foreground">
+    {
+      items.map((c, i) => {
+        const last = i === items.length - 1;
+        return (
+          <li class="inline-flex items-center gap-1.5">
+            {last ? (
+              <span aria-current="page" class="font-medium text-foreground">{c.name}</span>
+            ) : (
+              <>
+                <a href={c.href} class="rounded-sm transition-colors outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">{c.name}</a>
+                <svg aria-hidden="true" viewBox="0 0 16 16" class="size-3.5" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 4 4 4-4 4" /></svg>
+              </>
+            )}
+          </li>
+        );
+      })
+    }
+  </ol>
+</nav>
+{schema && <JsonLd data={breadcrumbList(items, Astro.site ?? Astro.url)} />}

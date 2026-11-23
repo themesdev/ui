@@ -1,0 +1,14 @@
+---
+// A date people can read, with the machine-readable value in datetime: <Time date={post.data.date} />.
+// Formatted at build time with Intl, in the language you pass (default en-GB: 23 November 2026).
+interface Props {
+  date: Date | string;
+  locale?: string;
+  format?: Intl.DateTimeFormatOptions;
+  class?: string;
+}
+const { locale = 'en-GB', format = { day: 'numeric', month: 'long', year: 'numeric' }, class: className } = Astro.props;
+const date = new Date(Astro.props.date);
+---
+
+<time datetime={date.toISOString().slice(0, 10)} class={className}>{new Intl.DateTimeFormat(locale, { ...format, timeZone: 'UTC' }).format(date)}</time>

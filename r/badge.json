@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "title": "Badge",
+  "description": "A short status or count next to text: default, secondary, outline, destructive.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": []
+}

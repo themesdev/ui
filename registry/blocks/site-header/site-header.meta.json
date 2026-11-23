@@ -1,0 +1,26 @@
+{
+  "name": "site-header",
+  "title": "Site header",
+  "description": "A muted service strip over a 72px bar: wordmark, six centred links, a pill search and saved and bag counts.",
+  "sector": "retail",
+  "business": "Harrier, running and trail shoes, four shops in Utrecht and Amersfoort",
+  "composition": "thin utility row plus centred nav bar",
+  "layout": "utility-strip-over-centred-nav",
+  "anchor": "type",
+  "shadcn": [
+    "button",
+    "input",
+    "label",
+    "separator"
+  ],
+  "icons": [
+    "Footprints",
+    "Heart",
+    "Menu",
+    "Search",
+    "ShoppingBag",
+    "X"
+  ],
+  "photos": [],
+  "client": true
+}

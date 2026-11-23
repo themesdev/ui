@@ -1,0 +1,22 @@
+{
+  "name": "plain-tiles",
+  "title": "Plain tiles",
+  "description": "Three open photo tiles with a step, a title and two lines each under a centred heading; no card chrome.",
+  "sector": "housing",
+  "business": "Roomhop, student rooms in Groningen",
+  "composition": "centred heading and intro, three borderless photo tiles (step kicker, title, copy), button and link centred below",
+  "layout": "tiles-3",
+  "anchor": "photos",
+  "shadcn": [
+    "button"
+  ],
+  "icons": [
+    "ArrowRight"
+  ],
+  "photos": [
+    "/ui/photos/plain-tiles/search.webp",
+    "/ui/photos/plain-tiles/viewing.webp",
+    "/ui/photos/plain-tiles/keys.webp"
+  ],
+  "client": false
+}

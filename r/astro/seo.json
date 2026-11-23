@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "seo",
+  "type": "registry:item",
+  "title": "SEO head (Astro)",
+  "description": "Title, description, canonical, robots, hreflang, Open Graph and the Twitter card, from one component in your layout's head.",
+  "author": "themes.dev",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "components/Seo.astro",
+      "type": "registry:file",
+      "target": "src/kit/components/Seo.astro",
+      "content": "---\n// The head tags a page needs to be found and shared: title, description, canonical, robots, Open Graph and the\n// Twitter card. Put it in your layout's <head>. Set `site` in astro.config.mjs so the URLs are absolute.\n// <Seo title=\"Pricing\" description=\"…\" image={{ src: '/og/pricing.png', alt: '…', width: 1200, height: 630 }} />\ninterface Props {\n  /** The page title, complete: add your site name yourself if you want it (\"Pricing · Acme\"). */\n  title: string;\n  /** One or two sentences, about 150 characters. */\n  description: string;\n  /** The canonical address; by default this page's own URL without query string. */\n  canonical?: string | URL;\n  /** The share image: absolute or root-relative, 1200×630 is the common size. */\n  image?: { src: string; alt: string; width: number; height: number };\n  /** 'article' for posts, with their dates. */\n  type?: 'website' | 'article';\n  published?: Date;\n  modified?: Date;\n  /** Keep the page out of search results (a thank-you page, a 404). */\n  noindex?: boolean;\n  /** Other language versions: [{ lang: 'nl', href: '/nl/prijzen/' }]. */\n  alternates?: { lang: string; href: string }[];\n  siteName?: string;\n}\nconst { title, description, image, type = 'website', published, modified, noindex = false, alternates = [], siteName } = Astro.props;\nconst base = Astro.site ?? Astro.url;\nconst canonical = new URL(Astro.props.canonical ?? Astro.url.pathname, base).href;\nconst abs = (s: string) => new URL(s, base).href;\n---\n\n<title>{title}</title>\n<meta name=\"description\" content={description} />\n<link rel=\"canonical\" href={canonical} />\n{noindex && <meta name=\"robots\" content=\"noindex\" />}\n{alternates.map((a) => <link rel=\"alternate\" hreflang={a.lang} href={abs(a.href)} />)}\n<meta property=\"og:type\" content={type} />\n<meta property=\"og:title\" content={title} />\n<meta property=\"og:description\" content={description} />\n<meta property=\"og:url\" content={canonical} />\n{siteName && <meta property=\"og:site_name\" content={siteName} />}\n{\n  image && (\n    <>\n      <meta property=\"og:image\" content={abs(image.src)} />\n      <meta property=\"og:image:alt\" content={image.alt} />\n      <meta property=\"og:image:width\" content={String(image.width)} />\n      <meta property=\"og:image:height\" content={String(image.height)} />\n    </>\n  )\n}\n{type === 'article' && published && <meta property=\"article:published_time\" content={published.toISOString()} />}\n{type === 'article' && modified && <meta property=\"article:modified_time\" content={modified.toISOString()} />}\n<meta name=\"twitter:card\" content={image ? 'summary_large_image' : 'summary'} />\n"
+    }
+  ]
+}

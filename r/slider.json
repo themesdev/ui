@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slider",
+  "title": "Slider",
+  "description": "A value or a range on a track, with arrow keys and the value shown.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "slider"
+  ],
+  "files": []
+}

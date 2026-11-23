@@ -1,0 +1,11 @@
+---
+// Structured data (schema.org) as JSON-LD. "<" is escaped, so a value can't close the script tag. Build the objects
+// with the helpers in lib/schema.ts: <JsonLd data={article({ … })} />. Pass an array for several.
+interface Props {
+  data: Record<string, unknown> | Record<string, unknown>[];
+}
+const { data } = Astro.props;
+const list = Array.isArray(data) ? data : [data];
+---
+
+{list.map((d) => <script type="application/ld+json" is:inline set:html={JSON.stringify(d).replace(/</g, '\\u003c')} />)}

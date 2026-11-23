@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch",
+  "title": "Switch",
+  "description": "An on/off setting that applies at once.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "switch"
+  ],
+  "files": []
+}

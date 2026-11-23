@@ -1,0 +1,21 @@
+{
+  "name": "testimonial",
+  "title": "Testimonial",
+  "description": "One large quote in a soft grey panel, a face with name and role, and the customer's own figures under a rule.",
+  "sector": "software",
+  "business": "Sumwise, subscription billing for SaaS companies; quote from a Rotterdam HR software firm",
+  "composition": "muted rounded panel: small heading, 40px quote, avatar caption, rule, three figures and a story link",
+  "layout": "panel",
+  "anchor": "type",
+  "shadcn": [
+    "avatar",
+    "separator"
+  ],
+  "icons": [
+    "ArrowRight"
+  ],
+  "photos": [
+    "/ui/photos/testimonial/face.webp"
+  ],
+  "client": false
+}

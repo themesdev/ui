@@ -1,0 +1,1 @@
+{"name":"filter-bar","title":"Filter bar","description":"Toggle chips, a sort choice and a live result count; Clear turns every filter off.","category":"Data","shadcn":["button","native-select"],"npm":["lucide-react"],"client":true}

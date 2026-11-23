@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "map-embed",
+  "title": "Map",
+  "description": "A location whose map loads from OpenStreetMap only when asked; the address works as a link without it.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/map-embed/map-embed.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\"\n\nimport { useEffect, useRef, useState } from \"react\"\nimport { MapPin } from \"lucide-react\"\nimport { Button } from \"@/components/ui/button\"\nimport { cn } from \"@/lib/utils\"\n\nexport type MapEmbedProps = {\n  name: string\n  address: string\n  lat: number\n  lon: number\n  className?: string\n}\n\nconst osmLink = (lat: number, lon: number) => `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=17/${lat}/${lon}`\nconst osmEmbed = (lat: number, lon: number) => {\n  const d = 0.004\n  const r = (n: number) => Math.round(n * 1e5) / 1e5\n  return `https://www.openstreetmap.org/export/embed.html?bbox=${r(lon - d * 1.6)},${r(lat - d)},${r(lon + d * 1.6)},${r(lat + d)}&layer=mapnik&marker=${lat},${lon}`\n}\n\n/** A location whose map loads from OpenStreetMap only when asked; the address works as a link without it. */\nexport function MapEmbed({ name, address, lat, lon, className }: MapEmbedProps) {\n  const [shown, setShown] = useState(false)\n  const frame = useRef<HTMLIFrameElement>(null)\n  const valid = Number.isFinite(lat) && Number.isFinite(lon) && Math.abs(lat) <= 90 && Math.abs(lon) <= 180\n  // The map replaces the button that was just pressed: move focus into it so a keyboard user is not dropped.\n  useEffect(() => {\n    if (shown) frame.current?.focus()\n  }, [shown])\n  return (\n    <div className={cn(\"overflow-hidden rounded-xl border bg-card text-card-foreground\", className)}>\n      <div className=\"relative aspect-[8/5] w-full bg-muted sm:aspect-[2/1]\">\n        {shown && valid ? (\n          <iframe\n            ref={frame}\n            src={osmEmbed(lat, lon)}\n            title={`Map: ${name}`}\n            loading=\"lazy\"\n            referrerPolicy=\"no-referrer\"\n            sandbox=\"allow-scripts allow-same-origin\"\n            className=\"absolute inset-0 size-full border-0\"\n          />\n        ) : (\n          <>\n            <svg className=\"absolute inset-0 size-full\" viewBox=\"0 0 400 200\" preserveAspectRatio=\"xMidYMid slice\" fill=\"none\" aria-hidden=\"true\">\n              <path d=\"M0 150 C60 130 110 170 190 150 S330 120 400 140 V200 H0Z\" className=\"fill-foreground/[0.06]\" />\n              <rect x=\"250\" y=\"20\" width=\"110\" height=\"60\" rx=\"14\" className=\"fill-foreground/[0.04]\" />\n              <path d=\"M-10 60 L150 90 L260 40 L410 70 M90 -10 L120 110 L100 210 M300 -10 L280 100 L330 210\" className=\"stroke-border\" strokeWidth=\"10\" strokeLinecap=\"round\" strokeLinejoin=\"round\" />\n            </svg>\n            <span className=\"absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 text-foreground\" aria-hidden=\"true\">\n              <MapPin className=\"size-8 fill-background\" />\n            </span>\n            <Button size=\"lg\" variant=\"outline\" disabled={!valid} onClick={() => setShown(true)} className=\"absolute bottom-4 left-1/2 -translate-x-1/2 bg-background\">\n              Show the map\n            </Button>\n          </>\n        )}\n      </div>\n      <address className=\"flex flex-col gap-1 p-4 text-sm not-italic\">\n        <span className=\"text-base font-medium leading-[1.25]\">{name}</span>\n        <a\n          href={osmLink(lat, lon)}\n          className=\"w-fit rounded-sm text-muted-foreground underline decoration-foreground/30 underline-offset-4 outline-none hover:text-foreground hover:decoration-foreground focus-visible:ring-3 focus-visible:ring-ring/50\"\n        >\n          {address}\n        </a>\n        <span className=\"text-xs text-muted-foreground\">The map loads from OpenStreetMap when you show it.</span>\n      </address>\n    </div>\n  )\n}\n",
+      "target": "components/ui/map-embed.tsx"
+    }
+  ]
+}

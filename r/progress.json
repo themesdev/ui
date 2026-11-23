@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress",
+  "title": "Progress",
+  "description": "How far along a task is, as a bar with its value read out.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "progress"
+  ],
+  "files": []
+}

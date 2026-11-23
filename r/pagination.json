@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination",
+  "title": "Pagination",
+  "description": "Page links with Previous and Next, the current page marked and gaps where pages are skipped.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "pagination"
+  ],
+  "files": []
+}

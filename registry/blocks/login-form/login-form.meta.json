@@ -1,0 +1,30 @@
+{
+  "name": "login-form",
+  "title": "Login form",
+  "description": "An energy supplier's sign-in card with a show/hide password, secondary ways in and a side strip of other routes.",
+  "sector": "energy",
+  "business": "Wadstroom, energy supplier in Friesland",
+  "composition": "centred sign-in card with side tabs",
+  "layout": "wordmark, card with form and side strip, status line",
+  "anchor": "form",
+  "shadcn": [
+    "button",
+    "checkbox",
+    "input",
+    "label"
+  ],
+  "icons": [
+    "ArrowRight",
+    "Eye",
+    "EyeOff",
+    "LogIn",
+    "Mail",
+    "Phone",
+    "Send",
+    "UserPlus",
+    "Wind",
+    "Zap"
+  ],
+  "photos": [],
+  "client": true
+}

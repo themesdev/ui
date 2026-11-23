@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion",
+  "title": "Accordion",
+  "description": "Sections that open one at a time or together, with the keyboard model and a height animation.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "accordion"
+  ],
+  "files": []
+}

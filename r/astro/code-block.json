@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block",
+  "type": "registry:item",
+  "title": "Code block (Astro)",
+  "description": "Code highlighted at build time with Shiki, light and dark, with a file name and a copy button.",
+  "author": "themes.dev",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "components/CodeBlock.astro",
+      "type": "registry:file",
+      "target": "src/kit/components/CodeBlock.astro",
+      "content": "---\n// Code highlighted at build time (Shiki, through Astro's <Code>), with an optional file name and a copy button. The\n// colours come from Shiki's two built-in GitHub themes, light and dark, switched by the \"dark\" class on <html>.\n// <CodeBlock code={source} lang=\"ts\" filename=\"astro.config.mjs\" />\nimport { Code } from 'astro:components';\n\ninterface Props {\n  code: string;\n  lang?: string;\n  filename?: string;\n  copyLabel?: string;\n  class?: string;\n}\nconst { code, lang = 'plaintext', filename, copyLabel = 'Copy code', class: className } = Astro.props;\n---\n\n<figure class:list={['kit-code not-prose overflow-hidden rounded-xl border bg-card text-card-foreground', className]}>\n  <figcaption class=\"flex h-11 items-center gap-3 border-b bg-muted/40 pr-1.5 pl-4\">\n    <span class=\"min-w-0 flex-1 truncate font-mono text-sm\">{filename ?? lang}</span>\n    <button\n      type=\"button\"\n      data-kit-copy={code}\n      aria-label={copyLabel}\n      class=\"inline-flex size-9 items-center justify-center rounded-md text-muted-foreground outline-none transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50\"\n    >\n      <svg data-icon=\"copy\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" class=\"size-4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"9\" y=\"9\" width=\"12\" height=\"12\" rx=\"2\" /><path d=\"M5 15V5a2 2 0 0 1 2-2h10\" /></svg>\n      <svg data-icon=\"done\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" class=\"hidden size-4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"m5 12 5 5L20 7\" /></svg>\n      <span role=\"status\" class=\"sr-only\"></span>\n    </button>\n  </figcaption>\n  <Code code={code} lang={lang as never} themes={{ light: 'github-light', dark: 'github-dark' }} defaultColor={false} class=\"overflow-x-auto px-4 py-3 text-sm leading-[1.7]\" />\n</figure>\n\n<style is:global>\n  .kit-code pre {\n    background: transparent !important;\n  }\n  .kit-code .shiki span {\n    color: var(--shiki-light);\n  }\n  .dark .kit-code .shiki span {\n    color: var(--shiki-dark);\n  }\n</style>\n\n<script>\n  document.querySelectorAll<HTMLButtonElement>('[data-kit-copy]').forEach((button) =>\n    button.addEventListener('click', async () => {\n      try {\n        await navigator.clipboard.writeText(button.dataset.kitCopy ?? '');\n      } catch {\n        return;\n      }\n      const [copy, done] = button.querySelectorAll('svg');\n      const status = button.querySelector('[role=status]')!;\n      copy.classList.add('hidden');\n      done.classList.remove('hidden');\n      status.textContent = 'Copied';\n      setTimeout(() => {\n        copy.classList.remove('hidden');\n        done.classList.add('hidden');\n        status.textContent = '';\n      }, 2000);\n    }),\n  );\n</script>\n"
+    }
+  ]
+}

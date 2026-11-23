@@ -1,0 +1,13 @@
+{
+  "name": "@themesdev/ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Free shadcn/ui blocks, page templates and components by themes.dev, plus a native Astro kit. Install items with the shadcn CLI.",
+  "license": "MIT",
+  "homepage": "https://www.themes.dev/free/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/themesdev/ui.git"
+  },
+  "keywords": ["shadcn", "shadcn-ui", "tailwindcss", "react", "astro", "ui-components", "blocks"]
+}

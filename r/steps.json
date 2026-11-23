@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "steps",
+  "title": "Steps",
+  "description": "Progress through a flow: done, current (aria-current=step) and to come; horizontal when there is room.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/ui/steps/steps.tsx",
+      "type": "registry:ui",
+      "content": "import { Check } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport type Step = { title: string; description?: string }\n\nexport type StepsProps = {\n  steps: Step[]\n  /** The step you are on, counted from 0. Steps before it are done. */\n  current: number\n  label?: string\n  className?: string\n}\n\n/** Progress through a flow: done, current (aria-current=\"step\") and still to come. Horizontal when the container is wide. */\nexport function Steps({ steps, current, label = \"Progress\", className }: StepsProps) {\n  return (\n    <nav aria-label={label} className={cn(\"@container\", className)}>\n      <ol className=\"flex flex-col @xl:flex-row\">\n        {steps.map((s, k) => {\n          const state = k < current ? \"done\" : k === current ? \"current\" : \"todo\"\n          const last = k === steps.length - 1\n          return (\n            <li key={k} data-state={state} aria-current={state === \"current\" ? \"step\" : undefined} className=\"group/step flex gap-3 @xl:flex-1 @xl:flex-col\">\n              <span className=\"flex flex-col items-center @xl:flex-row\">\n                <span\n                  className={cn(\n                    \"grid size-8 shrink-0 place-items-center rounded-full border text-sm font-medium tabular-nums\",\n                    state === \"done\" && \"border-primary bg-primary text-primary-foreground\",\n                    state === \"current\" && \"border-foreground bg-background text-foreground ring-3 ring-ring/30\",\n                    state === \"todo\" && \"border-border bg-background text-muted-foreground\"\n                  )}\n                >\n                  {state === \"done\" ? <Check aria-hidden=\"true\" className=\"size-4\" /> : k + 1}\n                </span>\n                {!last && (\n                  <span aria-hidden=\"true\" className={cn(\"my-1 min-h-6 w-px flex-1 @xl:mx-2 @xl:my-0 @xl:h-px @xl:min-h-0 @xl:w-auto\", state === \"done\" ? \"bg-primary\" : \"bg-border\")} />\n                )}\n              </span>\n              <span className={cn(\"grid content-start gap-0.5 pb-6 @xl:pr-4 @xl:pb-0\", last && \"pb-0\")}>\n                <span className={cn(\"text-sm font-medium\", state === \"todo\" && \"text-muted-foreground\")}>\n                  {s.title}\n                  <span className=\"sr-only\">{state === \"done\" ? \" (done)\" : state === \"current\" ? \" (current)\" : \"\"}</span>\n                </span>\n                {s.description && <span className=\"text-sm text-muted-foreground\">{s.description}</span>}\n              </span>\n            </li>\n          )\n        })}\n      </ol>\n    </nav>\n  )\n}\n",
+      "target": "components/ui/steps.tsx"
+    }
+  ]
+}

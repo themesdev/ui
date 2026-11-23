@@ -1,0 +1,17 @@
+---
+// A Portable Text heading with an id, so <Toc> and shared links can point at it. Same slugs as
+// headingsFromPortableText(): the n-th "Pricing" on a page gets "pricing-n".
+import type { Block } from 'astro-portabletext/types';
+import { blockText, uniqueSlug } from '../../lib/headings';
+
+interface Props {
+  node: Block;
+}
+const { node } = Astro.props;
+const locals = Astro.locals as Record<string, unknown>;
+const seen = (locals.kitSlugs ??= new Map()) as Map<string, number>;
+const id = uniqueSlug(blockText(node as never), seen);
+const Tag = (node.style ?? 'h2') as 'h2' | 'h3' | 'h4';
+---
+
+<Tag id={id}><slot /></Tag>

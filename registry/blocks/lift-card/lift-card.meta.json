@@ -1,0 +1,22 @@
+{
+  "name": "lift-card",
+  "title": "Lift cards",
+  "description": "A photo tile and four tall centred link tiles that lift on hover, for an electric van dealer's ways to buy.",
+  "sector": "mobility",
+  "business": "Ampway Vans, an electric van dealer in Leeds",
+  "composition": "heading and intro over a five-tile strip: one photo tile, four icon tiles",
+  "layout": "split heading row, five equal columns at 1440, two on tablet, one on phone",
+  "anchor": "cards",
+  "shadcn": [],
+  "icons": [
+    "ArrowRight",
+    "BriefcaseBusiness",
+    "CalendarCheck",
+    "Repeat2",
+    "Tag"
+  ],
+  "photos": [
+    "/ui/photos/lift-card/van.webp"
+  ],
+  "client": false
+}

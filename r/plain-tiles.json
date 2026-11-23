@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "plain-tiles",
+  "title": "Plain tiles",
+  "description": "Three open photo tiles with a step, a title and two lines each under a centred heading; no card chrome.",
+  "author": "themes.dev",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/plain-tiles/plain-tiles.tsx",
+      "type": "registry:component",
+      "content": "import { ArrowRight } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { buttonVariants } from \"@/components/ui/button\"\n\nexport type ImageRef = { src: string; alt: string; width: number; height: number }\nexport type LinkRef = { label: string; href: string }\nexport type Tile = { kicker: string; title: string; body: string; photo: ImageRef }\n\nexport type PlainTilesProps = {\n  title: string\n  body: string\n  tiles: Tile[]\n  action: LinkRef\n  link: LinkRef\n}\n\nconst photo = (name: string, alt: string): ImageRef => ({\n  src: `https://www.themes.dev/ui/photos/plain-tiles/${name}.webp`,\n  alt,\n  width: 800,\n  height: 533,\n})\n\nexport const plainTilesDefaults: PlainTilesProps = {\n  title: \"How Roomhop works\",\n  body: \"Around 4,100 student rooms in Groningen, from canal-house attics to new studios near the Zernike campus. Most students sign within three weeks.\",\n  tiles: [\n    {\n      kicker: \"Step 1\",\n      title: \"Search the rooms\",\n      body: \"Filter by rent, neighbourhood and cycling time to your faculty. A new match lands in your inbox within the hour.\",\n      photo: photo(\"search\", \"A student sits cross-legged on her bed with a laptop, browsing room listings.\"),\n    },\n    {\n      kicker: \"Step 2\",\n      title: \"Meet the house\",\n      body: \"Reply to as many rooms as you like for €9.95 a month. Landlords and housemates invite you to a viewing from the chat.\",\n      photo: photo(\"viewing\", \"A landlady shows two students a bright room with a wooden desk by a canal-side window.\"),\n    },\n    {\n      kicker: \"Step 3\",\n      title: \"Get your keys\",\n      body: \"Sign the contract online and pay the deposit through Roomhop, held until you move out. No agency fee, ever.\",\n      photo: photo(\"keys\", \"A young man carries a moving box up the steep stairs of a Dutch canal house.\"),\n    },\n  ],\n  action: { label: \"Start searching\", href: \"#search\" },\n  link: { label: \"Renting out a room?\", href: \"#landlords\" },\n}\n\nexport function PlainTiles(props: Partial<PlainTilesProps>) {\n  const c = { ...plainTilesDefaults, ...props }\n\n  return (\n    <section aria-labelledby=\"plain-tiles-title\" className=\"bg-background py-20 lg:py-28\">\n      <div className=\"mx-auto max-w-[1240px] px-6 lg:px-10\">\n        <div className=\"mx-auto max-w-[720px] text-center\">\n          <h2\n            id=\"plain-tiles-title\"\n            className=\"text-4xl leading-[1.08] font-bold tracking-[-0.018em] text-balance lg:text-[48px] lg:leading-[1.04] lg:tracking-[-0.024em]\"\n          >\n            {c.title}\n          </h2>\n          <p className=\"mx-auto mt-5 max-w-[56ch] text-lg leading-[1.5] text-pretty text-muted-foreground\">{c.body}</p>\n        </div>\n\n        <ol className=\"mt-12 grid gap-x-8 gap-y-12 md:grid-cols-3 lg:mt-16\">\n          {c.tiles.map((t) => (\n            <li key={t.title} className=\"flex flex-col\">\n              <img\n                src={t.photo.src}\n                alt={t.photo.alt}\n                width={t.photo.width}\n                height={t.photo.height}\n                loading=\"lazy\"\n                className=\"aspect-[3/2] w-full rounded-2xl object-cover\"\n              />\n              <p className=\"mt-6 text-[13px] leading-[1.25] font-medium tracking-[0.08em] text-muted-foreground uppercase\">\n                {t.kicker}\n              </p>\n              <h3 className=\"mt-2 text-[24px] leading-[1.15] font-bold tracking-[-0.01em]\">{t.title}</h3>\n              <p className=\"mt-2.5 max-w-[40ch] text-[16px] leading-[1.55] text-muted-foreground\">{t.body}</p>\n            </li>\n          ))}\n        </ol>\n\n        <div className=\"mt-14 flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-7\">\n          <a href={c.action.href} className={cn(buttonVariants({ size: \"lg\" }), \"h-11 px-5 text-[15px]\")}>\n            {c.action.label}\n            <ArrowRight data-icon=\"inline-end\" aria-hidden />\n          </a>\n          <a\n            href={c.link.href}\n            className=\"rounded-sm text-[15px] font-semibold underline underline-offset-4 outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50\"\n          >\n            {c.link.label}\n          </a>\n        </div>\n      </div>\n    </section>\n  )\n}\n",
+      "target": "components/blocks/plain-tiles.tsx"
+    }
+  ],
+  "meta": {
+    "photos": [
+      "https://www.themes.dev/ui/photos/plain-tiles/search.webp",
+      "https://www.themes.dev/ui/photos/plain-tiles/viewing.webp",
+      "https://www.themes.dev/ui/photos/plain-tiles/keys.webp"
+    ]
+  }
+}

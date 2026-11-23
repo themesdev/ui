@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skip-link",
+  "type": "registry:item",
+  "title": "Skip link (Astro)",
+  "description": "A link to the main content that appears on keyboard focus, as the first thing in the body.",
+  "author": "themes.dev",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "components/SkipLink.astro",
+      "type": "registry:file",
+      "target": "src/kit/components/SkipLink.astro",
+      "content": "---\n// The first thing in <body>: a link to the main content that appears when it gets keyboard focus.\n// <SkipLink /> … <main id=\"main\" tabindex=\"-1\">\ninterface Props {\n  target?: string;\n  label?: string;\n}\nconst { target = 'main', label = 'Skip to content' } = Astro.props;\n---\n\n<a\n  href={`#${target}`}\n  class=\"fixed top-3 left-3 z-50 inline-flex h-9 -translate-y-16 items-center rounded-md bg-background px-3 text-sm font-medium shadow-md outline-none ring-ring/50 transition-transform focus:translate-y-0 focus-visible:ring-3\"\n>\n  {label}\n</a>\n"
+    }
+  ]
+}

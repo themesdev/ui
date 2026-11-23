@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "json-ld",
+  "type": "registry:item",
+  "title": "JSON-LD (Astro)",
+  "description": "Structured data as JSON-LD, with helpers for Organization, WebSite, Article, BreadcrumbList, FAQPage and Product.",
+  "author": "themes.dev",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "components/JsonLd.astro",
+      "type": "registry:file",
+      "target": "src/kit/components/JsonLd.astro",
+      "content": "---\n// Structured data (schema.org) as JSON-LD. \"<\" is escaped, so a value can't close the script tag. Build the objects\n// with the helpers in lib/schema.ts: <JsonLd data={article({ … })} />. Pass an array for several.\ninterface Props {\n  data: Record<string, unknown> | Record<string, unknown>[];\n}\nconst { data } = Astro.props;\nconst list = Array.isArray(data) ? data : [data];\n---\n\n{list.map((d) => <script type=\"application/ld+json\" is:inline set:html={JSON.stringify(d).replace(/</g, '\\\\u003c')} />)}\n"
+    },
+    {
+      "path": "lib/schema.ts",
+      "type": "registry:file",
+      "target": "src/kit/lib/schema.ts",
+      "content": "// schema.org objects for <JsonLd>: small functions that return plain objects, so you can add any field schema.org\n// has. URLs may be root-relative when you pass `site` (Astro.site).\ntype Obj = Record<string, unknown>;\nconst ctx = 'https://schema.org';\nconst abs = (href: string, site?: URL | string) => (site ? new URL(href, site).href : href);\n\nexport function organization(o: { name: string; url: string; logo?: string; sameAs?: string[] }): Obj {\n  return { '@context': ctx, '@type': 'Organization', name: o.name, url: o.url, ...(o.logo && { logo: o.logo }), ...(o.sameAs?.length && { sameAs: o.sameAs }) };\n}\n\nexport function website(o: { name: string; url: string; search?: string }): Obj {\n  return {\n    '@context': ctx,\n    '@type': 'WebSite',\n    name: o.name,\n    url: o.url,\n    ...(o.search && { potentialAction: { '@type': 'SearchAction', target: `${o.search}{search_term_string}`, 'query-input': 'required name=search_term_string' } }),\n  };\n}\n\nexport function article(o: { title: string; description?: string; url: string; image?: string; published: Date; modified?: Date; author?: { name: string; url?: string }; publisher?: Obj }): Obj {\n  return {\n    '@context': ctx,\n    '@type': 'Article',\n    headline: o.title,\n    ...(o.description && { description: o.description }),\n    url: o.url,\n    mainEntityOfPage: { '@type': 'WebPage', '@id': o.url },\n    ...(o.image && { image: o.image }),\n    datePublished: o.published.toISOString(),\n    dateModified: (o.modified ?? o.published).toISOString(),\n    ...(o.author && { author: { '@type': 'Person', ...o.author } }),\n    ...(o.publisher && { publisher: o.publisher }),\n  };\n}\n\nexport function breadcrumbList(items: { name: string; href: string }[], site?: URL | string): Obj {\n  return { '@context': ctx, '@type': 'BreadcrumbList', itemListElement: items.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: abs(c.href, site) })) };\n}\n\nexport function faqPage(items: { question: string; answer: string }[]): Obj {\n  return { '@context': ctx, '@type': 'FAQPage', mainEntity: items.map((q) => ({ '@type': 'Question', name: q.question, acceptedAnswer: { '@type': 'Answer', text: q.answer } })) };\n}\n\nexport function product(o: { name: string; description?: string; image?: string; url: string; price: number; currency: string; availability?: 'InStock' | 'OutOfStock' | 'PreOrder' }): Obj {\n  return {\n    '@context': ctx,\n    '@type': 'Product',\n    name: o.name,\n    ...(o.description && { description: o.description }),\n    ...(o.image && { image: o.image }),\n    url: o.url,\n    offers: { '@type': 'Offer', price: o.price.toFixed(2), priceCurrency: o.currency, availability: `https://schema.org/${o.availability ?? 'InStock'}`, url: o.url },\n  };\n}\n"
+    }
+  ]
+}

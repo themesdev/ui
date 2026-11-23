@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumbs",
+  "type": "registry:item",
+  "title": "Breadcrumbs (Astro)",
+  "description": "Where the page sits, as links, with the BreadcrumbList structured data. The current page carries aria-current.",
+  "author": "themes.dev",
+  "license": "MIT",
+  "registryDependencies": [
+    "https://www.themes.dev/astro/r/json-ld.json"
+  ],
+  "files": [
+    {
+      "path": "components/Breadcrumbs.astro",
+      "type": "registry:file",
+      "target": "src/kit/components/Breadcrumbs.astro",
+      "content": "---\n// Where this page sits, as links, with the BreadcrumbList structured data for search results. The last item is the\n// current page: it is not a link and carries aria-current.\n// <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blog/' }, { name: post.title, href: Astro.url.pathname }]} />\nimport JsonLd from './JsonLd.astro';\nimport { breadcrumbList } from '../lib/schema';\n\ninterface Props {\n  items: { name: string; href: string }[];\n  /** Leave the structured data out (when the layout already prints it). */\n  schema?: boolean;\n  label?: string;\n  class?: string;\n}\nconst { items, schema = true, label = 'Breadcrumb', class: className } = Astro.props;\n---\n\n<nav aria-label={label} class:list={['text-sm', className]}>\n  <ol class=\"flex flex-wrap items-center gap-1.5 text-muted-foreground\">\n    {\n      items.map((c, i) => {\n        const last = i === items.length - 1;\n        return (\n          <li class=\"inline-flex items-center gap-1.5\">\n            {last ? (\n              <span aria-current=\"page\" class=\"font-medium text-foreground\">{c.name}</span>\n            ) : (\n              <>\n                <a href={c.href} class=\"rounded-sm transition-colors outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50\">{c.name}</a>\n                <svg aria-hidden=\"true\" viewBox=\"0 0 16 16\" class=\"size-3.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"m6 4 4 4-4 4\" /></svg>\n              </>\n            )}\n          </li>\n        );\n      })\n    }\n  </ol>\n</nav>\n{schema && <JsonLd data={breadcrumbList(items, Astro.site ?? Astro.url)} />}\n"
+    }
+  ]
+}

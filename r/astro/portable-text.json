@@ -1,0 +1,48 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "portable-text",
+  "type": "registry:item",
+  "title": "Portable Text (Astro)",
+  "description": "Sanity's Portable Text as HTML through astro-portabletext, with headings that carry ids, links, images and code blocks.",
+  "author": "themes.dev",
+  "license": "MIT",
+  "dependencies": [
+    "astro-portabletext"
+  ],
+  "registryDependencies": [
+    "https://www.themes.dev/astro/r/toc.json",
+    "https://www.themes.dev/astro/r/code-block.json"
+  ],
+  "files": [
+    {
+      "path": "components/PortableText.astro",
+      "type": "registry:file",
+      "target": "src/kit/components/PortableText.astro",
+      "content": "---\n// Sanity's Portable Text as HTML, through astro-portabletext (the renderer Sanity recommends for Astro), with our\n// parts for headings (with ids for <Toc>), links, images and code. Wrap it in <Prose> for the type.\n// <PortableText value={post.body} />\n// Images: the GROQ projection should give each image block { src, alt, width?, height? }, as the post model's query\n// does: body[]{ ..., _type == \"image\" => { \"src\": asset->url, alt, \"width\": asset->metadata.dimensions.width,\n// \"height\": asset->metadata.dimensions.height } }.\nimport { PortableText as Render } from 'astro-portabletext';\nimport Heading from './pt/Heading.astro';\nimport Link from './pt/Link.astro';\nimport PtImage from './pt/Image.astro';\nimport PtCode from './pt/Code.astro';\n\ninterface Props {\n  value: unknown[];\n}\nconst { value } = Astro.props;\n// One slug counter per render, shared with headingsFromPortableText() through the order of the blocks.\n(Astro.locals as Record<string, unknown>).kitSlugs = new Map<string, number>();\n---\n\n<Render\n  value={value as never}\n  components={{\n    block: { h2: Heading, h3: Heading, h4: Heading },\n    mark: { link: Link },\n    type: { image: PtImage, code: PtCode },\n  }}\n/>\n"
+    },
+    {
+      "path": "components/pt/Heading.astro",
+      "type": "registry:file",
+      "target": "src/kit/components/pt/Heading.astro",
+      "content": "---\n// A Portable Text heading with an id, so <Toc> and shared links can point at it. Same slugs as\n// headingsFromPortableText(): the n-th \"Pricing\" on a page gets \"pricing-n\".\nimport type { Block } from 'astro-portabletext/types';\nimport { blockText, uniqueSlug } from '../../lib/headings';\n\ninterface Props {\n  node: Block;\n}\nconst { node } = Astro.props;\nconst locals = Astro.locals as Record<string, unknown>;\nconst seen = (locals.kitSlugs ??= new Map()) as Map<string, number>;\nconst id = uniqueSlug(blockText(node as never), seen);\nconst Tag = (node.style ?? 'h2') as 'h2' | 'h3' | 'h4';\n---\n\n<Tag id={id}><slot /></Tag>\n"
+    },
+    {
+      "path": "components/pt/Link.astro",
+      "type": "registry:file",
+      "target": "src/kit/components/pt/Link.astro",
+      "content": "---\n// A link mark. Only http(s), mailto, tel and relative links are rendered: anything else (javascript:, data:) from the\n// CMS becomes \"#\". Links to other sites get rel=\"noopener\"; they open in the same tab (people decide that themselves).\nimport type { Mark } from 'astro-portabletext/types';\n\ninterface Props {\n  node: Mark<{ href?: string }>;\n}\nconst raw = (Astro.props.node.markDef?.href ?? '').trim();\nconst base = Astro.site ?? Astro.url;\nlet url: URL | undefined;\ntry {\n  url = new URL(raw, base);\n} catch {}\nconst safe = !!raw && !!url && ['http:', 'https:', 'mailto:', 'tel:'].includes(url.protocol);\nconst href = safe ? raw : '#';\nconst external = safe && /^https?:$/.test(url!.protocol) && url!.origin !== new URL(base).origin;\n---\n\n<a href={href} rel={external ? 'noopener' : undefined}><slot /></a>\n"
+    },
+    {
+      "path": "components/pt/Image.astro",
+      "type": "registry:file",
+      "target": "src/kit/components/pt/Image.astro",
+      "content": "---\n// An image block: { src, alt, width?, height?, caption? } from your GROQ projection. Without a size the browser\n// can't reserve space, so project asset->metadata.dimensions (the post model's query does).\nimport type { TypedObject } from 'astro-portabletext/types';\n\ninterface Props {\n  node: TypedObject & { src?: string; alt?: string; width?: number; height?: number; caption?: string };\n}\nconst { src, alt = '', width, height, caption } = Astro.props.node;\n---\n\n{\n  src && (\n    <figure>\n      <img src={src} alt={alt} width={width} height={height} loading=\"lazy\" decoding=\"async\" />\n      {caption && <figcaption>{caption}</figcaption>}\n    </figure>\n  )\n}\n"
+    },
+    {
+      "path": "components/pt/Code.astro",
+      "type": "registry:file",
+      "target": "src/kit/components/pt/Code.astro",
+      "content": "---\n// A code block from Sanity's code input ({ code, language, filename }), highlighted at build time.\nimport type { TypedObject } from 'astro-portabletext/types';\nimport CodeBlock from '../CodeBlock.astro';\n\ninterface Props {\n  node: TypedObject & { code?: string; language?: string; filename?: string };\n}\nconst { code = '', language, filename } = Astro.props.node;\n---\n\n<CodeBlock code={code} lang={language} filename={filename} />\n"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "site-footer",
+  "title": "Site footer",
+  "description": "Brand and a call-us card, five dense link columns, then trust marks, legal links and an age notice.",
+  "sector": "groceries",
+  "business": "Cellar Row, wine, beer and spirits, 31 shops across Flanders",
+  "composition": "brand and service card over five link columns and a legal bar",
+  "layout": "service-row-columns-legal-bar",
+  "anchor": "list",
+  "shadcn": [
+    "button",
+    "separator"
+  ],
+  "icons": [
+    "Award",
+    "Clock",
+    "Phone",
+    "ShieldCheck",
+    "Star",
+    "Wine"
+  ],
+  "photos": [],
+  "client": false
+}

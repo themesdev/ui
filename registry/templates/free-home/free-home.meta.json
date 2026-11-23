@@ -1,0 +1,26 @@
+{
+  "name": "free-home",
+  "title": "Home page: Holmsound, a car and passenger ferry to four Scottish islands",
+  "page": "home",
+  "sector": "ferry",
+  "business": "Holmsound Ferries, Port Ardlan to the Corran Isles",
+  "tier": "free",
+  "blocks": ["site-header", "hero", "link-card", "pricing", "testimonial", "stats-row", "faq", "newsletter", "site-footer"],
+  "photos": [
+    "/ui/photos/free-home/feature.webp",
+    "/ui/photos/free-home/corran.webp",
+    "/ui/photos/free-home/ulvaig.webp",
+    "/ui/photos/free-home/eskay.webp",
+    "/ui/photos/free-home/little-corran.webp",
+    "/ui/photos/free-home/resident.webp",
+    "/ui/photos/free-home/face.webp",
+    "/ui/photos/free-home/crew.webp",
+    "/ui/photos/free-home/ramp.webp",
+    "/ui/photos/free-home/deck.webp",
+    "/ui/photos/free-home/dusk.webp",
+    "/ui/photos/free-home/desk.webp",
+    "/ui/photos/free-home/winter.webp"
+  ],
+  "client": true,
+  "note": "A ferry's home page: a sailing planner up top, the islands, books of ten crossings, an islander's word, the fleet in figures, questions and the sailing notes."
+}

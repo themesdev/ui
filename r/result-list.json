@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "result-list",
+  "title": "Search results",
+  "description": "An announced count, then ranked results with the address and the match marked in each snippet.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/result-list/result-list.tsx",
+      "type": "registry:ui",
+      "content": "import { Badge } from \"@/components/ui/badge\"\nimport { cn } from \"@/lib/utils\"\n\nexport type Result = { title: string; href: string; path: string; snippet: string; type?: string }\n\nexport type ResultListProps = {\n  query: string\n  results: Result[]\n  className?: string\n}\n\nconst escape = (s: string) => s.replace(/[.*+?^${}()|[\\]\\\\]/g, \"\\\\$&\")\n\n/** Splits a snippet into plain and matched parts, one match per word of the query. */\nfunction parts(snippet: string, query: string) {\n  const words = query.split(/\\s+/).filter(Boolean).map(escape)\n  if (!words.length) return [{ text: snippet, mark: false }]\n  const re = new RegExp(`(${words.join(\"|\")})`, \"gi\")\n  return snippet.split(re).filter(Boolean).map((text, i) => ({ text, mark: i % 2 === 1 }))\n}\n\n/** Search results: an announced count, then ranked results with the match marked in each snippet. */\nexport function ResultList({ query, results, className }: ResultListProps) {\n  return (\n    <section aria-label=\"Search results\" className={cn(\"flex flex-col gap-4\", className)}>\n      <p role=\"status\" className=\"text-sm text-muted-foreground\">\n        {results.length} {results.length === 1 ? \"result\" : \"results\"} for “{query}”\n      </p>\n      <ol className=\"flex flex-col divide-y divide-border\">\n        {results.map((r) => (\n          <li key={r.href} className=\"flex flex-col gap-1.5 py-5 first:pt-0\">\n            <span className=\"flex items-center gap-2 text-xs text-muted-foreground\">\n              {r.type && <Badge variant=\"secondary\">{r.type}</Badge>}\n              <span className=\"truncate\">{r.path}</span>\n            </span>\n            <a href={r.href} className=\"w-fit rounded-sm text-lg font-medium leading-[1.25] text-foreground underline decoration-transparent underline-offset-4 outline-none hover:decoration-foreground focus-visible:ring-3 focus-visible:ring-ring/50\">\n              {r.title}\n            </a>\n            <p className=\"max-w-[65ch] text-sm leading-[1.55] text-muted-foreground\">\n              {parts(r.snippet, query).map((p, k) =>\n                p.mark ? <mark key={k} className=\"rounded-[3px] bg-foreground/10 px-0.5 font-medium text-foreground\">{p.text}</mark> : p.text\n              )}\n            </p>\n          </li>\n        ))}\n      </ol>\n    </section>\n  )\n}\n",
+      "target": "components/ui/result-list.tsx"
+    }
+  ]
+}

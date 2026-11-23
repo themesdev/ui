@@ -1,0 +1,612 @@
+{
+  "items": [
+    {
+      "name": "hero",
+      "kind": "block",
+      "category": "Marketing",
+      "title": "Hero",
+      "description": "The opening section: h1, one sentence, two actions and an install command; compact for an inner page."
+    },
+    {
+      "name": "pricing",
+      "kind": "block",
+      "category": "Marketing",
+      "title": "Pricing",
+      "description": "Plans side by side; the featured plan inverts, an enterprise plan can run as a wide row under them."
+    },
+    {
+      "name": "faq",
+      "kind": "block",
+      "category": "Marketing",
+      "title": "FAQ",
+      "description": "Questions as native details: keyboard, find-in-page and no JavaScript."
+    },
+    {
+      "name": "site-header",
+      "kind": "block",
+      "category": "Navigation",
+      "title": "Site header",
+      "description": "Brand, links and actions, sticky; below 1024px they fold into a Menu panel. Inline or centred."
+    },
+    {
+      "name": "site-footer",
+      "kind": "block",
+      "category": "Navigation",
+      "title": "Site footer",
+      "description": "Brand, link columns and a legal row; on the page or as an inverted band that closes it."
+    },
+    {
+      "name": "newsletter",
+      "kind": "block",
+      "category": "Forms",
+      "title": "Newsletter signup",
+      "description": "A heading, an email field with its button attached and a note on how often you send."
+    },
+    {
+      "name": "contact-form",
+      "kind": "block",
+      "category": "Forms",
+      "title": "Contact form",
+      "description": "Name, email, topic and message on Field: labels, help and server errors wired to their controls, native validation."
+    },
+    {
+      "name": "logo-strip",
+      "kind": "block",
+      "category": "Marketing",
+      "title": "Logo strip",
+      "description": "One line on who uses it, then the logos at one height and one colour, in rows that wrap evenly."
+    },
+    {
+      "name": "login-form",
+      "kind": "block",
+      "category": "Forms",
+      "title": "Login form",
+      "description": "Email and password with autocomplete hints, a show/hide toggle, keep me signed in, reset and sign-up links. The full auth flow is in Flightdeck."
+    },
+    {
+      "name": "breadcrumb-trail",
+      "kind": "block",
+      "category": "Navigation",
+      "title": "Breadcrumb trail",
+      "description": "A home icon and the levels on one line with chevrons; a long current page truncates instead of wrapping."
+    },
+    {
+      "name": "card-carousel",
+      "kind": "block",
+      "category": "Display",
+      "title": "Card carousel",
+      "description": "A row of image cards with a title, a line and a link that scrolls sideways; Previous and Next turn off at the ends."
+    },
+    {
+      "name": "comparison-table",
+      "kind": "block",
+      "category": "Marketing",
+      "title": "Comparison table",
+      "description": "Your product against its alternatives, one column each with ticks; your column drawn out, the head held while the rows scroll, in a scroll box of its own."
+    },
+    {
+      "name": "header-bar",
+      "kind": "block",
+      "category": "Navigation",
+      "title": "Header bar",
+      "description": "Brand, a row of links and one primary button; under 672px of its own width the links fold into a Menu disclosure (Escape closes it)."
+    },
+    {
+      "name": "lift-card",
+      "kind": "block",
+      "category": "Marketing",
+      "title": "Lift cards",
+      "description": "Two or three cards with icon, title and text; on hover and focus the card lifts and the arrow slides; the whole card is one link."
+    },
+    {
+      "name": "link-card",
+      "kind": "block",
+      "category": "Marketing",
+      "title": "Link cards",
+      "description": "Cards that each lead to a collection: icon, title, one line and an arrow that moves on hover; the whole card is one link."
+    },
+    {
+      "name": "plain-tiles",
+      "kind": "block",
+      "category": "Marketing",
+      "title": "Plain tiles",
+      "description": "A heading and two lines of text on a quiet surface, nothing else; three across, stacked on narrow widths."
+    },
+    {
+      "name": "split-card",
+      "kind": "block",
+      "category": "Display",
+      "title": "Split card",
+      "description": "A card with a photo on one side and a heading, a short text and a primary button on the other; the photo goes on top on a narrow card."
+    },
+    {
+      "name": "feature-grid",
+      "kind": "block",
+      "category": "Marketing",
+      "title": "Feature grid",
+      "description": "A section header and three to six features in open columns: a bare icon, a title, a line and an optional link. No cards, no icon tiles."
+    },
+    {
+      "name": "call-to-action",
+      "kind": "block",
+      "category": "Marketing",
+      "title": "Call to action",
+      "description": "One heading, one line and one or two buttons, centred on an inverted panel: the closing ask before the footer."
+    },
+    {
+      "name": "stats-row",
+      "kind": "block",
+      "category": "Marketing",
+      "title": "Stats row",
+      "description": "A section header and three or four figures in a row, each a large value over its label; a description list with tabular numerals."
+    },
+    {
+      "name": "testimonial",
+      "kind": "block",
+      "category": "Marketing",
+      "title": "Testimonial",
+      "description": "One quote, large, with the person under it: a face, their name and their role. Initials stand in when there is no photo."
+    },
+    {
+      "name": "post-grid",
+      "kind": "block",
+      "category": "Marketing",
+      "title": "Post grid",
+      "description": "The latest blog posts as story cards, picture on top, under a section header with a link to every post; page links on an index. No card ends a row alone."
+    },
+    {
+      "name": "changelog-list",
+      "kind": "block",
+      "category": "Marketing",
+      "title": "Changelog list",
+      "description": "Releases newest first: the date and version beside the title, black and white tags and a line; a link to the full changelog and page links."
+    },
+    {
+      "name": "button",
+      "kind": "ui",
+      "category": "Actions",
+      "title": "Button",
+      "description": "An action, or a link that looks like one: variants, sizes, an icon, a loading state.",
+      "shadcn": "button"
+    },
+    {
+      "name": "badge",
+      "kind": "ui",
+      "category": "Display",
+      "title": "Badge",
+      "description": "A short status or count next to text: default, secondary, outline, destructive.",
+      "shadcn": "badge"
+    },
+    {
+      "name": "input",
+      "kind": "ui",
+      "category": "Forms",
+      "title": "Input",
+      "description": "A text field with a focus ring, a disabled state and an invalid state.",
+      "shadcn": "input"
+    },
+    {
+      "name": "textarea",
+      "kind": "ui",
+      "category": "Forms",
+      "title": "Textarea",
+      "description": "A multi-line field for a message or a note.",
+      "shadcn": "textarea"
+    },
+    {
+      "name": "label",
+      "kind": "ui",
+      "category": "Forms",
+      "title": "Label",
+      "description": "The visible name of a field, tied to its control.",
+      "shadcn": "label"
+    },
+    {
+      "name": "field",
+      "kind": "ui",
+      "category": "Forms",
+      "title": "Field",
+      "description": "A label, a control, help and the error, wired together with aria-describedby and aria-invalid.",
+      "shadcn": "field"
+    },
+    {
+      "name": "checkbox",
+      "kind": "ui",
+      "category": "Forms",
+      "title": "Checkbox",
+      "description": "On or off for one option, with a label you can click and a disabled state.",
+      "shadcn": "checkbox"
+    },
+    {
+      "name": "switch",
+      "kind": "ui",
+      "category": "Forms",
+      "title": "Switch",
+      "description": "An on/off setting that applies at once.",
+      "shadcn": "switch"
+    },
+    {
+      "name": "card",
+      "kind": "ui",
+      "category": "Layout",
+      "title": "Card",
+      "description": "A panel with a header, content and a footer, for settings, summaries and plans.",
+      "shadcn": "card"
+    },
+    {
+      "name": "separator",
+      "kind": "ui",
+      "category": "Layout",
+      "title": "Separator",
+      "description": "A hairline between groups, horizontal or vertical.",
+      "shadcn": "separator"
+    },
+    {
+      "name": "alert",
+      "kind": "ui",
+      "category": "Feedback",
+      "title": "Alert",
+      "description": "A message on the page: a title, a line and an icon, neutral or destructive.",
+      "shadcn": "alert"
+    },
+    {
+      "name": "kbd",
+      "kind": "ui",
+      "category": "Display",
+      "title": "Kbd",
+      "description": "A keyboard key or a shortcut of several keys.",
+      "shadcn": "kbd"
+    },
+    {
+      "name": "avatar",
+      "kind": "ui",
+      "category": "Display",
+      "title": "Avatar",
+      "description": "A face, with initials when the photo is missing; in a row as a group.",
+      "shadcn": "avatar"
+    },
+    {
+      "name": "tabs",
+      "kind": "ui",
+      "category": "Navigation",
+      "title": "Tabs",
+      "description": "Panels behind a row of tabs, arrow keys between them.",
+      "shadcn": "tabs"
+    },
+    {
+      "name": "dialog",
+      "kind": "ui",
+      "category": "Overlays",
+      "title": "Dialog",
+      "description": "A modal that keeps focus inside, closes on Escape and returns focus to its trigger.",
+      "shadcn": "dialog"
+    },
+    {
+      "name": "dropdown-menu",
+      "kind": "ui",
+      "category": "Overlays",
+      "title": "Dropdown menu",
+      "description": "A menu behind a button: items with icons and shortcuts, checkbox items and groups.",
+      "shadcn": "dropdown-menu"
+    },
+    {
+      "name": "select",
+      "kind": "ui",
+      "category": "Forms",
+      "title": "Select",
+      "description": "The native select, styled: groups, a placeholder and disabled options, no JavaScript.",
+      "shadcn": "native-select"
+    },
+    {
+      "name": "tooltip",
+      "kind": "ui",
+      "category": "Overlays",
+      "title": "Tooltip",
+      "description": "A short label on hover and keyboard focus.",
+      "shadcn": "tooltip"
+    },
+    {
+      "name": "toast",
+      "kind": "ui",
+      "category": "Feedback",
+      "title": "Toast",
+      "description": "Short confirmations that appear and leave on their own, with an action to undo.",
+      "shadcn": "sonner"
+    },
+    {
+      "name": "radio-group",
+      "kind": "ui",
+      "category": "Forms",
+      "title": "Radio group",
+      "description": "One choice from a few, with hints under each option; arrow keys choose.",
+      "shadcn": "radio-group"
+    },
+    {
+      "name": "pagination",
+      "kind": "ui",
+      "category": "Navigation",
+      "title": "Pagination",
+      "description": "Page links with Previous and Next, the current page marked and gaps where pages are skipped.",
+      "shadcn": "pagination"
+    },
+    {
+      "name": "breadcrumb",
+      "kind": "ui",
+      "category": "Navigation",
+      "title": "Breadcrumb",
+      "description": "Where the page sits: the levels as links, separators, a collapsed middle and the current page.",
+      "shadcn": "breadcrumb"
+    },
+    {
+      "name": "skeleton",
+      "kind": "ui",
+      "category": "Feedback",
+      "title": "Skeleton",
+      "description": "A placeholder in the shape of the content while it loads.",
+      "shadcn": "skeleton"
+    },
+    {
+      "name": "table",
+      "kind": "ui",
+      "category": "Data",
+      "title": "Table",
+      "description": "Rows and columns with a caption, a header and a footer, right-aligned numbers.",
+      "shadcn": "table"
+    },
+    {
+      "name": "accordion",
+      "kind": "ui",
+      "category": "Layout",
+      "title": "Accordion",
+      "description": "Sections that open one at a time or together, with the keyboard model and a height animation.",
+      "shadcn": "accordion"
+    },
+    {
+      "name": "progress",
+      "kind": "ui",
+      "category": "Feedback",
+      "title": "Progress",
+      "description": "How far along a task is, as a bar with its value read out.",
+      "shadcn": "progress"
+    },
+    {
+      "name": "slider",
+      "kind": "ui",
+      "category": "Forms",
+      "title": "Slider",
+      "description": "A value or a range on a track, with arrow keys and the value shown.",
+      "shadcn": "slider"
+    },
+    {
+      "name": "popover",
+      "kind": "ui",
+      "category": "Overlays",
+      "title": "Popover",
+      "description": "A panel next to its trigger for a short form or details; Escape and outside clicks close it.",
+      "shadcn": "popover"
+    },
+    {
+      "name": "command-menu",
+      "kind": "ui",
+      "category": "Overlays",
+      "title": "Command menu",
+      "description": "A command palette: type to filter, arrows and Enter, grouped commands and shortcuts.",
+      "shadcn": "command"
+    },
+    {
+      "name": "search-field",
+      "kind": "ui",
+      "category": "Forms",
+      "title": "Search field",
+      "description": "A search input in a role=search form, with a / shortcut and a clear button."
+    },
+    {
+      "name": "sidebar-nav",
+      "kind": "ui",
+      "category": "Navigation",
+      "title": "Sidebar navigation",
+      "description": "A docs sidebar: groups of links, the current page marked, collapsible groups on native details."
+    },
+    {
+      "name": "drawer",
+      "kind": "ui",
+      "category": "Overlays",
+      "title": "Drawer",
+      "description": "A side sheet for filters, a cart or details: slides in from its edge, focus stays inside.",
+      "shadcn": "sheet"
+    },
+    {
+      "name": "link-list",
+      "kind": "ui",
+      "category": "Navigation",
+      "title": "Link list",
+      "description": "Links as rows with a line under the title and a chevron; the whole row is the target."
+    },
+    {
+      "name": "empty-state",
+      "kind": "ui",
+      "category": "Feedback",
+      "title": "Empty state",
+      "description": "Nothing here yet, or no results: an icon, what is going on and what to do next.",
+      "shadcn": "empty"
+    },
+    {
+      "name": "tag",
+      "kind": "ui",
+      "category": "Display",
+      "title": "Tag",
+      "description": "A topic or an active filter: static, a link, or removable with focus moving to the next tag."
+    },
+    {
+      "name": "filter-bar",
+      "kind": "ui",
+      "category": "Data",
+      "title": "Filter bar",
+      "description": "Toggle chips, a sort select and a live result count; Clear turns every filter off."
+    },
+    {
+      "name": "filter-sheet",
+      "kind": "ui",
+      "category": "Data",
+      "title": "Filter sheet",
+      "description": "The Filters button of a phone layout: the active count on the button, checkbox groups in a side sheet, Clear all and Show results."
+    },
+    {
+      "name": "steps",
+      "kind": "ui",
+      "category": "Navigation",
+      "title": "Steps",
+      "description": "Progress through a flow: done, current (aria-current=step) and to come; horizontal when there is room."
+    },
+    {
+      "name": "quantity",
+      "kind": "ui",
+      "category": "Forms",
+      "title": "Quantity",
+      "description": "Minus, a number field and plus as one control; the buttons turn off at the ends."
+    },
+    {
+      "name": "code-block",
+      "kind": "ui",
+      "category": "Display",
+      "title": "Code block",
+      "description": "Code with a filename bar and Copy, in a focusable scroll box that shades its edges."
+    },
+    {
+      "name": "carousel",
+      "kind": "ui",
+      "category": "Display",
+      "title": "Carousel",
+      "description": "A swipeable row with Previous and Next that turn off at the ends, keyboard included. No autoplay.",
+      "shadcn": "carousel"
+    },
+    {
+      "name": "date-field",
+      "kind": "ui",
+      "category": "Forms",
+      "title": "Date field",
+      "description": "The native date input in the field style, or a from–to range that keeps the end after the start."
+    },
+    {
+      "name": "toolbar",
+      "kind": "ui",
+      "category": "Actions",
+      "title": "Toolbar",
+      "description": "A row of controls that is one Tab stop; arrows move. Toggle buttons, and a \"Was this helpful?\" variant."
+    },
+    {
+      "name": "copy-button",
+      "kind": "ui",
+      "category": "Actions",
+      "title": "Copy button",
+      "description": "Copies a value, an element's text or a whole page (its markdown), then says Copied for a moment."
+    },
+    {
+      "name": "read-aloud",
+      "kind": "ui",
+      "category": "Actions",
+      "title": "Read aloud",
+      "description": "Listen to an article: the browser's own speech reads it, with pause, resume and stop. Nothing leaves the page."
+    },
+    {
+      "name": "language-switcher",
+      "kind": "ui",
+      "category": "Navigation",
+      "title": "Language switcher",
+      "description": "The page in other languages as links with lang and hreflang, behind one button; the current one is marked."
+    },
+    {
+      "name": "toc",
+      "kind": "ui",
+      "category": "Navigation",
+      "title": "On this page",
+      "description": "A page's sections as links; the one you are reading is marked while you scroll."
+    },
+    {
+      "name": "link",
+      "kind": "ui",
+      "category": "Actions",
+      "title": "Link",
+      "description": "Inline in text, standalone with an arrow, or external with an arrow out and a new-tab note for screen readers."
+    },
+    {
+      "name": "icon",
+      "kind": "ui",
+      "category": "Display",
+      "title": "Icons",
+      "description": "Lucide, the icon set shadcn/ui draws with: a stroke, a size, a label when they stand alone.",
+      "shadcn": "lucide-react"
+    },
+    {
+      "name": "bar-chart",
+      "kind": "ui",
+      "category": "Data",
+      "title": "Bar chart",
+      "description": "Columns with their values on top and labels under them; the same data in a table for screen readers."
+    },
+    {
+      "name": "video-player",
+      "kind": "ui",
+      "category": "Media",
+      "title": "Video player",
+      "description": "A poster with one Play button; native controls and captions once it plays. Nothing plays by itself."
+    },
+    {
+      "name": "map-embed",
+      "kind": "ui",
+      "category": "Media",
+      "title": "Map",
+      "description": "A location whose map loads from OpenStreetMap only when asked; the address works as a link without it."
+    },
+    {
+      "name": "story-card",
+      "kind": "ui",
+      "category": "Display",
+      "title": "Story card",
+      "description": "Picture, kicker, the title as the one link, a line and the meta; standard, compact, wide and feature."
+    },
+    {
+      "name": "section-header",
+      "kind": "ui",
+      "category": "Layout",
+      "title": "Section header",
+      "description": "The head of a page section: a kicker in words, the heading, a line or two and an optional action."
+    },
+    {
+      "name": "segmented",
+      "kind": "ui",
+      "category": "Forms",
+      "title": "Segmented control",
+      "description": "A single-choice toggle group drawn as one track, like a monthly/yearly switch.",
+      "shadcn": "toggle-group"
+    },
+    {
+      "name": "result-list",
+      "kind": "ui",
+      "category": "Data",
+      "title": "Search results",
+      "description": "An announced count, then ranked results with the address and the match marked in each snippet."
+    },
+    {
+      "name": "announcement",
+      "kind": "ui",
+      "category": "Feedback",
+      "title": "Announcement bar",
+      "description": "One line at the top of the site on an inverted ground, a read-more link and a close button."
+    }
+  ],
+  "templates": [
+    {
+      "name": "free-home",
+      "category": "Templates",
+      "title": "Home page",
+      "description": "A whole home page from nine free blocks, filled in for a car and passenger ferry: a sailing planner up top, the islands, books of ten crossings, an islander's word, the fleet in figures, questions and the sailing notes."
+    },
+    {
+      "name": "free-sign-in",
+      "category": "Templates",
+      "title": "Sign-in page",
+      "description": "A whole sign-in page from the login-form block, filled in for a sailing school: the card with other ways in beside it, the sailing office's number and today's sailing conditions."
+    }
+  ]
+}

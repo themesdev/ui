@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip",
+  "title": "Tooltip",
+  "description": "A short label on hover and keyboard focus.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "tooltip"
+  ],
+  "files": []
+}

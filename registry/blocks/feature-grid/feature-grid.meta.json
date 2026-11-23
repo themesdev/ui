@@ -1,0 +1,28 @@
+{
+  "name": "feature-grid",
+  "title": "Feature grid",
+  "description": "Centred heading over a bento of muted tiles, each with a small product view; one large insight tile and a photo tile.",
+  "sector": "ai",
+  "business": "Siftnote, AI research notebook for user-research teams",
+  "composition": "centred header, four-column bento with a 2x2 lead tile",
+  "layout": "bento grid, 9 tiles",
+  "anchor": "cards",
+  "shadcn": [
+    "badge",
+    "button",
+    "progress",
+    "switch"
+  ],
+  "icons": [
+    "ArrowRight",
+    "FileText",
+    "Lock",
+    "Quote",
+    "Search",
+    "Sparkles"
+  ],
+  "photos": [
+    "/ui/photos/feature-grid/session.webp"
+  ],
+  "client": false
+}

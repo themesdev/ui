@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb-trail",
+  "title": "Breadcrumb trail",
+  "description": "A home icon and chevron levels on one line above a category title; on a phone the middle folds, the last truncates.",
+  "author": "themes.dev",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "breadcrumb"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/breadcrumb-trail/breadcrumb-trail.tsx",
+      "type": "registry:component",
+      "content": "import { ChevronRight, House } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\nimport {\n  Breadcrumb,\n  BreadcrumbEllipsis,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n} from \"@/components/ui/breadcrumb\"\n\nexport type Crumb = { label: string; href?: string }\n\nexport type BreadcrumbTrailProps = {\n  /** Home first, the current page last. On a phone the levels between home and the parent fold into an ellipsis. */\n  items: Crumb[]\n}\n\nexport const breadcrumbTrailDefaults: BreadcrumbTrailProps = {\n  items: [\n    { label: \"Home\", href: \"#\" },\n    { label: \"Vitamins and supplements\", href: \"#supplements\" },\n    { label: \"Vitamins\", href: \"#vitamins\" },\n    { label: \"Vitamin D\", href: \"#vitamin-d\" },\n    { label: \"Vitamin D3 for adults\" },\n  ],\n}\n\nconst link =\n  \"inline-flex h-7 items-center rounded-sm text-muted-foreground outline-none hover:text-foreground hover:underline hover:underline-offset-4 focus-visible:ring-3 focus-visible:ring-ring/50\"\n\n/** A home icon and the levels on one line with chevrons; a long current page truncates instead of wrapping. */\nexport function BreadcrumbTrail(props: Partial<BreadcrumbTrailProps>) {\n  const c = { ...breadcrumbTrailDefaults, ...props }\n  const last = c.items.length - 1\n  const folds = last > 2\n  return (\n    <Breadcrumb aria-label=\"Breadcrumb\" className=\"min-w-0\">\n      <BreadcrumbList className=\"flex-nowrap gap-1.5 text-[14px] leading-[1.25] sm:gap-2\">\n        {c.items.map((item, i) => {\n          const hideOnPhone = folds && i > 0 && i < last - 1\n          return [\n            i === 1 && folds ? (\n              <BreadcrumbItem key=\"fold\" className=\"sm:hidden\">\n                <BreadcrumbEllipsis className=\"size-7 text-muted-foreground\" />\n              </BreadcrumbItem>\n            ) : null,\n            i === 1 && folds ? <BreadcrumbSeparator key=\"fold-sep\" className=\"text-muted-foreground/70 sm:hidden\">\n                <ChevronRight className=\"size-4\" />\n              </BreadcrumbSeparator> : null,\n            <BreadcrumbItem key={`i${i}`} className={cn(hideOnPhone && \"hidden sm:inline-flex\", i === last ? \"min-w-0\" : \"shrink-0\")}>\n              {i === last ? (\n                <BreadcrumbPage className=\"truncate font-medium\">{item.label}</BreadcrumbPage>\n              ) : i === 0 ? (\n                <BreadcrumbLink href={item.href ?? \"#\"} className={cn(link, \"size-7 justify-center\")}>\n                  <House className=\"size-[18px]\" aria-hidden />\n                  <span className=\"sr-only\">{item.label}</span>\n                </BreadcrumbLink>\n              ) : (\n                <BreadcrumbLink href={item.href ?? \"#\"} className={cn(link, \"whitespace-nowrap\")}>\n                  {item.label}\n                </BreadcrumbLink>\n              )}\n            </BreadcrumbItem>,\n            i < last ? (\n              <BreadcrumbSeparator key={`s${i}`} className={cn(\"text-muted-foreground/70\", hideOnPhone && \"hidden sm:inline-flex\")}>\n                <ChevronRight className=\"size-4\" />\n              </BreadcrumbSeparator>\n            ) : null,\n          ]\n        })}\n      </BreadcrumbList>\n    </Breadcrumb>\n  )\n}\n",
+      "target": "components/blocks/breadcrumb-trail.tsx"
+    }
+  ]
+}

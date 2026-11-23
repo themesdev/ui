@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "copy-button",
+  "title": "Copy button",
+  "description": "Copies a value, an element's text or a file from your site, then says Copied for a moment, announced to screen readers.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/copy-button/copy-button.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\"\n\nimport { useEffect, useRef, useState } from \"react\"\nimport { CheckIcon, CopyIcon, XIcon } from \"lucide-react\"\nimport { Button } from \"@/components/ui/button\"\nimport { cn } from \"@/lib/utils\"\n\ntype Source =\n  | { value: string; from?: never; url?: never }\n  | { from: string; value?: never; url?: never }\n  | { url: string; value?: never; from?: never }\n\nexport type CopyButtonProps = Source & {\n  /** The label, e.g. \"Copy link\". With size icon it is read out but not shown. */\n  label?: string\n  copiedLabel?: string\n  variant?: \"default\" | \"outline\" | \"secondary\" | \"ghost\"\n  size?: \"default\" | \"sm\" | \"lg\" | \"icon\" | \"icon-sm\" | \"icon-lg\"\n  className?: string\n}\n\nconst fetchText = async (url: string) => {\n  const target = new URL(url, location.href)\n  if (target.origin !== location.origin) throw new Error(\"cross-origin copy url\")\n  const res = await fetch(target, { credentials: \"same-origin\" })\n  if (!res.ok) throw new Error(String(res.status))\n  return res.text()\n}\n\n/** Copies a value, the text of an element (`from`, a CSS selector) or a file from this site (`url`), then says\n *  \"Copied\" for a moment, announced to screen readers. */\nexport function CopyButton({ value, from, url, label = \"Copy\", copiedLabel = \"Copied\", variant = \"outline\", size = \"default\", className }: CopyButtonProps) {\n  const [state, setState] = useState<\"idle\" | \"copied\" | \"failed\">(\"idle\")\n  const timer = useRef<number | undefined>(undefined)\n  useEffect(() => () => window.clearTimeout(timer.current), [])\n  const iconOnly = size === \"icon\" || size === \"icon-sm\" || size === \"icon-lg\"\n\n  const copy = async () => {\n    let ok = true\n    try {\n      const text = url ? await fetchText(url) : from ? (document.querySelector(from)?.textContent ?? \"\").trim() : (value ?? \"\")\n      await navigator.clipboard.writeText(text)\n    } catch {\n      ok = false\n    }\n    setState(ok ? \"copied\" : \"failed\")\n    window.clearTimeout(timer.current)\n    timer.current = window.setTimeout(() => setState(\"idle\"), 1800)\n  }\n\n  const shown = state === \"copied\" ? copiedLabel : state === \"failed\" ? \"Couldn't copy\" : label\n  const Icon = state === \"copied\" ? CheckIcon : state === \"failed\" ? XIcon : CopyIcon\n  return (\n    <>\n      <Button type=\"button\" variant={variant} size={size} data-state={state === \"idle\" ? undefined : state} className={cn(className)} onClick={copy}>\n        <Icon aria-hidden=\"true\" />\n        <span className={iconOnly ? \"sr-only\" : undefined}>{shown}</span>\n      </Button>\n      <span role=\"status\" className=\"sr-only\">\n        {state === \"copied\" ? \"Copied to the clipboard\" : state === \"failed\" ? \"Couldn't copy to the clipboard\" : \"\"}\n      </span>\n    </>\n  )\n}\n",
+      "target": "components/ui/copy-button.tsx"
+    }
+  ]
+}

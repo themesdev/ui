@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "popover",
+  "title": "Popover",
+  "description": "A panel next to its trigger for a short form or details; Escape and outside clicks close it.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "popover"
+  ],
+  "files": []
+}

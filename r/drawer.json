@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "drawer",
+  "title": "Drawer",
+  "description": "A side sheet for filters, a cart or details: slides in from its edge, focus stays inside.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "sheet"
+  ],
+  "files": []
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "link-list",
+  "title": "Link list",
+  "description": "Links as rows with a title, a line and a chevron; the whole row is the target.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/ui/link-list/link-list.tsx",
+      "type": "registry:ui",
+      "content": "import { ChevronRight } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\n\nexport type LinkItem = { title: string; href: string; description?: string }\n\nexport type LinkListProps = {\n  items: LinkItem[]\n  /** Names the list for screen readers when there is no heading right above it. */\n  label?: string\n  className?: string\n}\n\n/** Links as rows with a chevron; the whole row is the target. */\nexport function LinkList({ items, label, className }: LinkListProps) {\n  return (\n    <ul aria-label={label} className={cn(\"divide-y divide-border border-y border-border\", className)}>\n      {items.map((it) => (\n        <li key={it.href + it.title}>\n          <a\n            href={it.href}\n            className=\"group/row flex items-center gap-4 px-3 py-4 outline-none transition-colors hover:bg-muted/50 focus-visible:bg-muted/50 focus-visible:ring-3 focus-visible:ring-inset focus-visible:ring-ring/50\"\n          >\n            <span className=\"flex min-w-0 flex-1 flex-col gap-1\">\n              <span className=\"text-base font-medium leading-[1.25] text-foreground\">{it.title}</span>\n              {it.description && <span className=\"text-sm leading-normal text-muted-foreground\">{it.description}</span>}\n            </span>\n            <ChevronRight aria-hidden=\"true\" className=\"size-4 shrink-0 text-muted-foreground transition-transform group-hover/row:translate-x-0.5 group-hover/row:text-foreground\" />\n          </a>\n        </li>\n      ))}\n    </ul>\n  )\n}\n",
+      "target": "components/ui/link-list.tsx"
+    }
+  ]
+}

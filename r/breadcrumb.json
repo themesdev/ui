@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb",
+  "title": "Breadcrumb",
+  "description": "Where the page sits: the levels as links, separators, a collapsed middle and the current page.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "breadcrumb"
+  ],
+  "files": []
+}

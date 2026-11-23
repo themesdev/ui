@@ -1,0 +1,1 @@
+{"name":"language-switcher","title":"Language switcher","description":"The page's other languages as links with lang and hreflang behind one button; the current one is marked.","category":"Navigation","shadcn":["button"],"npm":["lucide-react"],"client":true}

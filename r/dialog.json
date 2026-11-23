@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog",
+  "title": "Dialog",
+  "description": "A modal that keeps focus inside, closes on Escape and returns focus to its trigger.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "dialog"
+  ],
+  "files": []
+}

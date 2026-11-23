@@ -1,0 +1,19 @@
+{
+  "name": "breadcrumb-trail",
+  "title": "Breadcrumb trail",
+  "description": "A home icon and chevron levels on one line above a category title; on a phone the middle folds, the last truncates.",
+  "sector": "health",
+  "business": "Elmbrook, vitamins and natural care shops",
+  "composition": "breadcrumb above page title and product count",
+  "layout": "chevron-trail",
+  "anchor": "type",
+  "shadcn": [
+    "breadcrumb"
+  ],
+  "icons": [
+    "ChevronRight",
+    "House"
+  ],
+  "photos": [],
+  "client": false
+}

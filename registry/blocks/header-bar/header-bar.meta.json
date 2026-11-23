@@ -1,0 +1,23 @@
+{
+  "name": "header-bar",
+  "title": "Header bar",
+  "description": "A slim docs bar: mark, centred section tabs with the current one in a pill, Blog and a dark Console button.",
+  "sector": "developer-tools",
+  "business": "Ferrite, a vector database API hosted in Frankfurt",
+  "composition": "compact docs top bar over sidebar and content",
+  "layout": "centred-pill-tabs",
+  "anchor": "type",
+  "shadcn": [
+    "badge",
+    "button"
+  ],
+  "icons": [
+    "ChevronRight",
+    "Magnet",
+    "Menu",
+    "Search",
+    "X"
+  ],
+  "photos": [],
+  "client": true
+}

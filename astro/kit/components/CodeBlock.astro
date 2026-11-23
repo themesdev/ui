@@ -1,0 +1,66 @@
+---
+// Code highlighted at build time (Shiki, through Astro's <Code>), with an optional file name and a copy button. The
+// colours come from Shiki's two built-in GitHub themes, light and dark, switched by the "dark" class on <html>.
+// <CodeBlock code={source} lang="ts" filename="astro.config.mjs" />
+import { Code } from 'astro:components';
+
+interface Props {
+  code: string;
+  lang?: string;
+  filename?: string;
+  copyLabel?: string;
+  class?: string;
+}
+const { code, lang = 'plaintext', filename, copyLabel = 'Copy code', class: className } = Astro.props;
+---
+
+<figure class:list={['kit-code not-prose overflow-hidden rounded-xl border bg-card text-card-foreground', className]}>
+  <figcaption class="flex h-11 items-center gap-3 border-b bg-muted/40 pr-1.5 pl-4">
+    <span class="min-w-0 flex-1 truncate font-mono text-sm">{filename ?? lang}</span>
+    <button
+      type="button"
+      data-kit-copy={code}
+      aria-label={copyLabel}
+      class="inline-flex size-9 items-center justify-center rounded-md text-muted-foreground outline-none transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
+    >
+      <svg data-icon="copy" aria-hidden="true" viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2" /><path d="M5 15V5a2 2 0 0 1 2-2h10" /></svg>
+      <svg data-icon="done" aria-hidden="true" viewBox="0 0 24 24" class="hidden size-4" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7" /></svg>
+      <span role="status" class="sr-only"></span>
+    </button>
+  </figcaption>
+  <Code code={code} lang={lang as never} themes={{ light: 'github-light', dark: 'github-dark' }} defaultColor={false} class="overflow-x-auto px-4 py-3 text-sm leading-[1.7]" />
+</figure>
+
+<style is:global>
+  .kit-code pre {
+    background: transparent !important;
+  }
+  .kit-code .shiki span {
+    color: var(--shiki-light);
+  }
+  .dark .kit-code .shiki span {
+    color: var(--shiki-dark);
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-kit-copy]').forEach((button) =>
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.kitCopy ?? '');
+      } catch {
+        return;
+      }
+      const [copy, done] = button.querySelectorAll('svg');
+      const status = button.querySelector('[role=status]')!;
+      copy.classList.add('hidden');
+      done.classList.remove('hidden');
+      status.textContent = 'Copied';
+      setTimeout(() => {
+        copy.classList.remove('hidden');
+        done.classList.add('hidden');
+        status.textContent = '';
+      }, 2000);
+    }),
+  );
+</script>

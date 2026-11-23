@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "call-to-action",
+  "title": "Call to action",
+  "description": "Closing panel with a very large centred title, three pill actions (call, mail, book) and the founders' faces.",
+  "author": "themes.dev",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "avatar",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/call-to-action/call-to-action.tsx",
+      "type": "registry:component",
+      "content": "import { ArrowRight, CalendarDays, Mail, Phone } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/components/ui/avatar\"\nimport { buttonVariants } from \"@/components/ui/button\"\n\nexport type ImageRef = { src: string; alt: string; width: number; height: number }\nexport type LinkRef = { label: string; href: string }\nexport type Person = { name: string; role: string; photo: ImageRef }\n\nexport type CallToActionProps = {\n  kicker: string\n  title: string\n  body: string\n  /** Three ways in: call, mail, book. The last one is the primary. */\n  actions: LinkRef[]\n  people: Person[]\n  /** One line next to the faces: who answers and how fast. */\n  reply: string\n}\n\nexport const callToActionDefaults: CallToActionProps = {\n  kicker: \"Oxbow, brand studio in Bristol\",\n  title: \"Tell us what you are making\",\n  body: \"A new name, a tired identity or a site that no longer fits. Send two lines and we will tell you honestly whether we are the right studio.\",\n  actions: [\n    { label: \"Call 0117 496 0381\", href: \"tel:+441174960381\" },\n    { label: \"Email hello@oxbow.example\", href: \"mailto:hello@oxbow.example\" },\n    { label: \"Book a 30-minute call\", href: \"#book\" },\n  ],\n  people: [\n    {\n      name: \"Maud Ellery\",\n      role: \"Founder, strategy\",\n      photo: {\n        src: \"https://www.themes.dev/ui/photos/call-to-action/maud.webp\",\n        alt: \"Maud Ellery\",\n        width: 192,\n        height: 192,\n      },\n    },\n    {\n      name: \"Tobias Wren\",\n      role: \"Founder, design\",\n      photo: {\n        src: \"https://www.themes.dev/ui/photos/call-to-action/tobias.webp\",\n        alt: \"Tobias Wren\",\n        width: 192,\n        height: 192,\n      },\n    },\n  ],\n  reply: \"Maud or Tobias answers every message within one working day.\",\n}\n\nconst ICONS = [Phone, Mail, CalendarDays]\n\nexport function CallToAction(props: Partial<CallToActionProps>) {\n  const c = { ...callToActionDefaults, ...props }\n  const last = c.actions.length - 1\n\n  return (\n    <section aria-labelledby=\"call-to-action-title\" className=\"bg-background py-20 lg:py-28\">\n      <div className=\"mx-auto max-w-[1280px] px-6 lg:px-10\">\n        <div className=\"rounded-[28px] border bg-muted/40 px-6 py-16 text-center sm:px-10 lg:px-16 lg:py-24\">\n          <p className=\"text-[13px] font-medium tracking-[0.08em] text-muted-foreground uppercase\">{c.kicker}</p>\n          <h2\n            id=\"call-to-action-title\"\n            className=\"mx-auto mt-5 max-w-[14ch] text-[44px] leading-[1.04] font-semibold tracking-[-0.024em] text-balance sm:text-[60px] sm:leading-none sm:tracking-[-0.03em] lg:text-[84px]\"\n          >\n            {c.title}\n          </h2>\n          <p className=\"mx-auto mt-6 max-w-[54ch] text-[17px] leading-[1.5] text-muted-foreground lg:text-[18px]\">{c.body}</p>\n\n          <ul className=\"mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center\">\n            {c.actions.map((a, i) => {\n              const Icon = ICONS[i % ICONS.length]\n              return (\n                <li key={a.href}>\n                  <a\n                    href={a.href}\n                    className={cn(\n                      buttonVariants({ variant: i === last ? \"default\" : \"outline\", size: \"lg\" }),\n                      \"h-12 w-full rounded-full px-6 text-[15px] sm:w-auto\",\n                      i !== last && \"border-foreground/25 bg-background\"\n                    )}\n                  >\n                    <Icon data-icon=\"inline-start\" aria-hidden />\n                    {a.label}\n                    {i === last && <ArrowRight data-icon=\"inline-end\" aria-hidden />}\n                  </a>\n                </li>\n              )\n            })}\n          </ul>\n\n          <div className=\"mt-12 flex flex-col items-center justify-center gap-3 border-t border-foreground/10 pt-8 sm:flex-row sm:gap-4 lg:mx-auto lg:max-w-[720px]\">\n            <div className=\"flex -space-x-3\">\n              {c.people.map((p) => (\n                <Avatar key={p.name} className=\"size-12 ring-4 ring-background\">\n                  <AvatarImage src={p.photo.src} alt={p.photo.alt} width={96} height={96} />\n                  <AvatarFallback>\n                    {p.name\n                      .split(\" \")\n                      .map((w) => w[0])\n                      .join(\"\")}\n                  </AvatarFallback>\n                </Avatar>\n              ))}\n            </div>\n            <p className=\"text-[15px] leading-[1.4] text-muted-foreground\">{c.reply}</p>\n          </div>\n        </div>\n      </div>\n    </section>\n  )\n}\n",
+      "target": "components/blocks/call-to-action.tsx"
+    }
+  ],
+  "meta": {
+    "photos": [
+      "https://www.themes.dev/ui/photos/call-to-action/maud.webp",
+      "https://www.themes.dev/ui/photos/call-to-action/tobias.webp"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "quantity",
+  "title": "Quantity",
+  "description": "Minus, a number field and plus as one control; the buttons turn off at the ends.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/quantity/quantity.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { Minus, Plus } from \"lucide-react\"\nimport { Button } from \"@/components/ui/button\"\nimport { Input } from \"@/components/ui/input\"\nimport { Label } from \"@/components/ui/label\"\nimport { cn } from \"@/lib/utils\"\n\nexport type QuantityProps = {\n  id: string\n  label: string\n  defaultValue: number\n  min?: number\n  max?: number\n  step?: number\n  name?: string\n  onValueChange?: (value: number) => void\n  className?: string\n}\n\n/** Minus, a number field and plus as one control; the buttons turn off at min and max. */\nexport function Quantity({ id, label, defaultValue, min = 0, max, step = 1, name, onValueChange, className }: QuantityProps) {\n  const [v, setV] = useState(defaultValue)\n  const [text, setText] = useState(String(defaultValue))\n  const set = (n: number) => {\n    const c = Number.isFinite(n) ? Math.max(min, max === undefined ? n : Math.min(max, n)) : min\n    setV(c)\n    setText(String(c))\n    onValueChange?.(c)\n  }\n  return (\n    <div className={cn(\"flex flex-col gap-2\", className)}>\n      <Label htmlFor={id}>{label}</Label>\n      <div className=\"inline-flex w-fit items-center\">\n        <Button type=\"button\" variant=\"outline\" size=\"icon-lg\" aria-label={`Fewer: ${label}`} aria-controls={id} disabled={v <= min} onClick={() => set(v - step)} className=\"size-10 rounded-r-none\">\n          <Minus aria-hidden=\"true\" />\n        </Button>\n        <Input\n          type=\"number\"\n          id={id}\n          name={name}\n          value={text}\n          min={min}\n          max={max}\n          step={step}\n          inputMode=\"numeric\"\n          onChange={(e) => {\n            setText(e.target.value)\n            if (e.target.value !== \"\" && Number.isFinite(Number(e.target.value))) setV(Number(e.target.value))\n          }}\n          onBlur={() => set(text === \"\" ? min : Number(text))}\n          className=\"h-10 w-16 -mx-px rounded-none text-center tabular-nums [appearance:textfield] focus-visible:z-10 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none\"\n        />\n        <Button type=\"button\" variant=\"outline\" size=\"icon-lg\" aria-label={`More: ${label}`} aria-controls={id} disabled={max !== undefined && v >= max} onClick={() => set(v + step)} className=\"size-10 rounded-l-none\">\n          <Plus aria-hidden=\"true\" />\n        </Button>\n      </div>\n    </div>\n  )\n}\n",
+      "target": "components/ui/quantity.tsx"
+    }
+  ]
+}

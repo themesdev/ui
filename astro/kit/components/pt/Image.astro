@@ -1,0 +1,19 @@
+---
+// An image block: { src, alt, width?, height?, caption? } from your GROQ projection. Without a size the browser
+// can't reserve space, so project asset->metadata.dimensions (the post model's query does).
+import type { TypedObject } from 'astro-portabletext/types';
+
+interface Props {
+  node: TypedObject & { src?: string; alt?: string; width?: number; height?: number; caption?: string };
+}
+const { src, alt = '', width, height, caption } = Astro.props.node;
+---
+
+{
+  src && (
+    <figure>
+      <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" />
+      {caption && <figcaption>{caption}</figcaption>}
+    </figure>
+  )
+}

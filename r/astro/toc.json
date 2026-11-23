@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toc",
+  "type": "registry:item",
+  "title": "Table of contents (Astro)",
+  "description": "On this page: links to the h2 and h3 of an article, from Markdown headings or Portable Text.",
+  "author": "themes.dev",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "components/Toc.astro",
+      "type": "registry:file",
+      "target": "src/kit/components/Toc.astro",
+      "content": "---\n// \"On this page\": links to the h2 and h3 headings of an article. Pass Markdown's `headings` (from render()) or\n// headingsFromPortableText(body). Renders nothing for fewer than two headings.\n// <Toc headings={headings} />\nimport type { Heading } from '../lib/headings';\n\ninterface Props {\n  headings: Heading[];\n  title?: string;\n  /** The deepest level listed: 3 lists h2 and h3. */\n  depth?: 2 | 3;\n  class?: string;\n}\nconst { title = 'On this page', depth = 3, class: className } = Astro.props;\nconst headings = Astro.props.headings.filter((h) => h.depth >= 2 && h.depth <= depth);\n---\n\n{\n  headings.length >= 2 && (\n    <nav aria-labelledby=\"toc-title\" class:list={['text-sm', className]}>\n      <p id=\"toc-title\" class=\"mb-3 font-semibold\">{title}</p>\n      <ol class=\"flex flex-col gap-2 border-l\">\n        {headings.map((h) => (\n          <li class:list={[h.depth === 3 ? 'pl-7' : 'pl-4']}>\n            <a href={`#${h.slug}`} class=\"-ml-px block border-l border-transparent leading-[1.4] text-muted-foreground transition-colors hover:border-foreground hover:text-foreground\">\n              {h.text}\n            </a>\n          </li>\n        ))}\n      </ol>\n    </nav>\n  )\n}\n"
+    },
+    {
+      "path": "lib/headings.ts",
+      "type": "registry:file",
+      "target": "src/kit/lib/headings.ts",
+      "content": "// Headings for a table of contents. Markdown and MDX give them to you (render() returns `headings`); for Portable\n// Text, headingsFromPortableText() reads the h2 and h3 blocks and gives them the same slugs <PortableText> uses.\nexport interface Heading {\n  depth: number;\n  slug: string;\n  text: string;\n}\n\n/** A URL-safe id from heading text: lower case, accents dropped, words joined by hyphens. */\nexport function slugify(text: string) {\n  return text\n    .normalize('NFKD')\n    .replace(/[̀-ͯ]/g, '')\n    .toLowerCase()\n    .replace(/[^a-z0-9]+/g, '-')\n    .replace(/^-+|-+$/g, '');\n}\n\ntype Block = { _type: string; style?: string; children?: { text?: string }[] };\n\n/** Plain text of a Portable Text block. */\nexport const blockText = (b: Block) => (b.children ?? []).map((c) => c.text ?? '').join('');\n\n/** Unique slugs: a second \"Pricing\" becomes \"pricing-2\". Call with one Map per page. */\nexport function uniqueSlug(text: string, seen: Map<string, number>) {\n  const base = slugify(text) || 'section';\n  const n = (seen.get(base) ?? 0) + 1;\n  seen.set(base, n);\n  return n === 1 ? base : `${base}-${n}`;\n}\n\nexport function headingsFromPortableText(blocks: Block[] = []): Heading[] {\n  const seen = new Map<string, number>();\n  return blocks\n    .filter((b) => b._type === 'block' && (b.style === 'h2' || b.style === 'h3'))\n    .map((b) => {\n      const text = blockText(b);\n      return { depth: b.style === 'h2' ? 2 : 3, slug: uniqueSlug(text, seen), text };\n    });\n}\n"
+    }
+  ]
+}

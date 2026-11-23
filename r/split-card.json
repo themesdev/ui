@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "split-card",
+  "title": "Split card",
+  "description": "One wide card: a tall photo left, then heading, story, a checked list and a pill button with a price line.",
+  "author": "themes.dev",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/split-card/split-card.tsx",
+      "type": "registry:component",
+      "content": "import { ArrowRight, Check } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { buttonVariants } from \"@/components/ui/button\"\nimport { Card } from \"@/components/ui/card\"\n\nexport type ImageRef = { src: string; alt: string; width: number; height: number }\nexport type LinkRef = { label: string; href: string }\n\nexport type SplitCardProps = {\n  kicker: string\n  title: string\n  body: string\n  points: string[]\n  action: LinkRef\n  /** A short line beside the button: the price, a guarantee. */\n  note: string\n  photo: ImageRef\n}\n\nexport const splitCardDefaults: SplitCardProps = {\n  kicker: \"Fairshare Health, Edinburgh\",\n  title: \"Health cover that answers to its members\",\n  body: \"Fairshare has been owned by the people it covers since 1948. There are no shareholders to pay, so what is left at the end of the year goes back into lower premiums and better cover.\",\n  points: [\n    \"New babies covered from birth, with no extra premium in their first year\",\n    \"Physio, mental health and dental in every plan, not as add-ons\",\n    \"Claims paid in four working days on average last year\",\n  ],\n  action: { label: \"Compare our three plans\", href: \"#plans\" },\n  note: \"From £38 a month\",\n  photo: {\n    src: \"https://www.themes.dev/ui/photos/split-card/parent.webp\",\n    alt: \"A father holds his newborn in his arms by a tall window at home.\",\n    width: 800,\n    height: 1067,\n  },\n}\n\nexport function SplitCard(props: Partial<SplitCardProps>) {\n  const c = { ...splitCardDefaults, ...props }\n\n  return (\n    <section aria-labelledby=\"split-card-title\" className=\"bg-background py-20 lg:py-28\">\n      <div className=\"mx-auto max-w-[1200px] px-6 lg:px-10\">\n        <Card className=\"grid gap-0 overflow-hidden rounded-3xl bg-muted/40 p-3 shadow-none ring-0 border border-border sm:p-4 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]\">\n          <img\n            src={c.photo.src}\n            alt={c.photo.alt}\n            width={c.photo.width}\n            height={c.photo.height}\n            loading=\"lazy\"\n            className=\"aspect-[4/3] size-full rounded-2xl object-cover md:aspect-auto md:min-h-[520px]\"\n          />\n          <div className=\"flex flex-col justify-center px-3 pt-8 pb-5 sm:px-6 md:px-10 md:py-12 lg:px-16\">\n            <p className=\"text-[13px] font-medium tracking-[0.08em] text-muted-foreground uppercase\">{c.kicker}</p>\n            <h2\n              id=\"split-card-title\"\n              className=\"mt-4 max-w-[18ch] text-[32px] leading-[1.08] font-semibold tracking-[-0.018em] text-balance lg:text-[44px] lg:leading-[1.04] lg:tracking-[-0.024em]\"\n            >\n              {c.title}\n            </h2>\n            <p className=\"mt-5 max-w-[56ch] text-[17px] leading-[1.5] text-muted-foreground\">{c.body}</p>\n            <ul className=\"mt-7 grid gap-3.5\">\n              {c.points.map((p) => (\n                <li key={p} className=\"flex gap-3 text-[16px] leading-[1.45]\">\n                  <span className=\"mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground\">\n                    <Check className=\"size-3\" strokeWidth={3} aria-hidden />\n                  </span>\n                  {p}\n                </li>\n              ))}\n            </ul>\n            <div className=\"mt-9 flex flex-wrap items-center gap-x-6 gap-y-4\">\n              <a href={c.action.href} className={cn(buttonVariants({ size: \"lg\" }), \"h-12 rounded-full px-6 text-[15px]\")}>\n                {c.action.label}\n                <ArrowRight data-icon=\"inline-end\" aria-hidden />\n              </a>\n              <p className=\"text-[15px] font-medium text-muted-foreground\">{c.note}</p>\n            </div>\n          </div>\n        </Card>\n      </div>\n    </section>\n  )\n}\n",
+      "target": "components/blocks/split-card.tsx"
+    }
+  ],
+  "meta": {
+    "photos": [
+      "https://www.themes.dev/ui/photos/split-card/parent.webp"
+    ]
+  }
+}

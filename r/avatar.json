@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar",
+  "title": "Avatar",
+  "description": "A face, with initials when the photo is missing; in a row as a group.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": []
+}

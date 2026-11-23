@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "time",
+  "type": "registry:item",
+  "title": "Date (Astro)",
+  "description": "A date people can read, with the machine-readable value in datetime, formatted at build time.",
+  "author": "themes.dev",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "components/Time.astro",
+      "type": "registry:file",
+      "target": "src/kit/components/Time.astro",
+      "content": "---\n// A date people can read, with the machine-readable value in datetime: <Time date={post.data.date} />.\n// Formatted at build time with Intl, in the language you pass (default en-GB: 23 November 2026).\ninterface Props {\n  date: Date | string;\n  locale?: string;\n  format?: Intl.DateTimeFormatOptions;\n  class?: string;\n}\nconst { locale = 'en-GB', format = { day: 'numeric', month: 'long', year: 'numeric' }, class: className } = Astro.props;\nconst date = new Date(Astro.props.date);\n---\n\n<time datetime={date.toISOString().slice(0, 10)} class={className}>{new Intl.DateTimeFormat(locale, { ...format, timeZone: 'UTC' }).format(date)}</time>\n"
+    }
+  ]
+}

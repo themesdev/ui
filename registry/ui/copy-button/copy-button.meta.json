@@ -1,0 +1,1 @@
+{"name":"copy-button","title":"Copy button","description":"Copies a value, an element's text or a file from your site, then says Copied for a moment, announced to screen readers.","category":"Actions","shadcn":["button"],"npm":["lucide-react"],"client":true}

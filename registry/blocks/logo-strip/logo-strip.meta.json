@@ -1,0 +1,18 @@
+{
+  "name": "logo-strip",
+  "title": "Logo strip",
+  "description": "One centred line over seven client wordmarks set in type, in one grey row, with a case-study link.",
+  "sector": "agency",
+  "business": "Counterpart, e-commerce studio for independent retailers in the north of England",
+  "composition": "centred caption, one row of wordmarks, link",
+  "layout": "single row, 2-column grid on mobile",
+  "anchor": "list",
+  "shadcn": [],
+  "icons": [
+    "ArrowRight",
+    "Leaf",
+    "Sun"
+  ],
+  "photos": [],
+  "client": false
+}

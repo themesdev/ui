@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table",
+  "title": "Table",
+  "description": "Rows and columns with a caption, a header and a footer, right-aligned numbers.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "table"
+  ],
+  "files": []
+}

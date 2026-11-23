@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "testimonial",
+  "title": "Testimonial",
+  "description": "One large quote in a soft grey panel, a face with name and role, and the customer's own figures under a rule.",
+  "author": "themes.dev",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "avatar",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/testimonial/testimonial.tsx",
+      "type": "registry:component",
+      "content": "import { ArrowRight } from \"lucide-react\"\n\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/components/ui/avatar\"\nimport { Separator } from \"@/components/ui/separator\"\n\nexport type ImageRef = { src: string; alt: string; width: number; height: number }\nexport type LinkRef = { label: string; href: string }\nexport type TestimonialItem = { quote: string; name: string; role: string; photo?: ImageRef }\nexport type Stat = { value: string; label: string }\n\nexport type TestimonialProps = {\n  /** Small heading over the panel; the quote is the anchor. */\n  title: string\n  testimonial: TestimonialItem\n  /** Figures from the customer's own story, under the quote. */\n  stats: Stat[]\n  link: LinkRef\n}\n\nexport const testimonialDefaults: TestimonialProps = {\n  title: \"Customer story\",\n  testimonial: {\n    quote:\n      \"We used to close the month in eleven days, with three spreadsheets and a lot of hope. Since we moved our subscriptions to Sumwise, revenue is closed in four, and our auditor stopped asking for exports.\",\n    name: \"Tomás Herrera\",\n    role: \"Finance director, Rovald HR software, Rotterdam\",\n    photo: { src: \"https://www.themes.dev/ui/photos/testimonial/face.webp\", alt: \"\", width: 192, height: 192 },\n  },\n  stats: [\n    { value: \"4 days\", label: \"to close revenue each month, was 11\" },\n    { value: \"2,300\", label: \"subscriptions moved in one weekend\" },\n    { value: \"€0\", label: \"spent on the audit follow-up\" },\n  ],\n  link: { label: \"Read how Rovald closes faster\", href: \"#rovald\" },\n}\n\nfunction initials(name: string) {\n  return name\n    .split(\" \")\n    .map((p) => p[0])\n    .slice(0, 2)\n    .join(\"\")\n}\n\nexport function Testimonial(props: Partial<TestimonialProps>) {\n  const c = { ...testimonialDefaults, ...props }\n  const t = c.testimonial\n\n  return (\n    <section aria-labelledby=\"testimonial-title\" className=\"bg-background py-20 lg:py-28\">\n      <div className=\"mx-auto max-w-[1200px] px-6 lg:px-10\">\n        <figure className=\"rounded-3xl bg-muted/50 px-7 py-12 sm:px-12 lg:px-20 lg:py-20\">\n          <h2\n            id=\"testimonial-title\"\n            className=\"text-[13px] leading-[1.25] font-medium tracking-[0.08em] text-muted-foreground uppercase\"\n          >\n            {c.title}\n          </h2>\n          <blockquote className=\"mt-6 max-w-[30ch] text-[26px] leading-[1.3] font-medium tracking-[-0.01em] text-pretty sm:text-[32px] lg:mt-8 lg:max-w-[34ch] lg:text-[40px] lg:leading-[1.22] lg:tracking-[-0.02em]\">\n            <p>“{t.quote}”</p>\n          </blockquote>\n          <figcaption className=\"mt-10 flex items-center gap-4 lg:mt-12\">\n            <Avatar className=\"size-16\">\n              {t.photo ? (\n                <AvatarImage src={t.photo.src} alt={t.photo.alt} width={t.photo.width} height={t.photo.height} />\n              ) : null}\n              <AvatarFallback className=\"text-lg font-semibold\">{initials(t.name)}</AvatarFallback>\n            </Avatar>\n            <p className=\"text-[16px] leading-[1.4]\">\n              <span className=\"block font-semibold\">{t.name}</span>\n              <span className=\"block text-muted-foreground\">{t.role}</span>\n            </p>\n          </figcaption>\n\n          <Separator className=\"mt-12 lg:mt-16\" />\n\n          <div className=\"mt-10 grid gap-10 lg:mt-12 lg:grid-cols-[1fr_auto] lg:items-end\">\n            <dl className=\"grid gap-8 sm:grid-cols-3\">\n              {c.stats.map((s) => (\n                <div key={s.label} className=\"flex flex-col\">\n                  <dt className=\"order-2 mt-3 max-w-[24ch] text-[15px] leading-[1.35] text-muted-foreground\">{s.label}</dt>\n                  <dd className=\"order-1 text-[44px] leading-[0.9] font-semibold tracking-[-0.035em] tabular-nums\">\n                    {s.value}\n                  </dd>\n                </div>\n              ))}\n            </dl>\n            <a\n              href={c.link.href}\n              className=\"inline-flex w-fit items-center gap-1.5 rounded-sm text-[15px] font-medium underline decoration-border decoration-2 underline-offset-4 outline-none hover:decoration-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50\"\n            >\n              {c.link.label}\n              <ArrowRight className=\"size-4\" aria-hidden />\n            </a>\n          </div>\n        </figure>\n      </div>\n    </section>\n  )\n}\n",
+      "target": "components/blocks/testimonial.tsx"
+    }
+  ],
+  "meta": {
+    "photos": [
+      "https://www.themes.dev/ui/photos/testimonial/face.webp"
+    ]
+  }
+}

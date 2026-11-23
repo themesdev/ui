@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "segmented",
+  "title": "Segmented control",
+  "description": "A single-choice toggle group drawn as one track, like a monthly/yearly switch.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "toggle-group"
+  ],
+  "files": []
+}

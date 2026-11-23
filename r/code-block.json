@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block",
+  "title": "Code block",
+  "description": "Code with a filename bar and a Copy button, in a focusable scroll box.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/code-block/code-block.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\"\n\nimport { useEffect, useRef, useState } from \"react\"\nimport { CheckIcon, CopyIcon } from \"lucide-react\"\nimport { Button } from \"@/components/ui/button\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface CodeBlockProps {\n  code: string\n  /** Shown in the bar and names the scroll box, e.g. \"astro.config.mjs\" or \"Terminal\". */\n  filename: string\n  /** Unique on the page: ties the filename to the scroll box. */\n  id: string\n  className?: string\n}\n\n/** Code with a filename bar and a Copy button, in a focusable scroll box. */\nexport function CodeBlock({ code, filename, id, className }: CodeBlockProps) {\n  const [copied, setCopied] = useState(false)\n  const timer = useRef<number | undefined>(undefined)\n  useEffect(() => () => window.clearTimeout(timer.current), [])\n\n  const copy = async () => {\n    try {\n      await navigator.clipboard.writeText(code)\n    } catch {\n      return\n    }\n    setCopied(true)\n    window.clearTimeout(timer.current)\n    timer.current = window.setTimeout(() => setCopied(false), 1600)\n  }\n\n  return (\n    <figure className={cn(\"w-full overflow-hidden rounded-xl border bg-card text-card-foreground\", className)}>\n      <figcaption id={`${id}-name`} className=\"flex h-11 items-center justify-between gap-3 border-b bg-muted/40 pr-2 pl-4 font-mono text-[13px] text-muted-foreground\">\n        {filename}\n        <span role=\"status\" className=\"sr-only\">\n          {copied ? \"Copied to the clipboard\" : \"\"}\n        </span>\n        <Button type=\"button\" variant=\"ghost\" size=\"sm\" className=\"h-8 px-2.5 text-[13px]\" onClick={copy}>\n          {copied ? <CheckIcon aria-hidden=\"true\" /> : <CopyIcon aria-hidden=\"true\" />}\n          {copied ? \"Copied\" : \"Copy\"}\n        </Button>\n      </figcaption>\n      <pre\n        tabIndex={0}\n        aria-labelledby={`${id}-name`}\n        className=\"overflow-x-auto p-4 font-mono text-[13px] leading-[1.6] outline-none focus-visible:ring-3 focus-visible:ring-inset focus-visible:ring-ring/50\"\n      >\n        <code>{code}</code>\n      </pre>\n    </figure>\n  )\n}\n",
+      "target": "components/ui/code-block.tsx"
+    }
+  ]
+}

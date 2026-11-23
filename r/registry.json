@@ -1,0 +1,1504 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "themes.dev-ui",
+  "homepage": "https://www.themes.dev/ui",
+  "items": [
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "An action, or a link that looks like one: variants, sizes, an icon, a loading state.",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [],
+      "categories": [
+        "actions"
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "A short status or count next to text: default, secondary, outline, destructive.",
+      "registryDependencies": [
+        "badge"
+      ],
+      "files": [],
+      "categories": [
+        "display"
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "A text field with a focus ring, a disabled state and an invalid state.",
+      "registryDependencies": [
+        "input"
+      ],
+      "files": [],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "A multi-line field for a message or a note.",
+      "registryDependencies": [
+        "textarea"
+      ],
+      "files": [],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "The visible name of a field, tied to its control.",
+      "registryDependencies": [
+        "label"
+      ],
+      "files": [],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "A label, a control, help and the error, wired together with aria-describedby and aria-invalid.",
+      "registryDependencies": [
+        "field"
+      ],
+      "files": [],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "On or off for one option, with a label you can click and a disabled state.",
+      "registryDependencies": [
+        "checkbox"
+      ],
+      "files": [],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "An on/off setting that applies at once.",
+      "registryDependencies": [
+        "switch"
+      ],
+      "files": [],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "A panel with a header, content and a footer, for settings, summaries and plans.",
+      "registryDependencies": [
+        "card"
+      ],
+      "files": [],
+      "categories": [
+        "layout"
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "A hairline between groups, horizontal or vertical.",
+      "registryDependencies": [
+        "separator"
+      ],
+      "files": [],
+      "categories": [
+        "layout"
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "A message on the page: a title, a line and an icon, neutral or destructive.",
+      "registryDependencies": [
+        "alert"
+      ],
+      "files": [],
+      "categories": [
+        "feedback"
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "A keyboard key or a shortcut of several keys.",
+      "registryDependencies": [
+        "kbd"
+      ],
+      "files": [],
+      "categories": [
+        "display"
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "A face, with initials when the photo is missing; in a row as a group.",
+      "registryDependencies": [
+        "avatar"
+      ],
+      "files": [],
+      "categories": [
+        "display"
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Panels behind a row of tabs, arrow keys between them.",
+      "registryDependencies": [
+        "tabs"
+      ],
+      "files": [],
+      "categories": [
+        "navigation"
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A modal that keeps focus inside, closes on Escape and returns focus to its trigger.",
+      "registryDependencies": [
+        "dialog"
+      ],
+      "files": [],
+      "categories": [
+        "overlays"
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown menu",
+      "description": "A menu behind a button: items with icons and shortcuts, checkbox items and groups.",
+      "registryDependencies": [
+        "dropdown-menu"
+      ],
+      "files": [],
+      "categories": [
+        "overlays"
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "The native select, styled: groups, a placeholder and disabled options, no JavaScript.",
+      "registryDependencies": [
+        "native-select"
+      ],
+      "files": [],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "A short label on hover and keyboard focus.",
+      "registryDependencies": [
+        "tooltip"
+      ],
+      "files": [],
+      "categories": [
+        "overlays"
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Short confirmations that appear and leave on their own, with an action to undo.",
+      "registryDependencies": [
+        "sonner"
+      ],
+      "files": [],
+      "categories": [
+        "feedback"
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio group",
+      "description": "One choice from a few, with hints under each option; arrow keys choose.",
+      "registryDependencies": [
+        "radio-group"
+      ],
+      "files": [],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Page links with Previous and Next, the current page marked and gaps where pages are skipped.",
+      "registryDependencies": [
+        "pagination"
+      ],
+      "files": [],
+      "categories": [
+        "navigation"
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Where the page sits: the levels as links, separators, a collapsed middle and the current page.",
+      "registryDependencies": [
+        "breadcrumb"
+      ],
+      "files": [],
+      "categories": [
+        "navigation"
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "A placeholder in the shape of the content while it loads.",
+      "registryDependencies": [
+        "skeleton"
+      ],
+      "files": [],
+      "categories": [
+        "feedback"
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Rows and columns with a caption, a header and a footer, right-aligned numbers.",
+      "registryDependencies": [
+        "table"
+      ],
+      "files": [],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Sections that open one at a time or together, with the keyboard model and a height animation.",
+      "registryDependencies": [
+        "accordion"
+      ],
+      "files": [],
+      "categories": [
+        "layout"
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "How far along a task is, as a bar with its value read out.",
+      "registryDependencies": [
+        "progress"
+      ],
+      "files": [],
+      "categories": [
+        "feedback"
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "A value or a range on a track, with arrow keys and the value shown.",
+      "registryDependencies": [
+        "slider"
+      ],
+      "files": [],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "A panel next to its trigger for a short form or details; Escape and outside clicks close it.",
+      "registryDependencies": [
+        "popover"
+      ],
+      "files": [],
+      "categories": [
+        "overlays"
+      ]
+    },
+    {
+      "name": "command-menu",
+      "type": "registry:ui",
+      "title": "Command menu",
+      "description": "A command palette: type to filter, arrows and Enter, grouped commands and shortcuts.",
+      "registryDependencies": [
+        "command"
+      ],
+      "files": [],
+      "categories": [
+        "overlays"
+      ]
+    },
+    {
+      "name": "search-field",
+      "type": "registry:ui",
+      "title": "Search field",
+      "description": "A search input in a role=search form, with a / shortcut and a clear button.",
+      "registryDependencies": [
+        "button",
+        "input",
+        "kbd"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/search-field/search-field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/search-field.tsx"
+        }
+      ],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "sidebar-nav",
+      "type": "registry:ui",
+      "title": "Sidebar navigation",
+      "description": "A docs sidebar: groups of links, the current page marked, groups that fold open and shut.",
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/sidebar-nav/sidebar-nav.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sidebar-nav.tsx"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "A side sheet for filters, a cart or details: slides in from its edge, focus stays inside.",
+      "registryDependencies": [
+        "sheet"
+      ],
+      "files": [],
+      "categories": [
+        "overlays"
+      ]
+    },
+    {
+      "name": "link-list",
+      "type": "registry:ui",
+      "title": "Link list",
+      "description": "Links as rows with a title, a line and a chevron; the whole row is the target.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/link-list/link-list.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/link-list.tsx"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "title": "Empty state",
+      "description": "Nothing here yet, or no results: an icon, what is going on and what to do next.",
+      "registryDependencies": [
+        "empty"
+      ],
+      "files": [],
+      "categories": [
+        "feedback"
+      ]
+    },
+    {
+      "name": "tag",
+      "type": "registry:ui",
+      "title": "Tag",
+      "description": "A topic or an active filter: static, a link, or removable with focus moving to the next tag.",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/tag/tag.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tag.tsx"
+        }
+      ],
+      "categories": [
+        "display"
+      ]
+    },
+    {
+      "name": "filter-bar",
+      "type": "registry:ui",
+      "title": "Filter bar",
+      "description": "Toggle chips, a sort choice and a live result count; Clear turns every filter off.",
+      "registryDependencies": [
+        "button",
+        "native-select"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/filter-bar/filter-bar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/filter-bar.tsx"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "name": "filter-sheet",
+      "type": "registry:ui",
+      "title": "Filter sheet",
+      "description": "The phone Filters button: active count, checkbox groups in a side sheet, Clear all and Show results.",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "checkbox",
+        "sheet"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/filter-sheet/filter-sheet.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/filter-sheet.tsx"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "name": "steps",
+      "type": "registry:ui",
+      "title": "Steps",
+      "description": "Progress through a flow: done, current (aria-current=step) and to come; horizontal when there is room.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/steps/steps.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/steps.tsx"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ]
+    },
+    {
+      "name": "quantity",
+      "type": "registry:ui",
+      "title": "Quantity",
+      "description": "Minus, a number field and plus as one control; the buttons turn off at the ends.",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/quantity/quantity.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/quantity.tsx"
+        }
+      ],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:ui",
+      "title": "Code block",
+      "description": "Code with a filename bar and a Copy button, in a focusable scroll box.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/code-block/code-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/code-block.tsx"
+        }
+      ],
+      "categories": [
+        "display"
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "A swipeable row with Previous and Next that turn off at the ends, keyboard included. No autoplay.",
+      "registryDependencies": [
+        "carousel"
+      ],
+      "files": [],
+      "categories": [
+        "display"
+      ]
+    },
+    {
+      "name": "date-field",
+      "type": "registry:ui",
+      "title": "Date field",
+      "description": "The native date input in the field style, or a from–to range whose end can never fall before its start.",
+      "registryDependencies": [
+        "input",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/date-field/date-field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/date-field.tsx"
+        }
+      ],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "toolbar",
+      "type": "registry:ui",
+      "title": "Toolbar",
+      "description": "A row of controls that is one Tab stop; arrows move. Toggle buttons, and a \"Was this helpful?\" row.",
+      "registryDependencies": [
+        "button",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/toolbar/toolbar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/toolbar.tsx"
+        }
+      ],
+      "categories": [
+        "actions"
+      ]
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy button",
+      "description": "Copies a value, an element's text or a file from your site, then says Copied for a moment, announced to screen readers.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/copy-button/copy-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/copy-button.tsx"
+        }
+      ],
+      "categories": [
+        "actions"
+      ]
+    },
+    {
+      "name": "read-aloud",
+      "type": "registry:ui",
+      "title": "Read aloud",
+      "description": "Listen to an article: the browser's own speech reads it, with pause, resume and stop. Nothing leaves the page.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/read-aloud/read-aloud.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/read-aloud.tsx"
+        }
+      ],
+      "categories": [
+        "actions"
+      ]
+    },
+    {
+      "name": "language-switcher",
+      "type": "registry:ui",
+      "title": "Language switcher",
+      "description": "The page's other languages as links with lang and hreflang behind one button; the current one is marked.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/language-switcher/language-switcher.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/language-switcher.tsx"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ]
+    },
+    {
+      "name": "toc",
+      "type": "registry:ui",
+      "title": "On this page",
+      "description": "A page's sections as links; the one you are reading is marked while you scroll.",
+      "files": [
+        {
+          "path": "registry/ui/toc/toc.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/toc.tsx"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ]
+    },
+    {
+      "name": "link",
+      "type": "registry:ui",
+      "title": "Link",
+      "description": "Inline in text, standalone with an arrow, or external with an arrow out and a new-tab note for screen readers.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/link/link.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/link.tsx"
+        }
+      ],
+      "categories": [
+        "actions"
+      ]
+    },
+    {
+      "name": "icon",
+      "type": "registry:ui",
+      "title": "Icons",
+      "description": "Lucide, the icon set shadcn/ui draws with: a stroke, a size, a label when they stand alone.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [],
+      "categories": [
+        "display"
+      ]
+    },
+    {
+      "name": "bar-chart",
+      "type": "registry:ui",
+      "title": "Bar chart",
+      "description": "A server-rendered column chart with values on top and the same data as a table for screen readers. No chart library.",
+      "files": [
+        {
+          "path": "registry/ui/bar-chart/bar-chart.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/bar-chart.tsx"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "name": "video-player",
+      "type": "registry:ui",
+      "title": "Video player",
+      "description": "A poster with one Play button; native controls and captions once it plays. Nothing plays by itself.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/video-player/video-player.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/video-player.tsx"
+        }
+      ],
+      "categories": [
+        "media"
+      ]
+    },
+    {
+      "name": "map-embed",
+      "type": "registry:ui",
+      "title": "Map",
+      "description": "A location whose map loads from OpenStreetMap only when asked; the address works as a link without it.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/map-embed/map-embed.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/map-embed.tsx"
+        }
+      ],
+      "categories": [
+        "media"
+      ]
+    },
+    {
+      "name": "story-card",
+      "type": "registry:ui",
+      "title": "Story card",
+      "description": "Picture, kicker, the title as the one link, a line and the meta; standard, compact, wide and feature.",
+      "registryDependencies": [
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/story-card/story-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/story-card.tsx"
+        }
+      ],
+      "categories": [
+        "display"
+      ]
+    },
+    {
+      "name": "section-header",
+      "type": "registry:ui",
+      "title": "Section header",
+      "description": "The head of a page section: a kicker, the heading, a line or two and an optional action, on the type scale.",
+      "files": [
+        {
+          "path": "registry/ui/section-header/section-header.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/section-header.tsx"
+        }
+      ],
+      "categories": [
+        "layout"
+      ]
+    },
+    {
+      "name": "segmented",
+      "type": "registry:ui",
+      "title": "Segmented control",
+      "description": "A single-choice toggle group drawn as one track, like a monthly/yearly switch.",
+      "registryDependencies": [
+        "toggle-group"
+      ],
+      "files": [],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "result-list",
+      "type": "registry:ui",
+      "title": "Search results",
+      "description": "An announced count, then ranked results with the address and the match marked in each snippet.",
+      "registryDependencies": [
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/result-list/result-list.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/result-list.tsx"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "name": "announcement",
+      "type": "registry:ui",
+      "title": "Announcement bar",
+      "description": "A one-line site notice with a read-more link and a close button that can stay closed for the session.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/announcement/announcement.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/announcement.tsx"
+        }
+      ],
+      "categories": [
+        "feedback"
+      ]
+    },
+    {
+      "name": "hero",
+      "type": "registry:block",
+      "title": "Hero",
+      "description": "Journey-planner hero: from/to card with leave-at tabs, a day-out photo card and four quick-task tiles.",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "input",
+        "label",
+        "tabs"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hero/hero.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/hero.tsx"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "pricing",
+      "type": "registry:block",
+      "title": "Pricing",
+      "description": "Three plan cards under a monthly/yearly switch, the middle one framed with a tab, beside a photo card for schools.",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "separator",
+        "tabs"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/pricing/pricing.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/pricing.tsx"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "faq",
+      "type": "registry:block",
+      "title": "FAQ",
+      "description": "Bold questions in hairline rows that open as native details, beside a heading and a front-desk card with phone.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/faq/faq.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/faq.tsx"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "site-header",
+      "type": "registry:block",
+      "title": "Site header",
+      "description": "A muted service strip over a 72px bar: wordmark, six centred links, a pill search and saved and bag counts.",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/site-header/site-header.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/site-header.tsx"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ]
+    },
+    {
+      "name": "site-footer",
+      "type": "registry:block",
+      "title": "Site footer",
+      "description": "Brand and a call-us card, five dense link columns, then trust marks, legal links and an age notice.",
+      "registryDependencies": [
+        "button",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/site-footer/site-footer.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/site-footer.tsx"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ]
+    },
+    {
+      "name": "newsletter",
+      "type": "registry:block",
+      "title": "Newsletter signup",
+      "description": "A grocery's weekly offers letter in one tinted band: a produce photo, the pitch, an inline email field and three facts.",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/newsletter/newsletter.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/newsletter.tsx"
+        }
+      ],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "contact-form",
+      "type": "registry:block",
+      "title": "Contact form",
+      "description": "A developer tool's contact card: pitch, reply times and a customer quote beside a labelled form with topic chips.",
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "input",
+        "label",
+        "textarea"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/contact-form/contact-form.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/contact-form.tsx"
+        }
+      ],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "logo-strip",
+      "type": "registry:block",
+      "title": "Logo strip",
+      "description": "One centred line over seven client wordmarks set in type, in one grey row, with a case-study link.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/logo-strip/logo-strip.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/logo-strip.tsx"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "login-form",
+      "type": "registry:block",
+      "title": "Login form",
+      "description": "An energy supplier's sign-in card with a show/hide password, secondary ways in and a side strip of other routes.",
+      "registryDependencies": [
+        "button",
+        "checkbox",
+        "input",
+        "label"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/login-form/login-form.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/login-form.tsx"
+        }
+      ],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "breadcrumb-trail",
+      "type": "registry:block",
+      "title": "Breadcrumb trail",
+      "description": "A home icon and chevron levels on one line above a category title; on a phone the middle folds, the last truncates.",
+      "registryDependencies": [
+        "breadcrumb"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/breadcrumb-trail/breadcrumb-trail.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/breadcrumb-trail.tsx"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ]
+    },
+    {
+      "name": "card-carousel",
+      "type": "registry:block",
+      "title": "Card carousel",
+      "description": "A garden store's weekly offers: a photo lead card, then product cards with deal badges and prices that scroll sideways.",
+      "registryDependencies": [
+        "badge",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/card-carousel/card-carousel.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/card-carousel.tsx"
+        }
+      ],
+      "categories": [
+        "display"
+      ]
+    },
+    {
+      "name": "comparison-table",
+      "type": "registry:block",
+      "title": "Comparison table",
+      "description": "An honest strong/weak box over a three-way table: your column shaded with its call to action, ticks, real figures.",
+      "registryDependencies": [
+        "button",
+        "table"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/comparison-table/comparison-table.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/comparison-table.tsx"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "header-bar",
+      "type": "registry:block",
+      "title": "Header bar",
+      "description": "A slim docs bar: mark, centred section tabs with the current one in a pill, Blog and a dark Console button.",
+      "registryDependencies": [
+        "button",
+        "badge"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/header-bar/header-bar.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/header-bar.tsx"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ]
+    },
+    {
+      "name": "lift-card",
+      "type": "registry:block",
+      "title": "Lift cards",
+      "description": "A photo tile and four tall centred link tiles that lift on hover, for an electric van dealer's ways to buy.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/lift-card/lift-card.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/lift-card.tsx"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "link-card",
+      "type": "registry:block",
+      "title": "Link cards",
+      "description": "Four city photo tiles with an inset frame, the city name and a home count; each tile is one link.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/link-card/link-card.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/link-card.tsx"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "plain-tiles",
+      "type": "registry:block",
+      "title": "Plain tiles",
+      "description": "Three open photo tiles with a step, a title and two lines each under a centred heading; no card chrome.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/plain-tiles/plain-tiles.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/plain-tiles.tsx"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "split-card",
+      "type": "registry:block",
+      "title": "Split card",
+      "description": "One wide card: a tall photo left, then heading, story, a checked list and a pill button with a price line.",
+      "registryDependencies": [
+        "button",
+        "card"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/split-card/split-card.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/split-card.tsx"
+        }
+      ],
+      "categories": [
+        "display"
+      ]
+    },
+    {
+      "name": "feature-grid",
+      "type": "registry:block",
+      "title": "Feature grid",
+      "description": "Centred heading over a bento of muted tiles, each with a small product view; one large insight tile and a photo tile.",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "progress",
+        "switch"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/feature-grid/feature-grid.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/feature-grid.tsx"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "call-to-action",
+      "type": "registry:block",
+      "title": "Call to action",
+      "description": "Closing panel with a very large centred title, three pill actions (call, mail, book) and the founders' faces.",
+      "registryDependencies": [
+        "avatar",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/call-to-action/call-to-action.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/call-to-action.tsx"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "stats-row",
+      "type": "registry:block",
+      "title": "Stats row",
+      "description": "Header and intro over a staggered strip of four studio photos, then three very large figures under thin rules.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/stats-row/stats-row.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/stats-row.tsx"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "testimonial",
+      "type": "registry:block",
+      "title": "Testimonial",
+      "description": "One large quote in a soft grey panel, a face with name and role, and the customer's own figures under a rule.",
+      "registryDependencies": [
+        "avatar",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/testimonial/testimonial.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/testimonial.tsx"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "post-grid",
+      "type": "registry:block",
+      "title": "Post grid",
+      "description": "A hospital newsroom: tinted header band, nine photo cards with tag and date in a 3×3 grid, and a load-more button.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/post-grid/post-grid.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/post-grid.tsx"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "changelog-list",
+      "type": "registry:block",
+      "title": "Changelog list",
+      "description": "Four latest releases on a horizontal timeline with dates, versions and tags, earlier releases in a compact list below.",
+      "registryDependencies": [
+        "badge"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/changelog-list/changelog-list.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/changelog-list.tsx"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "free-home",
+      "type": "registry:block",
+      "title": "Home page",
+      "description": "A whole home page from nine free blocks, filled in for a car and passenger ferry: a sailing planner up top, the islands, books of ten crossings, an islander's word, the fleet in figures, questions and the sailing notes.",
+      "registryDependencies": [
+        "https://www.themes.dev/ui/r/site-header.json",
+        "https://www.themes.dev/ui/r/hero.json",
+        "https://www.themes.dev/ui/r/link-card.json",
+        "https://www.themes.dev/ui/r/pricing.json",
+        "https://www.themes.dev/ui/r/testimonial.json",
+        "https://www.themes.dev/ui/r/stats-row.json",
+        "https://www.themes.dev/ui/r/faq.json",
+        "https://www.themes.dev/ui/r/newsletter.json",
+        "https://www.themes.dev/ui/r/site-footer.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/templates/free-home/free-home.tsx",
+          "type": "registry:component",
+          "target": "components/templates/free-home.tsx"
+        }
+      ],
+      "categories": [
+        "templates"
+      ]
+    },
+    {
+      "name": "free-sign-in",
+      "type": "registry:block",
+      "title": "Sign-in page",
+      "description": "A whole sign-in page from the login-form block, filled in for a sailing school: the card with other ways in beside it, the sailing office's number and today's sailing conditions.",
+      "registryDependencies": [
+        "https://www.themes.dev/ui/r/login-form.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/templates/free-sign-in/free-sign-in.tsx",
+          "type": "registry:component",
+          "target": "components/templates/free-sign-in.tsx"
+        }
+      ],
+      "categories": [
+        "templates"
+      ]
+    }
+  ]
+}

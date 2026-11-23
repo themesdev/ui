@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination",
+  "type": "registry:item",
+  "title": "Pagination (Astro)",
+  "description": "Numbered pages with previous and next for an archive from paginate(). 36px controls, gaps as an ellipsis.",
+  "author": "themes.dev",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "components/Pagination.astro",
+      "type": "registry:file",
+      "target": "src/kit/components/Pagination.astro",
+      "content": "---\n// Numbered pages with previous and next, for an archive split over pages (Astro's paginate() gives you `page`).\n// Controls are 36px. Gaps show an ellipsis, so the row stays short on a phone.\n// <Pagination current={page.currentPage} total={page.lastPage} href={(n) => (n === 1 ? '/blog/' : `/blog/${n}/`)} />\ninterface Props {\n  current: number;\n  total: number;\n  /** The address of page n. */\n  href: (n: number) => string;\n  label?: string;\n  previousLabel?: string;\n  nextLabel?: string;\n  class?: string;\n}\nconst { current, total, href, label = 'Pages', previousLabel = 'Previous', nextLabel = 'Next', class: className } = Astro.props;\n// First, last, and one page either side of the current one; null is a gap.\nconst pages: (number | null)[] = [];\nfor (let n = 1; n <= total; n++) {\n  if (n === 1 || n === total || Math.abs(n - current) <= 1) pages.push(n);\n  else if (pages.at(-1) !== null) pages.push(null);\n}\nconst item = 'inline-flex h-9 min-w-9 items-center justify-center gap-1 rounded-md px-3 text-sm font-medium outline-none transition-colors focus-visible:ring-3 focus-visible:ring-ring/50';\n---\n\n{\n  total > 1 && (\n    <nav aria-label={label} class:list={['flex justify-center', className]}>\n      <ul class=\"flex flex-wrap items-center gap-1\">\n        <li>\n          {current > 1 ? (\n            <a href={href(current - 1)} rel=\"prev\" class:list={[item, 'hover:bg-muted']}>\n              <svg aria-hidden=\"true\" viewBox=\"0 0 16 16\" class=\"size-4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"m10 4-4 4 4 4\" /></svg>\n              {previousLabel}\n            </a>\n          ) : (\n            <span aria-disabled=\"true\" class:list={[item, 'text-muted-foreground opacity-50']}>{previousLabel}</span>\n          )}\n        </li>\n        {pages.map((n) =>\n          n === null ? (\n            <li aria-hidden=\"true\" class=\"inline-flex size-9 items-center justify-center text-muted-foreground\">…</li>\n          ) : (\n            <li>\n              <a href={href(n)} aria-current={n === current ? 'page' : undefined} class:list={[item, n === current ? 'border bg-background shadow-xs' : 'hover:bg-muted']}>\n                <span class=\"sr-only\">Page </span>{n}\n              </a>\n            </li>\n          ),\n        )}\n        <li>\n          {current < total ? (\n            <a href={href(current + 1)} rel=\"next\" class:list={[item, 'hover:bg-muted']}>\n              {nextLabel}\n              <svg aria-hidden=\"true\" viewBox=\"0 0 16 16\" class=\"size-4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"m6 4 4 4-4 4\" /></svg>\n            </a>\n          ) : (\n            <span aria-disabled=\"true\" class:list={[item, 'text-muted-foreground opacity-50']}>{nextLabel}</span>\n          )}\n        </li>\n      </ul>\n    </nav>\n  )\n}\n"
+    }
+  ]
+}

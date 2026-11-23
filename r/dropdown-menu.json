@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown-menu",
+  "title": "Dropdown menu",
+  "description": "A menu behind a button: items with icons and shortcuts, checkbox items and groups.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "dropdown-menu"
+  ],
+  "files": []
+}

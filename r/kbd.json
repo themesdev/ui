@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kbd",
+  "title": "Kbd",
+  "description": "A keyboard key or a shortcut of several keys.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "kbd"
+  ],
+  "files": []
+}

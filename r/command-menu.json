@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "command-menu",
+  "title": "Command menu",
+  "description": "A command palette: type to filter, arrows and Enter, grouped commands and shortcuts.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "command"
+  ],
+  "files": []
+}

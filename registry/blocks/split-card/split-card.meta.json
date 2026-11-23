@@ -1,0 +1,22 @@
+{
+  "name": "split-card",
+  "title": "Split card",
+  "description": "One wide card: a tall photo left, then heading, story, a checked list and a pill button with a price line.",
+  "sector": "insurance",
+  "business": "Fairshare Health, a member-owned health insurer in Edinburgh",
+  "composition": "photo left, heading, paragraph, three checked points and a button right",
+  "layout": "one card, 5/7 split, photo on top on a phone",
+  "anchor": "photo",
+  "shadcn": [
+    "button",
+    "card"
+  ],
+  "icons": [
+    "ArrowRight",
+    "Check"
+  ],
+  "photos": [
+    "/ui/photos/split-card/parent.webp"
+  ],
+  "client": false
+}

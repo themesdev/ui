@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radio-group",
+  "title": "Radio group",
+  "description": "One choice from a few, with hints under each option; arrow keys choose.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "radio-group"
+  ],
+  "files": []
+}

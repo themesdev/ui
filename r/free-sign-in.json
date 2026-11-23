@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "free-sign-in",
+  "title": "Sign-in page",
+  "description": "A whole sign-in page from the login-form block, filled in for a sailing school: the card with other ways in beside it, the sailing office's number and today's sailing conditions.",
+  "author": "themes.dev",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://www.themes.dev/ui/r/login-form.json"
+  ],
+  "files": [
+    {
+      "path": "registry/templates/free-sign-in/free-sign-in.tsx",
+      "type": "registry:component",
+      "content": "import { Sailboat, Wind } from \"lucide-react\"\n\nimport { LoginForm, type LoginFormProps } from \"@/components/blocks/login-form\"\n\nexport type FreeSignInPageContent = {\n  auth: Partial<LoginFormProps>\n}\n\nexport function FreeSignInPage({ content = freeSignInPageContent }: { content?: FreeSignInPageContent }) {\n  return (\n    <main>\n      <LoginForm {...content.auth} />\n    </main>\n  )\n}\n\nexport default FreeSignInPage\n\n// The demo business: Tackwell Sailing, dinghy and keelboat courses in Falmouth. A buyer replaces this object.\nexport const freeSignInPageContent: FreeSignInPageContent = {\n  auth: {\n    brand: \"Tackwell Sailing\",\n    mark: Sailboat,\n    title: \"Sign in to your sailing account\",\n    intro: \"Your course dates, logbook, certificates and bookings for the club boats in one place.\",\n    action: \"/login\",\n    emailLabel: \"Email address\",\n    passwordLabel: \"Password\",\n    remember: \"Keep me signed in on this device\",\n    forgot: { label: \"Forgot your password?\", href: \"/login/reset\" },\n    submit: \"Sign in\",\n    secondary: [\n      { label: \"Create an account\", href: \"/register\" },\n      { label: \"Book a two-hour taster sail\", href: \"/taster\" },\n    ],\n    tabs: [\n      { label: \"Sign in\", note: \"With email and password\", href: \"/login\", current: true },\n      { label: \"New to Tackwell\", note: \"An account takes two minutes\", href: \"/register\" },\n      { label: \"Send my booking reference\", note: \"By email, straight away\", href: \"/booking-reference\" },\n      { label: \"Ask an instructor\", note: \"Answer within a working day\", href: \"/contact\" },\n    ],\n    service: { label: \"Sailing office\", phone: \"01632 960 735\", hours: \"Every day 08:30 to 18:00\" },\n    status: {\n      label: \"Sailing today\",\n      text: \"Force 3 to 4 from the south-west. All courses go ahead.\",\n      link: { label: \"Wind and tides\", href: \"/conditions\" },\n      icon: Wind,\n    },\n    footer: [\n      { label: \"Help\", href: \"/help\" },\n      { label: \"Privacy\", href: \"/privacy\" },\n      { label: \"Accessibility\", href: \"/accessibility\" },\n    ],\n  },\n}\n",
+      "target": "components/templates/free-sign-in.tsx"
+    }
+  ],
+  "categories": [
+    "templates"
+  ],
+  "meta": {
+    "template": true,
+    "blocks": [
+      "login-form"
+    ]
+  }
+}

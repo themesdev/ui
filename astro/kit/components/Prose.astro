@@ -1,0 +1,10 @@
+---
+// Long-form text (a post body, a legal page) in the site's type: wrap rendered Markdown or <PortableText> in it.
+// The styles are styles/prose.css, built on shadcn's tokens, so they follow dark mode. Import that file once in your
+// global CSS: @import './prose.css';
+interface Props {
+  class?: string;
+}
+---
+
+<div class:list={['kit-prose', Astro.props.class]}><slot /></div>

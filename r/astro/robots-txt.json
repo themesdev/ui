@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "robots-txt",
+  "type": "registry:item",
+  "title": "robots.txt (Astro)",
+  "description": "A /robots.txt endpoint with your sitemap's address and the paths to keep out of search.",
+  "author": "themes.dev",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "pages/robots.txt.ts",
+      "type": "registry:file",
+      "target": "src/pages/robots.txt.ts",
+      "content": "// /robots.txt with the sitemap's address (from @astrojs/sitemap) and the paths to keep out of search.\nimport type { APIContext } from 'astro';\n\nconst disallow = ['/thanks/', '/404'];\n\nexport function GET(context: APIContext) {\n  const lines = ['User-agent: *', ...disallow.map((p) => `Disallow: ${p}`), '', `Sitemap: ${new URL('/sitemap-index.xml', context.site).href}`, ''];\n  return new Response(lines.join('\\n'), { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });\n}\n"
+    }
+  ]
+}

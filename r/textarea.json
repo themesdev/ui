@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea",
+  "title": "Textarea",
+  "description": "A multi-line field for a message or a note.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "textarea"
+  ],
+  "files": []
+}

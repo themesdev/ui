@@ -1,0 +1,12 @@
+{
+  "name": "free-sign-in",
+  "title": "Sign-in page: Tackwell, a sailing school in Falmouth",
+  "page": "sign-in",
+  "sector": "sailing school",
+  "business": "Tackwell Sailing, dinghy and keelboat courses in Falmouth",
+  "tier": "free",
+  "blocks": ["login-form"],
+  "photos": [],
+  "client": true,
+  "note": "Sign-in card with other ways in beside it, the sailing office's number and today's sailing conditions."
+}

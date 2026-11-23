@@ -1,0 +1,25 @@
+{
+  "name": "newsletter",
+  "title": "Newsletter signup",
+  "description": "A grocery's weekly offers letter in one tinted band: a produce photo, the pitch, an inline email field and three facts.",
+  "sector": "groceries",
+  "business": "Vershoek, 38 grocery shops in Utrecht province",
+  "composition": "tinted band: photo, heading, inline form, fact row",
+  "layout": "three columns over a three-cell fact strip",
+  "anchor": "form",
+  "shadcn": [
+    "button",
+    "input",
+    "label"
+  ],
+  "icons": [
+    "Bell",
+    "CalendarClock",
+    "Mail",
+    "ShoppingBasket"
+  ],
+  "photos": [
+    "/ui/photos/newsletter/crate.webp"
+  ],
+  "client": false
+}

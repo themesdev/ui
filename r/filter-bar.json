@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "filter-bar",
+  "title": "Filter bar",
+  "description": "Toggle chips, a sort choice and a live result count; Clear turns every filter off.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "native-select"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/filter-bar/filter-bar.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { CheckIcon } from \"lucide-react\"\nimport { Button } from \"@/components/ui/button\"\nimport { NativeSelect, NativeSelectOption } from \"@/components/ui/native-select\"\nimport { cn } from \"@/lib/utils\"\n\nexport type FilterOption = { value: string; label: string; pressed?: boolean }\n\nexport interface FilterBarProps {\n  /** Unique on the page. */\n  id: string\n  /** Names the chip group, e.g. \"Filter by status\". */\n  label: string\n  filters: FilterOption[]\n  sort: { value: string; label: string }[]\n  sortValue?: string\n  /** The result line, e.g. \"24 deploys\". Announced when it changes. */\n  count: string\n  onChange?: (detail: { active: string[]; sort?: string }) => void\n  className?: string\n}\n\n/** Toggle chips, a sort choice and a live result count; Clear turns every filter off. */\nexport function FilterBar({ id, label, filters, sort, sortValue, count, onChange, className }: FilterBarProps) {\n  const [active, setActive] = useState(() => filters.filter((f) => f.pressed).map((f) => f.value))\n  const [order, setOrder] = useState(sortValue ?? sort[0]?.value)\n  const update = (next: string[]) => {\n    setActive(next)\n    onChange?.({ active: next, sort: order })\n  }\n  return (\n    <div className={cn(\"flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between\", className)}>\n      <ul aria-label={label} className=\"flex flex-wrap gap-2\">\n        {filters.map((f) => {\n          const on = active.includes(f.value)\n          return (\n            <li key={f.value}>\n              <Button\n                type=\"button\"\n                size=\"lg\"\n                variant={on ? \"default\" : \"outline\"}\n                aria-pressed={on}\n                className=\"h-9 rounded-full px-3.5\"\n                onClick={() => update(on ? active.filter((v) => v !== f.value) : [...active, f.value])}\n              >\n                {on && <CheckIcon aria-hidden=\"true\" />}\n                {f.label}\n              </Button>\n            </li>\n          )\n        })}\n      </ul>\n      <div className=\"flex shrink-0 items-center gap-3\">\n        <p role=\"status\" className=\"text-sm text-muted-foreground tabular-nums\">\n          {count}\n        </p>\n        <label htmlFor={`${id}-sort`} className=\"sr-only\">\n          Sort by\n        </label>\n        <NativeSelect\n          id={`${id}-sort`}\n          value={order}\n          onChange={(e) => {\n            setOrder(e.target.value)\n            onChange?.({ active, sort: e.target.value })\n          }}\n          className=\"[&>select]:h-9\"\n        >\n          {sort.map((s) => (\n            <NativeSelectOption key={s.value} value={s.value}>\n              {s.label}\n            </NativeSelectOption>\n          ))}\n        </NativeSelect>\n        <Button type=\"button\" variant=\"ghost\" size=\"lg\" disabled={active.length === 0} onClick={() => update([])}>\n          Clear\n        </Button>\n      </div>\n    </div>\n  )\n}\n",
+      "target": "components/ui/filter-bar.tsx"
+    }
+  ]
+}

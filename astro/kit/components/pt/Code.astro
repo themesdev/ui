@@ -1,0 +1,12 @@
+---
+// A code block from Sanity's code input ({ code, language, filename }), highlighted at build time.
+import type { TypedObject } from 'astro-portabletext/types';
+import CodeBlock from '../CodeBlock.astro';
+
+interface Props {
+  node: TypedObject & { code?: string; language?: string; filename?: string };
+}
+const { code = '', language, filename } = Astro.props.node;
+---
+
+<CodeBlock code={code} lang={language} filename={filename} />

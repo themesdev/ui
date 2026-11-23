@@ -1,0 +1,1 @@
+{"name":"announcement","title":"Announcement bar","description":"A one-line site notice with a read-more link and a close button that can stay closed for the session.","category":"Feedback","shadcn":["button"],"npm":["lucide-react"],"client":true}

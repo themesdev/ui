@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-state",
+  "title": "Empty state",
+  "description": "Nothing here yet, or no results: an icon, what is going on and what to do next.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "empty"
+  ],
+  "files": []
+}

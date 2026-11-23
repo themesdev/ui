@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "title": "Skeleton",
+  "description": "A placeholder in the shape of the content while it loads.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": []
+}

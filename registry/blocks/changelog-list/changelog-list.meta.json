@@ -1,0 +1,3 @@
+{ "name": "changelog-list", "title": "Changelog list", "description": "Four latest releases on a horizontal timeline with dates, versions and tags, earlier releases in a compact list below.",
+  "sector": "software", "business": "Onwatch, on-call rotas and paging for engineering teams, Utrecht", "composition": "large heading with view-all and RSS, four dated releases on a timeline rule, five earlier releases as rows",
+  "layout": "four columns over a list", "anchor": "list", "shadcn": ["badge"], "icons": ["ArrowRight", "ArrowUpRight", "Rss"], "photos": [], "client": false }

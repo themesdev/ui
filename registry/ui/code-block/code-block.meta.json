@@ -1,0 +1,1 @@
+{"name":"code-block","title":"Code block","description":"Code with a filename bar and a Copy button, in a focusable scroll box.","category":"Display","shadcn":["button"],"npm":["lucide-react"],"client":true}

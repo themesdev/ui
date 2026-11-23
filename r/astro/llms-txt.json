@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "llms-txt",
+  "type": "registry:item",
+  "title": "llms.txt (Astro)",
+  "description": "An /llms.txt endpoint that lists your pages and posts for AI tools, built from your collections.",
+  "author": "themes.dev",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "pages/llms.txt.ts",
+      "type": "registry:file",
+      "target": "src/pages/llms.txt.ts",
+      "content": "// /llms.txt: a plain-text map of the site for AI tools (the llmstxt.org format): the site's name, one line about\n// it, then sections of links with a short note each. Build it from your collections so it never goes stale.\nimport type { APIContext } from 'astro';\nimport { getCollection } from 'astro:content';\n\nexport async function GET(context: APIContext) {\n  const site = context.site!;\n  const posts = (await getCollection('posts')).sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date));\n  const link = (title: string, path: string, note?: string) => `- [${title}](${new URL(path, site).href})${note ? `: ${note}` : ''}`;\n  const body = [\n    '# Your site',\n    '',\n    '> One sentence about what the site is and who it is for.',\n    '',\n    '## Pages',\n    link('Home', '/'),\n    link('About', '/about/', 'who we are'),\n    '',\n    '## Posts',\n    ...posts.map((p) => link(p.data.title, `/blog/${p.id}/`, p.data.summary)),\n    '',\n  ].join('\\n');\n  return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });\n}\n"
+    }
+  ]
+}

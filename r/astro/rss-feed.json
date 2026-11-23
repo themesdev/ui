@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "rss-feed",
+  "type": "registry:item",
+  "title": "RSS feed (Astro)",
+  "description": "An /rss.xml endpoint from a content collection with @astrojs/rss.",
+  "author": "themes.dev",
+  "license": "MIT",
+  "dependencies": [
+    "@astrojs/rss"
+  ],
+  "files": [
+    {
+      "path": "pages/rss.xml.ts",
+      "type": "registry:file",
+      "target": "src/pages/rss.xml.ts",
+      "content": "// The RSS feed at /rss.xml, from a content collection (here \"posts\" with title, summary and date, as the post model\n// has them). Needs @astrojs/rss and `site` in astro.config.mjs. Link it from your <head>:\n// <link rel=\"alternate\" type=\"application/rss+xml\" title=\"Blog\" href=\"/rss.xml\" />\nimport rss from '@astrojs/rss';\nimport type { APIContext } from 'astro';\nimport { getCollection } from 'astro:content';\n\nexport async function GET(context: APIContext) {\n  const posts = (await getCollection('posts')).sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date));\n  return rss({\n    title: 'Blog',\n    description: 'New posts, newest first.',\n    site: context.site!,\n    items: posts.map((p) => ({ title: p.data.title, description: p.data.summary, pubDate: new Date(p.data.date), link: `/blog/${p.id}/` })),\n  });\n}\n"
+    }
+  ]
+}

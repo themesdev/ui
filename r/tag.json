@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tag",
+  "title": "Tag",
+  "description": "A topic or an active filter: static, a link, or removable with focus moving to the next tag.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/tag/tag.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { X } from \"lucide-react\"\n\nimport { Badge, badgeVariants } from \"@/components/ui/badge\"\nimport { cn } from \"@/lib/utils\"\n\nexport type TagProps = {\n  label: string\n  /** Makes the tag a link (a topic). */\n  href?: string\n  /** Shows a remove button named \"Remove <label>\". Focus moves to the next tag's remove button, else the previous one. */\n  onRemove?: () => void\n  className?: string\n}\n\nconst size = \"h-7 gap-1 px-3 text-sm font-normal\"\n\n/** A tag: static, a link, or removable. Put each tag in an <li> of a <TagList>. */\nexport function Tag({ label, href, onRemove, className }: TagProps) {\n  if (href)\n    return (\n      <a href={href} className={cn(badgeVariants({ variant: \"secondary\" }), size, \"hover:bg-secondary/70\", className)}>\n        {label}\n      </a>\n    )\n  return (\n    <Badge variant=\"secondary\" className={cn(size, onRemove && \"pr-1\", className)}>\n      {label}\n      {onRemove && (\n        <button\n          type=\"button\"\n          aria-label={`Remove ${label}`}\n          className=\"-my-1 grid size-6 place-items-center rounded-full text-muted-foreground outline-none transition-colors hover:bg-foreground/10 hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50\"\n          onClick={(e) => {\n            const item = e.currentTarget.closest(\"li\")\n            const sel = \"button[aria-label^='Remove '], a\"\n            const next = (item?.nextElementSibling ?? item?.previousElementSibling)?.querySelector<HTMLElement>(sel)\n            onRemove()\n            // After React has removed the tag.\n            setTimeout(() => next?.focus(), 0)\n          }}\n        >\n          <X aria-hidden=\"true\" className=\"size-3.5\" />\n        </button>\n      )}\n    </Badge>\n  )\n}\n\nexport type TagListProps = { label: string; children: React.ReactNode; className?: string }\n\n/** A list of tags: wraps `<li>` items, named for screen readers. */\nexport function TagList({ label, children, className }: TagListProps) {\n  return (\n    <ul aria-label={label} className={cn(\"flex flex-wrap gap-2\", className)}>\n      {React.Children.toArray(children).map((c, i) => (\n        <li key={React.isValidElement(c) && c.key != null ? c.key : i}>{c}</li>\n      ))}\n    </ul>\n  )\n}\n",
+      "target": "components/ui/tag.tsx"
+    }
+  ]
+}

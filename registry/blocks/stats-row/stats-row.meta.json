@@ -1,0 +1,21 @@
+{
+  "name": "stats-row",
+  "title": "Stats row",
+  "description": "Header and intro over a staggered strip of four studio photos, then three very large figures under thin rules.",
+  "sector": "agency",
+  "business": "Northyard, product studio in Glasgow",
+  "composition": "split header, photo strip, three figures",
+  "layout": "header 7/5, four photos, three columns",
+  "anchor": "type",
+  "shadcn": [],
+  "icons": [
+    "ArrowRight"
+  ],
+  "photos": [
+    "/ui/photos/stats-row/workshop.webp",
+    "/ui/photos/stats-row/testing.webp",
+    "/ui/photos/stats-row/review.webp",
+    "/ui/photos/stats-row/demo.webp"
+  ],
+  "client": false
+}

@@ -1,0 +1,1 @@
+{"name":"search-field","title":"Search field","description":"A search input in a role=search form, with a / shortcut and a clear button.","category":"Forms","shadcn":["input","button","kbd"],"npm":["lucide-react"],"client":true}

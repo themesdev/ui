@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "carousel",
+  "title": "Carousel",
+  "description": "A swipeable row with Previous and Next that turn off at the ends, keyboard included. No autoplay.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "carousel"
+  ],
+  "files": []
+}

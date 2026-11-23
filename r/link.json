@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "link",
+  "title": "Link",
+  "description": "Inline in text, standalone with an arrow, or external with an arrow out and a new-tab note for screen readers.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/ui/link/link.tsx",
+      "type": "registry:ui",
+      "content": "import type { AnchorHTMLAttributes } from \"react\"\nimport { ArrowRight, ArrowUpRight } from \"lucide-react\"\nimport { cn } from \"@/lib/utils\"\n\nexport type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {\n  href: string\n  /** inline: underlined in running text. standalone: its own line with an arrow. external: leaves the site, arrow out. */\n  variant?: \"inline\" | \"standalone\" | \"external\"\n  /** Opens in a new tab and says so to screen readers. */\n  newTab?: boolean\n}\n\nconst base =\n  \"rounded-sm outline-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background\"\nconst styles = {\n  inline: \"font-medium text-foreground underline decoration-foreground/30 underline-offset-4 transition-colors hover:decoration-foreground\",\n  standalone: \"group/link inline-flex items-center gap-1 font-medium text-foreground underline-offset-4 hover:underline\",\n  external: \"group/link inline-flex items-center gap-1 font-medium text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground\",\n}\n\n/** A link: inline in text, standalone with an arrow, or external with an arrow out. */\nexport function Link({ variant = \"inline\", href, newTab, className, children, ...props }: LinkProps) {\n  return (\n    <a\n      href={href}\n      target={newTab ? \"_blank\" : undefined}\n      rel={newTab ? \"noopener\" : undefined}\n      className={cn(base, styles[variant], className)}\n      {...props}\n    >\n      {children}\n      {variant === \"standalone\" && (\n        <ArrowRight aria-hidden=\"true\" className=\"size-4 transition-transform group-hover/link:translate-x-0.5\" />\n      )}\n      {variant === \"external\" && (\n        <ArrowUpRight aria-hidden=\"true\" className=\"size-4 transition-transform group-hover/link:-translate-y-px group-hover/link:translate-x-px\" />\n      )}\n      {newTab && <span className=\"sr-only\"> (opens in a new tab)</span>}\n    </a>\n  )\n}\n",
+      "target": "components/ui/link.tsx"
+    }
+  ]
+}

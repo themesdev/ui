@@ -1,0 +1,25 @@
+{
+  "name": "call-to-action",
+  "title": "Call to action",
+  "description": "Closing panel with a very large centred title, three pill actions (call, mail, book) and the founders' faces.",
+  "sector": "agency",
+  "business": "Oxbow, brand studio in Bristol",
+  "composition": "centred panel, big title, three pills, avatars",
+  "layout": "single centred panel",
+  "anchor": "type",
+  "shadcn": [
+    "avatar",
+    "button"
+  ],
+  "icons": [
+    "ArrowRight",
+    "CalendarDays",
+    "Mail",
+    "Phone"
+  ],
+  "photos": [
+    "/ui/photos/call-to-action/maud.webp",
+    "/ui/photos/call-to-action/tobias.webp"
+  ],
+  "client": false
+}

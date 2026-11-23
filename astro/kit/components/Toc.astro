@@ -1,0 +1,33 @@
+---
+// "On this page": links to the h2 and h3 headings of an article. Pass Markdown's `headings` (from render()) or
+// headingsFromPortableText(body). Renders nothing for fewer than two headings.
+// <Toc headings={headings} />
+import type { Heading } from '../lib/headings';
+
+interface Props {
+  headings: Heading[];
+  title?: string;
+  /** The deepest level listed: 3 lists h2 and h3. */
+  depth?: 2 | 3;
+  class?: string;
+}
+const { title = 'On this page', depth = 3, class: className } = Astro.props;
+const headings = Astro.props.headings.filter((h) => h.depth >= 2 && h.depth <= depth);
+---
+
+{
+  headings.length >= 2 && (
+    <nav aria-labelledby="toc-title" class:list={['text-sm', className]}>
+      <p id="toc-title" class="mb-3 font-semibold">{title}</p>
+      <ol class="flex flex-col gap-2 border-l">
+        {headings.map((h) => (
+          <li class:list={[h.depth === 3 ? 'pl-7' : 'pl-4']}>
+            <a href={`#${h.slug}`} class="-ml-px block border-l border-transparent leading-[1.4] text-muted-foreground transition-colors hover:border-foreground hover:text-foreground">
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )
+}

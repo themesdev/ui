@@ -1,0 +1,161 @@
+{
+  "$comment": "The native Astro site kit: each item, its files (paths under kit/; installed under src/kit/, endpoints under src/pages/), the npm packages it needs and the other items it uses. Install an item with npx shadcn@latest add https://www.themes.dev/astro/r/<name>.json",
+  "items": [
+    {
+      "name": "seo",
+      "title": "SEO head",
+      "category": "SEO",
+      "description": "Title, description, canonical, robots, hreflang, Open Graph and the Twitter card, from one component in your layout's head.",
+      "files": [
+        "components/Seo.astro"
+      ]
+    },
+    {
+      "name": "json-ld",
+      "title": "JSON-LD",
+      "category": "SEO",
+      "description": "Structured data as JSON-LD, with helpers for Organization, WebSite, Article, BreadcrumbList, FAQPage and Product.",
+      "files": [
+        "components/JsonLd.astro",
+        "lib/schema.ts"
+      ]
+    },
+    {
+      "name": "breadcrumbs",
+      "title": "Breadcrumbs",
+      "category": "Navigation",
+      "description": "Where the page sits, as links, with the BreadcrumbList structured data. The current page carries aria-current.",
+      "files": [
+        "components/Breadcrumbs.astro"
+      ],
+      "uses": [
+        "json-ld"
+      ]
+    },
+    {
+      "name": "pagination",
+      "title": "Pagination",
+      "category": "Navigation",
+      "description": "Numbered pages with previous and next for an archive from paginate(). 36px controls, gaps as an ellipsis.",
+      "files": [
+        "components/Pagination.astro"
+      ]
+    },
+    {
+      "name": "toc",
+      "title": "Table of contents",
+      "category": "Navigation",
+      "description": "On this page: links to the h2 and h3 of an article, from Markdown headings or Portable Text.",
+      "files": [
+        "components/Toc.astro",
+        "lib/headings.ts"
+      ]
+    },
+    {
+      "name": "skip-link",
+      "title": "Skip link",
+      "category": "Navigation",
+      "description": "A link to the main content that appears on keyboard focus, as the first thing in the body.",
+      "files": [
+        "components/SkipLink.astro"
+      ]
+    },
+    {
+      "name": "figure",
+      "title": "Figure",
+      "category": "Content",
+      "description": "An image with a caption. Width, height and alt are required, so the page never jumps; local images go through astro:assets.",
+      "files": [
+        "components/Figure.astro"
+      ]
+    },
+    {
+      "name": "prose",
+      "title": "Prose",
+      "category": "Content",
+      "description": "Long-form text in a 65-character measure on shadcn's tokens: headings, lists, quotes, tables, code and images, light and dark.",
+      "files": [
+        "components/Prose.astro",
+        "styles/prose.css"
+      ]
+    },
+    {
+      "name": "code-block",
+      "title": "Code block",
+      "category": "Content",
+      "description": "Code highlighted at build time with Shiki, light and dark, with a file name and a copy button.",
+      "files": [
+        "components/CodeBlock.astro"
+      ]
+    },
+    {
+      "name": "portable-text",
+      "title": "Portable Text",
+      "category": "Content",
+      "description": "Sanity's Portable Text as HTML through astro-portabletext, with headings that carry ids, links, images and code blocks.",
+      "files": [
+        "components/PortableText.astro",
+        "components/pt/Heading.astro",
+        "components/pt/Link.astro",
+        "components/pt/Image.astro",
+        "components/pt/Code.astro"
+      ],
+      "uses": [
+        "toc",
+        "code-block"
+      ],
+      "packages": [
+        "astro-portabletext"
+      ]
+    },
+    {
+      "name": "time",
+      "title": "Date",
+      "category": "Content",
+      "description": "A date people can read, with the machine-readable value in datetime, formatted at build time.",
+      "files": [
+        "components/Time.astro"
+      ]
+    },
+    {
+      "name": "theme-toggle",
+      "title": "Theme toggle",
+      "category": "Site",
+      "description": "A 36px button that switches light and dark and remembers the choice, plus the head script that prevents a flash.",
+      "files": [
+        "components/ThemeToggle.astro",
+        "components/ThemeScript.astro"
+      ]
+    },
+    {
+      "name": "rss-feed",
+      "title": "RSS feed",
+      "category": "Site",
+      "description": "An /rss.xml endpoint from a content collection with @astrojs/rss.",
+      "files": [
+        "pages/rss.xml.ts"
+      ],
+      "packages": [
+        "@astrojs/rss"
+      ]
+    },
+    {
+      "name": "llms-txt",
+      "title": "llms.txt",
+      "category": "Site",
+      "description": "An /llms.txt endpoint that lists your pages and posts for AI tools, built from your collections.",
+      "files": [
+        "pages/llms.txt.ts"
+      ]
+    },
+    {
+      "name": "robots-txt",
+      "title": "robots.txt",
+      "category": "Site",
+      "description": "A /robots.txt endpoint with your sitemap's address and the paths to keep out of search.",
+      "files": [
+        "pages/robots.txt.ts"
+      ]
+    }
+  ]
+}

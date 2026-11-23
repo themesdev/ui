@@ -1,0 +1,1 @@
+{"name":"read-aloud","title":"Read aloud","description":"Listen to an article: the browser's own speech reads it, with pause, resume and stop. Nothing leaves the page.","category":"Actions","shadcn":["button"],"npm":["lucide-react"],"client":true}

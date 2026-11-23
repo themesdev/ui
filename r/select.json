@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select",
+  "title": "Select",
+  "description": "The native select, styled: groups, a placeholder and disabled options, no JavaScript.",
+  "author": "themes.dev",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "native-select"
+  ],
+  "files": []
+}
