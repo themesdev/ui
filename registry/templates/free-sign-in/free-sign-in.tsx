@@ -20,7 +20,7 @@ export default FreeSignInPage
 export const freeSignInPageContent: FreeSignInPageContent = {
   auth: {
     brand: "Tackwell Sailing",
-    mark: Sailboat,
+    mark: <Sailboat className="size-[18px]" aria-hidden />,
     title: "Sign in to your sailing account",
     intro: "Your course dates, logbook, certificates and bookings for the club boats in one place.",
     action: "/login",
@@ -44,7 +44,7 @@ export const freeSignInPageContent: FreeSignInPageContent = {
       label: "Sailing today",
       text: "Force 3 to 4 from the south-west. All courses go ahead.",
       link: { label: "Wind and tides", href: "/conditions" },
-      icon: Wind,
+      icon: <Wind className="size-4" aria-hidden />,
     },
     footer: [
       { label: "Help", href: "/help" },

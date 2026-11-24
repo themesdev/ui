@@ -13,7 +13,8 @@ export type PostGridProps = {
   body: string
   link: LinkRef
   posts: Post[]
-  more: LinkRef
+  /** The button under the grid; `null` leaves it out (a page with its own pager). */
+  more: LinkRef | null
   /** Under the button: how many posts there are. */
   count: string
 }
@@ -170,9 +171,9 @@ export function PostGrid(props: Partial<PostGridProps>) {
         </ul>
 
         <div className="mt-14 flex flex-col items-center gap-3">
-          <a href={c.more.href} className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12 rounded-full px-7 text-[15px]")}>
+          {c.more ? (<a href={c.more.href} className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12 rounded-full px-7 text-[15px]")}>
             {c.more.label}
-          </a>
+          </a>) : null}
           <p className="text-[14px] text-muted-foreground tabular-nums">{c.count}</p>
         </div>
       </div>

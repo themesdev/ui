@@ -607,6 +607,24 @@
       "category": "Templates",
       "title": "Sign-in page",
       "description": "A whole sign-in page from the login-form block, filled in for a sailing school: the card with other ways in beside it, the sailing office's number and today's sailing conditions."
+    },
+    {
+      "name": "free-pricing",
+      "category": "Templates",
+      "title": "Pricing page",
+      "description": "A whole pricing page from seven free blocks, filled in for a booking tool for hair and barber salons: three plans with a monthly and yearly switch, the salons that use it, an honest comparison, an owner's word and the questions people ask."
+    },
+    {
+      "name": "free-contact",
+      "category": "Templates",
+      "title": "Contact page",
+      "description": "A whole contact page from free blocks and components, filled in for a three-vet practice: the message form with every way to reach the vets, a map and the opening hours, the vets themselves and the questions reception hears most."
+    },
+    {
+      "name": "free-blog",
+      "category": "Templates",
+      "title": "Blog index",
+      "description": "A whole blog index from free blocks and components, filled in for a sourdough bakery's journal: the title and topic tags, a lead story, a grid of the latest posts, numbered pages and a weekly letter."
     }
   ]
 }

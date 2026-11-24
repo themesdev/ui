@@ -1,0 +1,23 @@
+{
+  "name": "free-blog",
+  "title": "Blog index: Korstwerk, a sourdough bakery in Ghent, and its journal",
+  "page": "blog",
+  "sector": "bakery",
+  "business": "Korstwerk, a sourdough bakery in Ghent",
+  "tier": "free",
+  "blocks": ["site-header", "post-grid", "numbered-pagination", "newsletter", "site-footer"],
+  "components": ["section-header", "story-card", "tag"],
+  "photos": [
+    "/ui/photos/free-blog/lead.webp",
+    "/ui/photos/free-blog/rye.webp",
+    "/ui/photos/free-blog/starter.webp",
+    "/ui/photos/free-blog/market.webp",
+    "/ui/photos/free-blog/flour.webp",
+    "/ui/photos/free-blog/buns.webp",
+    "/ui/photos/free-blog/racks.webp",
+    "/ui/photos/free-blog/loaf.webp",
+    "/ui/photos/free-blog/author.webp"
+  ],
+  "client": true,
+  "note": "A bakery's journal: the title and topic tags, a lead story, a grid of the latest posts, numbered pages and a weekly letter."
+}

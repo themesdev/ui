@@ -56,7 +56,7 @@ const phone = { label: "01632 960 418", href: "tel:+441632960418" }
 export const freeHomePageContent: FreeHomePageContent = {
   header: {
     brand: { label: "Holmsound", href: "#" },
-    mark: Ship,
+    mark: <Ship className="size-6" strokeWidth={2.25} aria-hidden />,
     promise: "Book a car space up to 12 weeks ahead. On foot, just turn up.",
     utility: [
       { label: "Service updates", href: "#status" },

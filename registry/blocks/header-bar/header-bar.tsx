@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useId, useRef, useState } from "react"
+import { isValidElement, useEffect, useId, useRef, useState, type ReactElement } from "react"
 import { ChevronRight, Magnet, Menu, Search, X, type LucideIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -12,8 +12,9 @@ export type TabLink = LinkRef & { badge?: string }
 
 export type HeaderBarProps = {
   brand: LinkRef
-  /** The icon in the square before the wordmark. */
-  mark: LucideIcon
+  /** The icon in the square before the wordmark: a lucide icon, or an element (`<Magnet />`) when a server page passes
+   *  it, since a component can't be passed from a server page into this client block. */
+  mark: LucideIcon | ReactElement
   links: TabLink[]
   /** The href of the section you are in; that tab gets aria-current. */
   current: string
@@ -61,7 +62,7 @@ export function HeaderBar(props: Partial<HeaderBarProps>) {
       <div className="mx-auto flex h-16 max-w-[1440px] items-center gap-4 px-5 @2xl:grid @2xl:grid-cols-[1fr_auto_1fr] @2xl:px-6">
         <a href={c.brand.href} className={cn("flex w-fit items-center gap-2 rounded-md", ring)}>
           <span className="grid size-7 place-items-center rounded-md bg-primary text-primary-foreground">
-            <Mark className="size-4" strokeWidth={2.5} aria-hidden />
+            {isValidElement(Mark) ? Mark : <Mark className="size-4" strokeWidth={2.5} aria-hidden />}
           </span>
           <span className="text-[19px] leading-none font-semibold tracking-[-0.02em]">{c.brand.label}</span>
         </a>

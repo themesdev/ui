@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useId, useState } from "react"
+import { isValidElement, useEffect, useId, useState, type ReactElement } from "react"
 import { Footprints, Heart, Menu, Search, ShoppingBag, X, type LucideIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -14,8 +14,9 @@ export type CountLink = LinkRef & { count?: number }
 
 export type SiteHeaderProps = {
   brand: LinkRef
-  /** The icon before the wordmark. */
-  mark: LucideIcon
+  /** The icon before the wordmark: a lucide icon, or an element (`<Ship />`) when a server page passes it, since a
+   *  component can't be passed from a server page into this client block. */
+  mark: LucideIcon | ReactElement
   promise: string
   utility: LinkRef[]
   nav: LinkRef[]
@@ -93,7 +94,7 @@ export function SiteHeader(props: Partial<SiteHeaderProps>) {
       <div className="border-b border-border">
         <div className="mx-auto grid h-16 max-w-[1280px] grid-cols-[1fr_auto] items-center gap-6 px-6 lg:h-[72px] lg:grid-cols-[1fr_auto_1fr] lg:px-10">
           <a href={c.brand.href} className="flex w-fit items-center gap-2 rounded-md outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
-            <Mark className="size-6" strokeWidth={2.25} aria-hidden />
+            {isValidElement(Mark) ? Mark : <Mark className="size-6" strokeWidth={2.25} aria-hidden />}
             <span className="text-[22px] leading-none font-bold tracking-[-0.03em]">{c.brand.label}</span>
           </a>
 

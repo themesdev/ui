@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { isValidElement, useState, type ReactElement } from "react"
 import { ArrowRight, Eye, EyeOff, LogIn, Mail, Phone, Send, UserPlus, Wind, Zap, type LucideIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -14,8 +14,9 @@ export type SideTab = { label: string; note: string; href: string; current?: boo
 
 export type LoginFormProps = {
   brand: string
-  /** The icon before the brand name. */
-  mark: LucideIcon
+  /** The icon before the brand name: a lucide icon, or an element (`<Sailboat />`) when a server page passes it, since a
+   *  component can't be passed from a server page into this client block. Same for status.icon. */
+  mark: LucideIcon | ReactElement
   title: string
   intro: string
   action: string
@@ -29,7 +30,7 @@ export type LoginFormProps = {
   tabs: SideTab[]
   service: { label: string; phone: string; hours: string }
   /** The line under the card; `icon` defaults to a lightning bolt. */
-  status: { label: string; text: string; link: LinkRef; icon?: LucideIcon }
+  status: { label: string; text: string; link: LinkRef; icon?: LucideIcon | ReactElement }
   footer: LinkRef[]
 }
 
@@ -80,7 +81,7 @@ export function LoginForm(props: Partial<LoginFormProps>) {
       <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
         <p className="mx-auto flex w-fit items-center gap-2 text-[20px] font-semibold tracking-[-0.01em]">
           <span className="grid size-8 place-items-center rounded-lg bg-foreground text-background">
-            <Mark className="size-[18px]" aria-hidden />
+            {isValidElement(Mark) ? Mark : <Mark className="size-[18px]" aria-hidden />}
           </span>
           {c.brand}
         </p>
@@ -208,7 +209,7 @@ export function LoginForm(props: Partial<LoginFormProps>) {
         <div className="mx-auto mt-6 flex max-w-[920px] flex-col gap-4 text-[14px] sm:flex-row sm:items-center sm:justify-between">
           <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
             <span className="inline-flex items-center gap-1.5 font-semibold">
-              <StatusIcon className="size-4" aria-hidden />
+              {isValidElement(StatusIcon) ? StatusIcon : <StatusIcon className="size-4" aria-hidden />}
               {c.status.label}
             </span>
             <span className="text-muted-foreground">{c.status.text}</span>

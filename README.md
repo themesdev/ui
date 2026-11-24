@@ -55,12 +55,15 @@ light and dark mode. Blocks without state render on the server.
 | Post grid | `post-grid` |
 | Changelog list | `changelog-list` |
 
-### 2 page templates
+### 5 page templates
 
 Whole pages put together from the free blocks, so you can see how the parts fit:
 
 - `free-home`: a home page from nine blocks, filled in for a small ferry company.
 - `free-sign-in`: a sign-in page built around the login form, filled in for a sailing school.
+- `free-pricing`: a pricing page with three plans, a comparison and questions, filled in for salon booking software.
+- `free-contact`: a contact page with the form, opening hours and the map on request, filled in for a vets' practice.
+- `free-blog`: a blog index with topics, a featured story, the latest posts and pages, filled in for a bakery's journal.
 
 They install the same way, with the blocks they use:
 
