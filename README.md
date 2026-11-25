@@ -1,8 +1,8 @@
 # themes.dev UI
 
 Free blocks, page templates and components on [shadcn/ui](https://ui.shadcn.com), plus a small kit of native Astro
-components. MIT licensed. You can see every item live at [themes.dev/ui](https://www.themes.dev/ui/), and the whole
-free set at [themes.dev/free](https://www.themes.dev/free/).
+components. MIT licensed. You can see every item live at [themes.dev/ui](https://www.themes.dev/ui/?ref=github-free), and the whole
+free set at [themes.dev/free](https://www.themes.dev/free/?ref=github-free).
 
 This repo holds the source. You don't need to clone it to use anything: every item installs with the shadcn CLI,
 straight from our site, with no account and no sign-up.
@@ -19,6 +19,14 @@ npx shadcn@latest add https://www.themes.dev/ui/r/hero.json
 
 The CLI also pulls in the shadcn/ui components and npm packages an item needs. Run `npx shadcn@latest init` first if
 your project doesn't use shadcn/ui yet.
+
+## Screenshots
+
+| | |
+| --- | --- |
+| ![Hero with a journey planner](docs/screenshots/hero.png) | ![Feature grid](docs/screenshots/feature-grid.png) |
+| ![Comparison table](docs/screenshots/comparison-table.png) | ![Contact form](docs/screenshots/contact-form.png) |
+| ![FAQ](docs/screenshots/faq.png) | Every block, live: [themes.dev/ui/blocks](https://www.themes.dev/ui/blocks/?ref=github-free) |
 
 ## What's in it
 
@@ -107,7 +115,7 @@ images load wherever you install a block. Swap them for your own.
 
 ## More
 
-If you want more than the free set, [UI Pro](https://www.themes.dev/pricing/) is our paid library, with many more
+If you want more than the free set (including an MCP server so Cursor and Claude Code can search and install blocks, see [themes.dev/ai](https://www.themes.dev/ai/?ref=github-free)), [UI Pro](https://www.themes.dev/pricing/?ref=github-free) is our paid library, with many more
 blocks and our full themes.
 
 Questions or problems: open an issue here, or mail info@themes.dev.
