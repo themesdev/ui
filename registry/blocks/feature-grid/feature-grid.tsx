@@ -67,7 +67,7 @@ export const featureGridDefaults: FeatureGridProps = {
   ],
   photo: {
     src: "/ui/photos/feature-grid/session.webp",
-    alt: "Two researchers taking notes while a participant works through a task on a laptop.",
+    alt: "A researcher with a laptop and a notebook taking notes during a session.",
     width: 600,
     height: 600,
   },

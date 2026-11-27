@@ -1,7 +1,7 @@
 import { StoryCard } from "@/components/ui/story-card"
 
 const ferry = { src: "/ui/photos/story-card/ferry.webp", alt: "A passenger ferry crossing a misty estuary at dawn" }
-const bakery = { src: "/ui/photos/story-card/bakery.webp", alt: "A baker lifting sourdough loaves out of a wood-fired oven" }
+const bakery = { src: "/ui/photos/story-card/bakery.webp", alt: "A baker holding a tray of fresh loaves beside a wood-fired oven" }
 const garden = { src: "/ui/photos/story-card/allotment.webp", alt: "Raised beds of kale and dahlias on an allotment" }
 
 export default function Example() {
