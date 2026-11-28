@@ -31,13 +31,10 @@ export type ContactFormProps = {
     email?: FieldText
     /** The message field. Defaults to "How can we help?" with a developer prompt as placeholder. */
     message?: FieldText
-    /** The optional extra field under the names. Defaults to "Company" with "(optional)"; a vet asks for the pet's name. */
-    extra?: { label: string; optional: string; name?: string; autoComplete?: string }
   }
 }
 
 const defaultEmail: FieldText = { label: "Work email", placeholder: "you@example.com" }
-const defaultExtra: NonNullable<ContactFormProps["form"]["extra"]> = { label: "Company", optional: "(optional)", autoComplete: "organization" }
 const defaultMessage: FieldText = { label: "How can we help?", placeholder: "Your stack, the size of your database, what you are trying to do" }
 
 export const contactFormDefaults: ContactFormProps = {
@@ -76,7 +73,6 @@ export function ContactForm(props: Partial<ContactFormProps>) {
   const f = c.form
   const email = f.email ?? defaultEmail
   const message = f.message ?? defaultMessage
-  const extra = f.extra ?? defaultExtra
   const t = c.testimonial
   const initials = t.name
     .split(" ")
@@ -158,9 +154,9 @@ export function ContactForm(props: Partial<ContactFormProps>) {
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="contact-company">
-                  {extra.label} <span className="font-normal text-muted-foreground">{extra.optional}</span>
+                  Company <span className="font-normal text-muted-foreground">(optional)</span>
                 </Label>
-                <Input id="contact-company" name={extra.name ?? "company"} autoComplete={extra.autoComplete ?? "off"} className={field} />
+                <Input id="contact-company" name="company" autoComplete="organization" className={field} />
               </div>
               <fieldset className="grid gap-2.5">
                 <legend className="mb-2.5 text-sm leading-none font-medium">{f.reasonsLabel}</legend>

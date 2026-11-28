@@ -13,8 +13,7 @@ export type PostGridProps = {
   body: string
   link: LinkRef
   posts: Post[]
-  /** The button under the grid; `null` leaves it out (a page with its own pager). */
-  more: LinkRef | null
+  more: LinkRef
   /** Under the button: how many posts there are. */
   count: string
 }
@@ -38,7 +37,7 @@ export const postGridDefaults: PostGridProps = {
       date: "18 November 2026",
       dateTime: "2026-11-18",
       href: "#volunteers",
-      cover: cover("volunteers", "A volunteer in a green tabard at a hospital welcome desk with an older patient."),
+      cover: cover("volunteers", "Two volunteers in green tabards talk with an older patient at a hospital welcome desk."),
     },
     {
       title: "Second MRI scanner cuts the wait for a scan to three weeks",
@@ -46,7 +45,7 @@ export const postGridDefaults: PostGridProps = {
       date: "12 November 2026",
       dateTime: "2026-11-12",
       href: "#mri",
-      cover: cover("scanner", "A white MRI scanner in a bright, quiet scan room."),
+      cover: cover("scanner", "A radiographer prepares a patient beside a white MRI scanner."),
     },
     {
       title: "The courtyard garden reopens with step-free paths",
@@ -54,7 +53,7 @@ export const postGridDefaults: PostGridProps = {
       date: "6 November 2026",
       dateTime: "2026-11-06",
       href: "#garden",
-      cover: cover("garden", "A patient in a wheelchair on a step-free path through a planted hospital courtyard."),
+      cover: cover("garden", "A nurse and a patient in a wheelchair in a planted hospital courtyard."),
     },
     {
       title: "Sixty-two nurses start on our wards after qualifying this autumn",
@@ -171,9 +170,9 @@ export function PostGrid(props: Partial<PostGridProps>) {
         </ul>
 
         <div className="mt-14 flex flex-col items-center gap-3">
-          {c.more ? (<a href={c.more.href} className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12 rounded-full px-7 text-[15px]")}>
+          <a href={c.more.href} className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12 rounded-full px-7 text-[15px]")}>
             {c.more.label}
-          </a>) : null}
+          </a>
           <p className="text-[14px] text-muted-foreground tabular-nums">{c.count}</p>
         </div>
       </div>

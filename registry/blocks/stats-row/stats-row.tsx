@@ -26,25 +26,25 @@ export const statsRowDefaults: StatsRowProps = {
   photos: [
     {
       src: "/ui/photos/stats-row/workshop.webp",
-      alt: "Two designers at a wall of sketches and sticky notes, one adding a note to a flow.",
+      alt: "A studio wall covered with sheets of paper and coloured sticky notes, a stool in front.",
       width: 600,
       height: 800,
     },
     {
       src: "/ui/photos/stats-row/testing.webp",
-      alt: "A woman testing a banking app prototype on her phone, a notebook beside her.",
+      alt: "A woman testing a banking app prototype on her phone while a designer takes notes.",
       width: 600,
       height: 800,
     },
     {
       src: "/ui/photos/stats-row/review.webp",
-      alt: "A designer reviewing an app screen on a large monitor in a bright studio.",
+      alt: "A designer and a developer reviewing an app screen together on a large monitor.",
       width: 600,
       height: 800,
     },
     {
       src: "/ui/photos/stats-row/demo.webp",
-      alt: "A warehouse studio set up for a product demo, rows of chairs facing a big screen.",
+      alt: "A small audience in a warehouse studio watching a product demo on a big screen.",
       width: 600,
       height: 800,
     },

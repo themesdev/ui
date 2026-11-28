@@ -9,8 +9,6 @@ export type StoryCardProps = {
   description?: string
   meta?: string
   image?: { src: string; alt: string }
-  /** Who wrote it, with a small round photo; shown above the meta line on the wide and feature variants. */
-  author?: { name: string; role?: string; image: { src: string; alt: string } }
   /** standard: picture on top. compact: a small picture beside the text. wide: picture beside the text from a wide container. feature: a larger title, for the lead story. */
   variant?: "standard" | "compact" | "wide" | "feature"
   className?: string
@@ -42,7 +40,7 @@ const title = {
 }
 
 /** A story card: picture, kicker, the title as the one link (the whole card is the target), a line and the meta. */
-export function StoryCard({ title: heading, href, kicker, description, meta, image, author, variant = "standard", className }: StoryCardProps) {
+export function StoryCard({ title: heading, href, kicker, description, meta, image, variant = "standard", className }: StoryCardProps) {
   return (
     <div className={cn("@container", className)}>
     <article className={cn("group relative isolate grid h-full overflow-hidden rounded-xl bg-card text-card-foreground ring-1 ring-foreground/10 transition-shadow hover:ring-foreground/25 has-[a:focus-visible]:ring-3 has-[a:focus-visible]:ring-ring/50", frame[variant])}>
@@ -63,16 +61,7 @@ export function StoryCard({ title: heading, href, kicker, description, meta, ima
           </a>
         </h3>
         {description && variant !== "compact" && <p className="text-sm leading-[1.5] text-pretty text-muted-foreground">{description}</p>}
-        {author && (variant === "wide" || variant === "feature") && (
-          <div className="mt-auto flex items-center gap-3 pt-4">
-            <img src={author.image.src} alt={author.image.alt} width={40} height={40} loading="lazy" decoding="async" className="size-10 rounded-full bg-muted object-cover" />
-            <p className="text-sm leading-[1.25]">
-              <span className="block font-medium">{author.name}</span>
-              {author.role && <span className="mt-0.5 block text-muted-foreground">{author.role}</span>}
-            </p>
-          </div>
-        )}
-        {meta && <p className={cn("text-xs text-muted-foreground tabular-nums", author ? "pt-3" : "mt-auto pt-2")}>{meta}</p>}
+        {meta && <p className="mt-auto pt-2 text-xs text-muted-foreground tabular-nums">{meta}</p>}
       </div>
     </article>
     </div>

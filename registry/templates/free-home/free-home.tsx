@@ -264,8 +264,8 @@ export const freeHomePageContent: FreeHomePageContent = {
     link: { label: "Meet the boats and crew", href: "#about" },
     photos: [
       img("crew", "A deckhand in an orange jacket and hard hat loops a mooring rope over a bollard on the pier.", 600, 800),
-      img("ramp", "A small car ferry with its ramp down at a stone slipway below green cliffs.", 600, 800),
-      img("deck", "A cyclist with his bike at the deck rail watching green cliffs go by.", 600, 800),
+      img("ramp", "Cars and a camper van parked on the open deck of a small car ferry at a stone slipway.", 600, 800),
+      img("deck", "Passengers and a cyclist at the deck rail watching green cliffs go by.", 600, 800),
       img("dusk", "The ferry coming in to the pier at dusk, lit windows along the shore.", 600, 800),
     ],
     stats: [
