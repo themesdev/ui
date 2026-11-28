@@ -109,6 +109,14 @@ images load wherever you install a block. Swap them for your own.
 - [Recto](https://github.com/themesdev/recto-astro): a free blog template for Astro and Sanity.
 - [UI Pro](https://www.themes.dev/pricing/?ref=github): our paid library, with many more blocks and whole-site themes.
 
+## Built with themes.dev UI
+
+Using these blocks on a live site? [Add it to the showcase](https://github.com/themesdev/ui/issues/new?template=showcase.yml)
+and we list it here, with a link.
+
+<!-- showcase: one line per site, newest first: - [Name](https://url): what they used (by @handle) -->
+_Your site could be the first one here._
+
 ## Contributing
 
 Found a bug or a rough edge in a free item? [Open an issue](https://github.com/themesdev/ui/issues). Small fixes are
